@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 
 class MyColumn extends StatelessWidget {
   final String columnImg, columnTxt;
   final Color columnBg;
+  final Color textColor;
 
-  const MyColumn({Key key, this.columnImg, this.columnTxt, this.columnBg}) : super(key: key);
+  const MyColumn({Key key, this.columnImg, this.columnTxt, this.columnBg, this.textColor}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,12 +18,12 @@ class MyColumn extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: columnBg,
+            color: Color(gradientcolor),
           ),
-          child: Image(image: AssetImage(columnImg), fit: BoxFit.contain),
+          child: Image(color: Colors.black,image: AssetImage(columnImg), fit: BoxFit.contain),
         ),
         SizedBox(height: 10),
-        Text(columnTxt),
+        Text(columnTxt,style:TextStyle(color: (textColor))),
         SizedBox(height: 10)
       ],
     );

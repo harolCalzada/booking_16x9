@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
 class SpecialistColumn extends StatelessWidget {
@@ -29,22 +30,22 @@ class SpecialistColumn extends StatelessWidget {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                   SizedBox(height: 4),
               Row(children: <Widget>[
-                Icon(Icons.star, color: UIData.mainColor, size: 14),
+                Icon(Icons.star, color: Color(primarycolor), size: 14),
                 SizedBox(width: 1),
-                Icon(Icons.star, color: UIData.mainColor, size: 14),
+                Icon(Icons.star, color: Color(primarycolor), size: 14),
                 SizedBox(width: 1),
-                Icon(Icons.star, color: UIData.mainColor, size: 14),
+                Icon(Icons.star, color: Color(primarycolor), size: 14),
                 SizedBox(width: 1),
-                Icon(Icons.star, color: UIData.mainColor, size: 14),
+                Icon(Icons.star, color: Color(primarycolor), size: 14),
                 SizedBox(width: 1),
-                Icon(Icons.star, color: UIData.lightColor, size: 14),
+                Icon(Icons.star, color:Color(gradientcolor), size: 14),
               ]),
               SizedBox(height: 4),
               Row(children: <Widget>[
-                Icon(Icons.phone, size: 15, color: Colors.grey[700]),
+                Icon(Icons.phone, size: 15, color: Color(primarycolor)),
                 SizedBox(width:2),
                 Expanded(child: Text("0722000000", style: TextStyle(
-                  color: Colors.grey[700], fontSize: 12
+                  color: Color(gradientcolor), fontSize: 12
                 )))
               ],)
             ],

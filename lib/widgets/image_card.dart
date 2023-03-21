@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button2.dart';
 
 class ImageCard extends StatefulWidget {
@@ -29,7 +30,8 @@ class _ImageCardState extends State<ImageCard> {
         children: <Widget>[
           Text("Look awesome \n & save Some",
               style: TextStyle(
-                color: Colors.white,
+                color: Color(primarycolor),
+                fontWeight: FontWeight.bold,
                 fontSize: 18,
               )),
           SizedBox(height: 15),

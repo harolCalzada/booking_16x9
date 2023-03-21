@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/image_card.dart';
 import 'package:salon_app/widgets/my_column.dart';
@@ -11,12 +12,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     final screen_size_width = MediaQuery.of(context).size.width;
     final screen_size_height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor:Color(secondarycolor),
         elevation: 0,
         leading: IconButton(
             icon: Icon(Icons.short_text, color: Colors.black87),
@@ -35,6 +36,10 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
+      
+        decoration: BoxDecoration(
+         color:Color(secondarycolor),
+        ),
         width: screen_size_width,
         height: screen_size_height,
         padding: EdgeInsets.only(top: 16, left: 16, right: 16),
@@ -59,15 +64,16 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Expanded(
                     child: InkWell(
-                      onTap: () =>
-                          Navigator.pushNamed(context, UIData.bookPageRoute),
-                      child: MyColumn(
+                      onTap: () { sendEmailRecoveryPasswordModal(context);
+                       MyColumn(
                         columnImg: "images/braid.png",
                         columnTxt: "Braids",
-                        columnBg: UIData.lightColor,
-                      ),
-                    ),
-                  ),
+                        columnBg:Color(gradientcolor),
+                        textColor: Color(gradientcolor),
+                         
+                      );
+                          }
+                  ),),
                   Expanded(
                     child: InkWell(
                       onTap: () =>
@@ -76,6 +82,8 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/abuja.png",
                         columnTxt: "Abuja",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
+                      
                       ),
                     ),
                   ),
@@ -87,6 +95,8 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/blow.png",
                         columnTxt: "Blowdry",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
+                      
                       ),
                     ),
                   ),
@@ -98,6 +108,7 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/haircut.png",
                         columnTxt: "Haircut",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
                       ),
                     ),
                   ),
@@ -115,6 +126,8 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/relaxer.png",
                         columnTxt: "Relaxer",
                         columnBg: UIData.lighterColor,
+                       textColor: Color(gradientcolor),
+                      
                       ),
                     ),
                   ),
@@ -126,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/shampoo.png",
                         columnTxt: "Shampoo",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
                       ),
                     ),
                   ),
@@ -137,6 +151,8 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/nail.png",
                         columnTxt: "Manicure",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
+                     
                       ),
                     ),
                   ),
@@ -148,6 +164,7 @@ class _HomePageState extends State<HomePage> {
                         columnImg: "images/more.png",
                         columnTxt: "More",
                         columnBg: UIData.lighterColor,
+                         textColor: Color(gradientcolor),
                       ),
                     ),
                   ),
@@ -161,16 +178,19 @@ class _HomePageState extends State<HomePage> {
                         child: Text("Hair Specialists",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600))),
+                            style: TextStyle(color: Color(primarycolor),
+                                fontSize: 20, fontWeight: FontWeight.bold))),
 
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text(
-                        "View All",
-                        style: TextStyle(color: Colors.black54),
-                      ),
-                    ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+  ),
+  child: Text(
+    "View All",
+    style: TextStyle(color: Color(gradientcolor)),
+  ),
+),
                     // TextButton(
                     //   onPressed: () {},
                     //   // child: Text(
@@ -201,6 +221,70 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+
+  }
+}
+
+void sendEmailRecoveryPasswordModal(BuildContext ctx,) {
+  
+  showModalBottomSheet(
+    clipBehavior: Clip.antiAlias,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(50),
+        topLeft: Radius.circular(50),
+      ),
+    ),
+    elevation: 10,
+    backgroundColor: Color(gradientcolor),
+    context: ctx,
+    builder: (ctx) => ModalServices(),
+  );
+}
+
+
+
+class ModalServices extends StatelessWidget {
+  const ModalServices({key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      height: 50,
+      decoration: BoxDecoration(color: Color(gradientcolor),borderRadius: BorderRadius.circular(40)),
+      child: Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          'assets/images/profile.png',
+          width: 40,
+          height: 40,
+        ),
+       Text(
+      'Laceados',
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+
+
+    ),
+       Text(
+      'Se hace todo tipo de laceados como el: Brasilero, Marroqui ',
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+
+
+    ) ]
+    )
+    )
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
 class MyButton2 extends StatelessWidget {
@@ -13,14 +14,14 @@ class MyButton2 extends StatelessWidget {
       height: 30,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: UIData.mainColor,
+          primary: Color(primarycolor),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
         ),
         onPressed: onpressed,
         child: Text(btnText,
             style: TextStyle(
-                color: Colors.white,
+                color: Color(gradientcolor),
                 fontSize: 15.5,
                 fontWeight: FontWeight.w400)),
       ),
