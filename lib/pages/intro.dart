@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
 
@@ -12,6 +13,18 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomRight,
+          
+            colors: [
+              Color(primarycolor),
+               Color(secondarycolor),
+               Color(gradientcolor),
+            ],
+          ),
+        ),
         padding: EdgeInsets.all(16),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -24,7 +37,7 @@ class _IntroPageState extends State<IntroPage> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                        "images/main.png",
+                        "assets/images/logo_jaus_dorado.png",
                       ),
                       fit: BoxFit.contain)),
               height: MediaQuery.of(context).size.height * .45,
@@ -41,10 +54,14 @@ class _IntroPageState extends State<IntroPage> {
               textAlign: TextAlign.center,
               style: TextStyle(height: 1.8, letterSpacing: 1.3),
             ),
-            MyButton(btnText: "Get Started",
-            onpressed: () => Navigator.pushNamed(context, UIData.homePageRoute)),
-          ],
+          SizedBox(
+                      width: 161,
+                      height: 38,
+                      child: MyButton(btnText: "Ingresar",
+                       onpressed: () => Navigator.of(context).pushNamed('/homePageRoute'),
+                      ),
         ),
+        ]),
       ),
     );
   }

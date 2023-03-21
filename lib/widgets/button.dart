@@ -1,29 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
 class MyButton extends StatelessWidget {
   final String btnText;
   final VoidCallback onpressed;
+  final int colorText;
+  final double width;
+  final double height;
+  final int colorBackground;
 
-  const MyButton({Key key, this.btnText, this.onpressed}) : super(key: key);
+  const MyButton({
+  Key key, 
+  this.btnText, 
+  this.onpressed,
+  this.colorBackground,
+  this.colorText,
+  this.width,
+  this.height,
+  
+  
+  }) :super(key: key);
+
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * .5,
-      height: 40,
+      width: width,
+      height: height,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: UIData.mainColor,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-        ),
-        onPressed: onpressed,
-        child: Text(btnText,
+          child: Text(btnText,
             style: TextStyle(
-                color: Colors.white,
+                color:Color(colorText),
                 fontSize: 15.5,
                 fontWeight: FontWeight.w400)),
-      ),
+         onPressed: onpressed,
+        style: ButtonStyle(shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+        ),backgroundColor:MaterialStateProperty.all<Color>(Color(colorBackground),
+        
+      
+        ),
+        
+        
+
+    )),
       // child: FlatButton(
       //   color: UIData.mainColor,
       //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
