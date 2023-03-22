@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/widgets/button.dart';
 
 import '../constants/colors.dart';
 
@@ -27,26 +28,31 @@ class ModalServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.height * 0.8,
       decoration: BoxDecoration(
           color: Color(secondarycolor), borderRadius: BorderRadius.circular(40)),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/braid4.jpg',
-              width: 300,
-              height: 100,
-            ),
+           ClipOval(
+      child: Image.asset(
+        'assets/images/braid4.jpg',
+        width: 220,
+        height: 220,
+        fit: BoxFit.cover,
+      ),
+    ),
+  SizedBox(height: 5,),
             Text(
               'Laceados',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
                 color: Color(gradientcolor),
               ),
             ),
+           SizedBox(height: 15,),
             Text(
               'Se hace todo tipo de laceados como el: Brasilero, Marroqui, Japones ',
               textAlign: TextAlign.center,
@@ -56,8 +62,35 @@ class ModalServices extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Color (gradientcolor),
               ),
-            )
-          ],
+            ),
+          SizedBox(height: 15,),
+          SizedBox(
+                width: 161,
+                height: 38,
+                child: MyButton(
+                  btnText: "Reservar",
+                  colorBackground: (primarycolor),
+                  colorText: gradientcolor,
+                  width: 40,
+                  height: 20,
+                  onpressed: () => Navigator.of(context).pushNamed('/home'),
+                ),
+              ), 
+              SizedBox(height: 5,),
+              SizedBox(
+                width: 161,
+                height: 38,
+                child: MyButton(
+                  btnText: "Cancelar",
+                  colorBackground: (secondarycolor),
+                  colorText: gradientcolor,
+                  // width: 40,
+                  // height: 20,
+                  onpressed: () => Navigator.of(context).pushNamed('/home'),
+                ),
+              ),
+              
+              ],
         ),
       ),
     );
