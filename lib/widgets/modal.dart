@@ -13,7 +13,7 @@ void sendEmailRecoveryPasswordModal(
         topLeft: Radius.circular(50),
       ),
     ),
-    elevation: 10,
+    elevation: 11,
     backgroundColor: Color(gradientcolor),
     context: ctx,
     builder: (ctx) => ModalServices(),
@@ -26,33 +26,35 @@ class ModalServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
-      height: 500,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.6,
       decoration: BoxDecoration(
-          color: Color(gradientcolor), borderRadius: BorderRadius.circular(40)),
+          color: Color(secondarycolor), borderRadius: BorderRadius.circular(40)),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/profile.png',
-              width: 40,
-              height: 40,
+              'assets/images/braid4.jpg',
+              width: 300,
+              height: 100,
             ),
             Text(
               'Laceados',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Color(gradientcolor),
               ),
             ),
             Text(
-              'Se hace todo tipo de laceados como el: Brasilero, Marroqui ',
+              'Se hace todo tipo de laceados como el: Brasilero, Marroqui, Japones ',
+              textAlign: TextAlign.center,
+              
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Color (gradientcolor),
               ),
             )
           ],
