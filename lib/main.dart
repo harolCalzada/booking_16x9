@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_app/pages/book.dart';
 import 'package:salon_app/pages/home.dart';
 import 'package:salon_app/pages/intro.dart';
+import 'package:salon_app/routes.dart';
 import 'package:salon_app/uidata.dart';
 
 void main() {
@@ -16,18 +17,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: GoogleFonts.ubuntuTextTheme(
-          Theme.of(context).textTheme),
+        textTheme: GoogleFonts.ubuntuTextTheme(Theme.of(context).textTheme),
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: IntroPage(),
-      routes: <String, WidgetBuilder>{
-        UIData.homePageRoute: (BuildContext context) => HomePage(),
-        UIData.introPageRoute: (BuildContext context) => IntroPage(),
-        UIData.bookPageRoute: (BuildContext context) => BookPage(),
-      }
+      routes: getApplicationRoutes(),
     );
   }
 }
-

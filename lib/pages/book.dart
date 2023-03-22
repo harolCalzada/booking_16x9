@@ -193,7 +193,11 @@ class _BookPageState extends State<BookPage> {
                     ],
                   )),
               SizedBox(height: 10),
-              MyButton(btnText: "Book Appointment", onpressed: () {}),
+              MyButton(
+                btnText: "Book Appointment",
+                onpressed: () {},
+                colorText: Colors.black.value,
+              ),
               SizedBox(height: 20)
             ],
           ),

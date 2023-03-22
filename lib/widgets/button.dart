@@ -11,18 +11,15 @@ class MyButton extends StatelessWidget {
   final int colorBackground;
 
   const MyButton({
-  Key key, 
-  this.btnText, 
-  this.onpressed,
-  this.colorBackground,
-  this.colorText,
-  this.width,
-  this.height,
-  
-  
-  }) :super(key: key);
+    Key key,
+    this.btnText,
+    this.onpressed,
+    this.colorBackground,
+    this.colorText,
+    this.width,
+    this.height,
+  }) : super(key: key);
 
- 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,20 +27,19 @@ class MyButton extends StatelessWidget {
       height: height,
       child: ElevatedButton(
           child: Text(btnText,
-            style: TextStyle(
-                color:Color(colorText),
-                fontSize: 15.5,
-                fontWeight: FontWeight.w400)),
-         onPressed: onpressed,
-        style: ButtonStyle(shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
-        ),backgroundColor:MaterialStateProperty.all<Color>(Color(colorBackground),
-        
-      
-        ),
-        
-        
-
-    )),
+              style: TextStyle(
+                  color: Color(colorText ?? 0xff000000),
+                  fontSize: 15.5,
+                  fontWeight: FontWeight.w400)),
+          onPressed: onpressed,
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+            ),
+            backgroundColor: MaterialStateProperty.all<Color>(
+              Color(colorBackground ?? 0xff000000),
+            ),
+          )),
       // child: FlatButton(
       //   color: UIData.mainColor,
       //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
