@@ -34,6 +34,7 @@ class ModalServices extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
            ClipOval(
       child: Image.asset(
@@ -45,7 +46,7 @@ class ModalServices extends StatelessWidget {
     ),
   SizedBox(height: 5,),
             Text(
-              'Laceados',
+              'Corte de Mujer',
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
@@ -54,7 +55,7 @@ class ModalServices extends StatelessWidget {
             ),
            SizedBox(height: 15,),
             Text(
-              'Se hace todo tipo de laceados como el: Brasilero, Marroqui, Japones ',
+              'S/165 ',
               textAlign: TextAlign.center,
               
               style: TextStyle(

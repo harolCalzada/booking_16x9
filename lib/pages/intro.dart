@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/uidata.dart';
-import 'package:salon_app/widgets/button.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -14,15 +12,8 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(primarycolor),
-              Color(secondarycolor),
-              Color(gradientcolor),
-            ],
-          ),
+          color:Color(secondarycolor),
+  
         ),
         padding: EdgeInsets.all(16),
         width: MediaQuery.of(context).size.width,
@@ -31,6 +22,11 @@ class _IntroPageState extends State<IntroPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+               Stack(
+          children: [
+            Positioned(
+              top: 0,
+              child:
               Container(
                 width: 260,
                 decoration: BoxDecoration(
@@ -40,63 +36,82 @@ class _IntroPageState extends State<IntroPage> {
                         ),
                         fit: BoxFit.contain)),
                 height: 80,
-              ),
+              ),),
               SizedBox(
-                height: 90,
+                height:250,
               ),
-              Text("Ya tengo cuenta JAUS",
+              Text("Ya tengo cuenta JAUS ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color(gradientcolor),
                       height: 1.5,
                       fontSize: 22,
                       letterSpacing: 1.3)),
+              SizedBox(height: 14,),
+
+              TextButton(onPressed: () => Navigator.of(context).pushNamed('/home'),child: Text("Ingresar a JAUS"),),
               SizedBox(
-                height: 50,
+                height: 10,
               ),
-              SizedBox(
-                width: 161,
-                height: 38,
-                child: MyButton(
-                  btnText: "Ingresar",
-                  colorBackground: (primarycolor),
-                  colorText: gradientcolor,
-                  width: 40,
-                  height: 20,
-                  onpressed: () => Navigator.of(context).pushNamed('/home'),
+              Text(
+                "Si es tu primera vez en",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 19,
+                    height: 1.8,
+                    color: Color(gradientcolor)
+                    
+      
+                    ),
+              ),
+            
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  child: Text(
+                        "JAUS.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                            color: Color(gradientcolor)
+                            
+                      
+                            ),
+                      ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                width: 180,
-                child: Text(
-                  "Si es tu primera vez en JAUS.App Registrate",
+               Text(
+                  "App",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    fontSize: 16,
+                      color: Color(gradientcolor)
+                      
+      
+                      ),
+                ),
+             
+             
+              ],
+            ),
+            
+
+          SizedBox(height: 15,),
+             
+            Text(
+                  " Registrate",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    decoration: TextDecoration.underline,
                       height: 1.8,
                       letterSpacing: 1.3,
-                      color: Color(gradientcolor)),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              SizedBox(
-                width: 161,
-                height: 38,
-                child: MyButton(
-                  btnText: "Registrate",
-                  colorBackground: (primarycolor),
-                  colorText: gradientcolor,
-                  width: 40,
-                  height: 20,
-                  onpressed: () => Navigator.of(context).pushNamed('/home'),
-                ),
-              ),
-            ]),
-      ),
-    );
+                      color: Color(gradientcolor)
+                      
+      
+                      ),
+                ),]),
+      ],
+    )));
   }
 }
