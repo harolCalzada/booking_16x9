@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SpecialistColumnBook extends StatelessWidget {
-  final String specImg, specName;
+  final String specImg, specName; final TextStyle specNameStyle;
 
-  const SpecialistColumnBook({Key key, this.specImg, this.specName}) : super(key: key);
+  const SpecialistColumnBook({Key key, this.specImg, this.specName,this.specNameStyle}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +25,7 @@ class SpecialistColumnBook extends StatelessWidget {
               Text(specName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  style: specNameStyle,),
                   SizedBox(height: 4),
               
             ],

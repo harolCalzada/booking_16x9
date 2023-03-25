@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/date_column.dart';
@@ -49,25 +50,25 @@ class _BookPageState extends State<BookPage> {
     }
 
     return Scaffold(
-      backgroundColor: UIData.mainColor,
+      backgroundColor:Color(gradientcolor),
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            icon: Icon(Icons.chevron_left, color: Colors.white),
+            icon: Icon(Icons.chevron_left, color: Color(secondarycolor)),
             onPressed: () => Navigator.pop(context)),
-        title: Text("Book Appointment"),
-      ),
+        title: Text("Separa tu cita",style: TextStyle(color:Color(secondarycolor),fontWeight: FontWeight.bold),
+      ),),
       body: Container(
         width: screen_size_width,
         height: screen_size_height,
-        color: Colors.white,
+        color: Color(gradientcolor),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
-                  color: UIData.mainColor,
+                  color: Color(gradientcolor),
                   width: screen_size_width,
                   child: Column(children: <Widget>[
                     //SizedBox(height: 16),
@@ -75,19 +76,19 @@ class _BookPageState extends State<BookPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         IconButton(
-                            icon: Icon(Icons.chevron_left, color: Colors.white),
+                            icon: Icon(Icons.chevron_left, color: Color(secondarycolor)),
                             onPressed: () {}),
                         Expanded(
-                          child: Text("July, 2020",
+                          child: Text("Marzo, 2023",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Color(secondarycolor),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600)),
                         ),
                         IconButton(
                             icon:
-                                Icon(Icons.chevron_right, color: Colors.white),
+                                Icon(Icons.chevron_right, color: Color(secondarycolor)),
                             onPressed: () {}),
                       ],
                     ),
@@ -96,52 +97,62 @@ class _BookPageState extends State<BookPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           DateColumn(
-                              weekDay: "Mon",
+                              weekDay: "Lun.",
                               date: "16",
                               dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
+                              dateTextColor: Color(secondarycolor)),
+                          SizedBox(height: 5,),
                           DateColumn(
-                              weekDay: "Tue",
+                              weekDay: "Mar.",
                               date: "17",
                               dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
-                          DateColumn(
-                              weekDay: "Wed",
+                              dateTextColor:Color(secondarycolor)),
+                          SizedBox(height: 5,),
+                          
+                         DateColumn(
+                              weekDay: "Miérc.",
                               date: "18",
                               dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
+                              dateTextColor:Color(secondarycolor)),
+                               SizedBox(height: 5,),
                           DateColumn(
-                              weekDay: "Thu",
+                              weekDay: "Juev.",
                               date: "19",
                               dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
+                              dateTextColor: Color(secondarycolor)),
+                               SizedBox(height: 5,),
+                          
                           DateColumn(
-                              weekDay: "Fri",
+                              weekDay: "Vier.",
                               date: "20",
-                              dateBg: Colors.white,
-                              dateTextColor: UIData.mainColor),
+                              dateBg:Color(secondarycolor),
+                              dateTextColor:  Colors.white,),
+                                SizedBox(height: 5,),
+                         
                           DateColumn(
-                              weekDay: "Sat",
+                              weekDay: "Sáb.",
                               date: "21",
                               dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
+                              dateTextColor: Color(secondarycolor),),
+                                   SizedBox(height: 5,),
+                          
                           DateColumn(
-                              weekDay: "Sun",
+                              weekDay: "Dom.",
                               date: "22",
-                              dateBg: Colors.transparent,
-                              dateTextColor: Colors.white),
+                               dateBg: Colors.transparent,
+                              dateTextColor: Color(secondarycolor),),
                         ]),
                     SizedBox(height: 15),
                   ])),
               Container(
                   width: screen_size_width,
-                  color: Colors.white,
+                  color: Color(gradientcolor),
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 18),
-                      Text("Available Slot", style: TextStyle(fontSize: 16)),
+                      Text("Horarios disponibles", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
                       SizedBox(height: 18),
                       Container(
                         alignment: Alignment.center,
@@ -149,18 +160,18 @@ class _BookPageState extends State<BookPage> {
                           runSpacing: 15,
                           spacing: 2,
                           children: <Widget>[
-                            buttonTime("9:30 - 10:30 AM", Colors.white,
+                            buttonTime("9:30 - 10:30 AM", Color(gradientcolor),
                                 Colors.black54),
-                            buttonTime("10:30 - 11:45 AM", UIData.mainColor,
+                            buttonTime("10:30 - 11:45 AM",Color(secondarycolor),
                                 Colors.white),
-                            buttonTime("12:00 - 1:30 PM", Colors.white,
+                            buttonTime("12:00 - 1:30 PM", Color(gradientcolor),
                                 Colors.black54),
                             buttonTime(
-                                "2:00 - 4:30 PM", Colors.white, Colors.black54),
+                                "2:00 - 4:30 PM",Color(gradientcolor), Colors.black54),
                             buttonTime(
-                                "5:30 - 6:30 PM", Colors.white, Colors.black54),
+                                "5:30 - 6:30 PM",Color(gradientcolor), Colors.black54),
                             buttonTime(
-                                "6:30 - 7:30 PM", Colors.white, Colors.black54),
+                                "6:30 - 7:30 PM", Color(gradientcolor), Colors.black54),
                           ],
                         ),
                       ),
@@ -169,7 +180,7 @@ class _BookPageState extends State<BookPage> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600)),
+                              fontSize: 18, fontWeight: FontWeight.w600,color: Color(secondarycolor)),),
                       SizedBox(height: 10),
                       Container(
                           height: 140,
@@ -179,25 +190,27 @@ class _BookPageState extends State<BookPage> {
                             children: <Widget>[
                               SpecialistColumnBook(
                                   specImg: "images/braid2.jpg",
-                                  specName: "Anny Roy"),
+                                  specName: "Anny Roy",
+                                  specNameStyle: TextStyle(color:Color(secondarycolor)),
+                         
+                                  ),
                               SizedBox(width: 25),
                               SpecialistColumnBook(
                                   specImg: "images/profile.jpg",
-                                  specName: "Joy Roy"),
+                                  specName: "Joy Roy",
+                                  specNameStyle: TextStyle(color:Color(secondarycolor))),
                               SizedBox(width: 25),
                               SpecialistColumnBook(
                                   specImg: "images/braid3.jpg",
-                                  specName: "Patience Roy"),
+                                  specName: "Patience Roy",
+                                  specNameStyle: TextStyle(color:Color(secondarycolor))),
                             ],
                           ))
                     ],
                   )),
               SizedBox(height: 10),
-              MyButton(
-                btnText: "Book Appointment",
-                onpressed: () {},
-                colorText: Colors.black.value,
-              ),
+             TextButton(onPressed: () => Navigator.of(context).pushNamed('/home'),child: Text("Reservar"),),
+              
               SizedBox(height: 20)
             ],
           ),

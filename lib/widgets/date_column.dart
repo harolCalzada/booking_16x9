@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salon_app/constants/colors.dart';
 
 class DateColumn extends StatelessWidget {
   final String weekDay, date;
@@ -11,7 +12,7 @@ class DateColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(weekDay, style: TextStyle(color: Colors.white)),
+        Text(weekDay, style: TextStyle(color: Color(secondarycolor))),
         SizedBox(height: 15),
         Container(
             padding: EdgeInsets.all(8),
