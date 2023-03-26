@@ -5,8 +5,9 @@ class MyColumn extends StatelessWidget {
   final String columnImg, columnTxt;
   final Color columnBg;
   final Color textColor;
+  final Color colorImg;
 
-  const MyColumn({Key key, this.columnImg, this.columnTxt, this.columnBg, this.textColor}) : super(key: key);
+  const MyColumn({Key key, this.columnImg, this.columnTxt, this.columnBg, this.textColor,this.colorImg}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,9 +19,9 @@ class MyColumn extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Color(gradientcolor),
+            color: columnBg,
           ),
-          child: Image(color: Colors.black,image: AssetImage(columnImg), fit: BoxFit.contain),
+          child: Image(color: colorImg,image: AssetImage(columnImg), fit: BoxFit.contain),
         ),
         SizedBox(height: 10),
         Text(columnTxt,style:TextStyle(color: (textColor))),

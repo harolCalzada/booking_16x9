@@ -36,8 +36,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+       
         ],
       ),
+      
       body: Container(
         decoration: BoxDecoration(
           color: Color(secondarycolor),
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              SizedBox(height: 25,),
               Container(
                   height: screen_size_height * .2,
                   width: screen_size_width,
@@ -59,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       ImageCard(cardImg: "images/braid3.jpg"),
                     ],
                   )),
-              SizedBox(height: 15),
+              SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
@@ -70,6 +73,7 @@ class _HomePageState extends State<HomePage> {
                           sendEmailRecoveryPasswordModal(context);
                         },
                         child: MyColumn(
+                          colorImg: Color(secondarycolor),
                           columnImg: "images/braid.png",
                           columnTxt: "Braids",
                           columnBg: Color(gradientcolor),
@@ -80,9 +84,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                      colorImg: Color(secondarycolor),
                         columnImg: "images/abuja.png",
                         columnTxt: "Abuja",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -91,9 +96,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/blow.png",
                         columnTxt: "Blowdry",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -102,9 +108,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                       colorImg: Color(secondarycolor),
                         columnImg: "images/haircut.png",
                         columnTxt: "Haircut",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -119,9 +126,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/relaxer.png",
                         columnTxt: "Relaxer",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -130,9 +138,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/shampoo.png",
                         columnTxt: "Shampoo",
-                        columnBg: UIData.lighterColor,
+                        columnBg:Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -141,9 +150,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/nail.png",
                         columnTxt: "Manicure",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -152,9 +162,10 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () => Navigator.pushNamed(context, '/book'),
                       child: MyColumn(
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/more.png",
                         columnTxt: "More",
-                        columnBg: UIData.lighterColor,
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
@@ -162,54 +173,54 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(height: 6),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                        child: Text("Hair Specialists",
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Color(primarycolor),
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold))),
+              // Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: <Widget>[
+              //       Expanded(
+              //           child: Text("Hair Specialists",
+              //               maxLines: 1,
+              //               overflow: TextOverflow.ellipsis,
+              //               style: TextStyle(
+              //                   color: Color(primarycolor),
+              //                   fontSize: 20,
+              //                   fontWeight: FontWeight.bold))),
 
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                      ),
-                      child: Text(
-                        "View All",
-                        style: TextStyle(color: Color(gradientcolor)),
-                      ),
-                    ),
-                    // TextButton(
-                    //   onPressed: () {},
-                    //   // child: Text(
-                    //   //   "View All",
-                    //   //   style: TextStyle(color: Colors.black54),
-                    //   // ),
-                    // )
-                  ]),
-              SizedBox(height: 6),
-              Container(
-                  height: 230,
-                  width: screen_size_width,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      SpecialistColumn(
-                          specImg: "images/braid2.jpg", specName: "Anny Roy"),
-                      SizedBox(width: 12),
-                      SpecialistColumn(
-                          specImg: "images/profile.jpg", specName: "Joy Roy"),
-                      SizedBox(width: 12),
-                      SpecialistColumn(
-                          specImg: "images/braid3.jpg",
-                          specName: "Patience Roy"),
-                    ],
-                  ))
+              //       ElevatedButton(
+              //         onPressed: () {},
+              //         style: ElevatedButton.styleFrom(
+              //           backgroundColor: Colors.black,
+              //         ),
+              //         child: Text(
+              //           "View All",
+              //           style: TextStyle(color: Color(gradientcolor)),
+              //         ),
+              //       ),
+              //       // TextButton(
+              //       //   onPressed: () {},
+              //       //   // child: Text(
+              //       //   //   "View All",
+              //       //   //   style: TextStyle(color: Colors.black54),
+              //       //   // ),
+              //       // )
+              //     ]),
+              // SizedBox(height: 6),
+              // Container(
+              //     height: MediaQuery.of(context).size.height * 0.9,
+              //     width: MediaQuery.of(context).size.width * 0.9,
+              //     child: ListView(
+              //       scrollDirection: Axis.horizontal,
+              //       children: <Widget>[
+              //         SpecialistColumn(
+              //             specImg: "images/braid2.jpg", specName: "Anny Roy"),
+              //         SizedBox(width: 12),
+              //         SpecialistColumn(
+              //             specImg: "images/profile.jpg", specName: "Joy Roy"),
+              //         SizedBox(width: 12),
+              //         SpecialistColumn(
+              //             specImg: "images/braid3.jpg",
+              //             specName: "Patience Roy"),
+              //       ],
+              //     ))
             ],
           ),
         ),

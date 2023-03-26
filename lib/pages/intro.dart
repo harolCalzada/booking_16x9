@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/login.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -93,20 +94,27 @@ class _IntroPageState extends State<IntroPage> {
 
           SizedBox(height: 15,),
                 
-               Text(
-                     " Registrate",
-                     textAlign: TextAlign.center,
-                     style: TextStyle(
-                       fontSize: 20,
-                       decoration: TextDecoration.underline,
-                         height: 1.8,
-                         letterSpacing: 1.3,
-                         color: Color(gradientcolor)
-                         
+             GestureDetector(
+  child: Text(
+    "Registrate",
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      fontSize: 20,
+      decoration: TextDecoration.underline,
+      height: 1.8,
+      letterSpacing: 1.3,
+      color: Color(gradientcolor)
+    ),
+  ),
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterPage()),
+    );
+  },
+)]
       
-                         ),
-                   ),
-      ],
+      
     )));
   }
 }

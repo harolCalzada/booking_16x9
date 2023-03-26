@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
-import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/date_column.dart';
-import 'package:salon_app/widgets/specialist_column_book.dart';
+import 'package:salon_app/widgets/my_column.dart';
+
 
 class BookPage extends StatefulWidget {
   @override
@@ -18,13 +18,15 @@ class _BookPageState extends State<BookPage> {
     //buttonTime
     Widget buttonTime(timeText, btnBg, timeBtnColor) {
       return Container(
-        height: 42,
+        height: 40,
+        
         padding: EdgeInsets.symmetric(horizontal: 8),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: btnBg,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
+              side: BorderSide(width: 2,color:Color(secondarycolor))
             ),
           ),
           onPressed: () {},
@@ -50,16 +52,43 @@ class _BookPageState extends State<BookPage> {
     }
 
     return Scaffold(
-      backgroundColor:Color(gradientcolor),
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-            icon: Icon(Icons.chevron_left, color: Color(secondarycolor)),
-            onPressed: () => Navigator.pop(context)),
-        title: Text("Separa tu cita",style: TextStyle(color:Color(secondarycolor),fontWeight: FontWeight.bold),
-      ),),
+      backgroundColor: Color(gradientcolor),
+  appBar: AppBar(
+    elevation: 0,
+    automaticallyImplyLeading: false,
+    backgroundColor: Colors.transparent,
+   leading: GestureDetector(
+      onTap: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Text(
+              "Atrás",
+              style: TextStyle(
+                color: Color(secondarycolor),
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    title: Text(
+      "Separa tu cita",
+      style: TextStyle(
+        fontSize: 19,
+        color: Color(secondarycolor),
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    
+
+  ),
+
       body: Container(
         width: screen_size_width,
         height: screen_size_height,
@@ -75,9 +104,11 @@ class _BookPageState extends State<BookPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
+                        SizedBox(height: 10,),
                         IconButton(
                             icon: Icon(Icons.chevron_left, color: Color(secondarycolor)),
                             onPressed: () {}),
+                        SizedBox(height: 10,),
                         Expanded(
                           child: Text("Marzo, 2023",
                               textAlign: TextAlign.center,
@@ -85,7 +116,9 @@ class _BookPageState extends State<BookPage> {
                                   color: Color(secondarycolor),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600)),
+                       
                         ),
+                        SizedBox(height: 18,),
                         IconButton(
                             icon:
                                 Icon(Icons.chevron_right, color: Color(secondarycolor)),
@@ -96,6 +129,7 @@ class _BookPageState extends State<BookPage> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
+                          
                           DateColumn(
                               weekDay: "Lun.",
                               date: "16",
@@ -151,67 +185,85 @@ class _BookPageState extends State<BookPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 18),
+                      SizedBox(height: 30),
                       Text("Horarios disponibles", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
-                      SizedBox(height: 18),
+                      SizedBox(height: 35),
                       Container(
                         alignment: Alignment.center,
                         child: Wrap(
-                          runSpacing: 15,
+                          runSpacing: 22,
                           spacing: 2,
                           children: <Widget>[
-                            buttonTime("9:30 - 10:30 AM", Color(gradientcolor),
-                                Colors.black54),
-                            buttonTime("10:30 - 11:45 AM",Color(secondarycolor),
-                                Colors.white),
-                            buttonTime("12:00 - 1:30 PM", Color(gradientcolor),
-                                Colors.black54),
-                            buttonTime(
-                                "2:00 - 4:30 PM",Color(gradientcolor), Colors.black54),
-                            buttonTime(
-                                "5:30 - 6:30 PM",Color(gradientcolor), Colors.black54),
-                            buttonTime(
-                                "6:30 - 7:30 PM", Color(gradientcolor), Colors.black54),
+                            SizedBox(
+                             width:165,
+                              child:buttonTime("9:00- 10:00 AM", Color(gradientcolor),
+                                Colors.black54),),
+                            SizedBox(
+                             width:165,
+                             child:buttonTime("10:00-11:00 AM",Color(secondarycolor),
+                                Colors.white),),
+                             SizedBox(
+                             width:165,
+                            child:buttonTime("11:00-12:00 PM", Color(gradientcolor),
+                                Colors.black54),),
+                            SizedBox(
+                             width:165,
+                            child:buttonTime(
+                                "12:00-1:00 PM",Color(gradientcolor), Colors.black54),),
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "1:00 - 2:00 PM",Color(gradientcolor), Colors.black54),),
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "2:00 - 3:00 PM", Color(gradientcolor), Colors.black54),),
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "3:00 - 4:00 PM", Color(gradientcolor), Colors.black54),),
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "4:00 - 5:00 PM", Color(gradientcolor), Colors.black54),),
+                            
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "5:00 - 6:00 PM", Color(gradientcolor), Colors.black54),),
+                            // SizedBox(
+                            //  width:165,
+                            // child:
+                            // buttonTime(
+                            //     "6:00 - 7:00 PM", Color(gradientcolor), Colors.black54),),
+                          
                           ],
                         ),
                       ),
-                      SizedBox(height: 25),
-                      Text("Choose Hair Specialists",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600,color: Color(secondarycolor)),),
-                      SizedBox(height: 10),
-                      Container(
-                          height: 140,
-                          width: screen_size_width,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              SpecialistColumnBook(
-                                  specImg: "images/braid2.jpg",
-                                  specName: "Anny Roy",
-                                  specNameStyle: TextStyle(color:Color(secondarycolor)),
-                         
-                                  ),
-                              SizedBox(width: 25),
-                              SpecialistColumnBook(
-                                  specImg: "images/profile.jpg",
-                                  specName: "Joy Roy",
-                                  specNameStyle: TextStyle(color:Color(secondarycolor))),
-                              SizedBox(width: 25),
-                              SpecialistColumnBook(
-                                  specImg: "images/braid3.jpg",
-                                  specName: "Patience Roy",
-                                  specNameStyle: TextStyle(color:Color(secondarycolor))),
-                            ],
-                          ))
-                    ],
+                   
+                      
+                      SizedBox(height: 25,),
+                    Text("Puedes agregar otros servicios", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
+                    SizedBox(height: 10,),
+                    Text("HAIR", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
+                    
+                    SizedBox(height: 12,),
+                   
+                    
+                   Services(), ],
                   )),
-              SizedBox(height: 10),
+              SizedBox(height: 40),
              TextButton(onPressed: () => Navigator.of(context).pushNamed('/home'),child: Text("Reservar"),),
               
               SizedBox(height: 20)
+           
+             
+           
             ],
           ),
         ),
@@ -219,3 +271,144 @@ class _BookPageState extends State<BookPage> {
     );
   }
 }
+
+
+
+// class ListViewImage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return  Container(
+//           height: 150,
+          
+//           child: ListView(
+//             scrollDirection: Axis.horizontal,
+//             children: <Widget>[
+//               Container(
+//                width: 170,
+//   decoration: BoxDecoration(
+//     color: Color(gradientcolor),
+//     borderRadius: BorderRadius.circular(10.0),
+//   ),
+//   child: ClipRRect(
+//     borderRadius: BorderRadius.circular(30.0),
+//     child: Image.asset(
+//       'assets/images/braid4.jpg',
+//       fit: BoxFit.cover,
+//     ),
+//   ),
+// ),
+//             SizedBox(width: 7,),   
+//               Container(
+//                 width: 170,
+//                decoration: BoxDecoration(
+//     color: Color(gradientcolor),
+//     borderRadius: BorderRadius.circular(10.0),
+//   ),
+//   child: ClipRRect(
+//     borderRadius: BorderRadius.circular(30.0),
+//     child: Image.asset(
+//       'assets/images/braid4.jpg',
+//       fit: BoxFit.cover,
+//     ),
+//   ),
+// ),
+//            SizedBox(width: 7,),
+//               Container(
+//                 width: 170,
+//                decoration: BoxDecoration(
+//     color: Color(gradientcolor),
+//     borderRadius: BorderRadius.circular(10.0),
+//   ),
+//   child: ClipRRect(
+//     borderRadius: BorderRadius.circular(30.0),
+//     child: Image.asset(
+//       'assets/images/braid4.jpg',
+//       fit: BoxFit.cover,
+//     ),
+//   ),
+// ),
+//          SizedBox(width: 7,),     
+//               Container(
+//                 width: 170,
+//                  decoration: BoxDecoration(
+//     color: Color(gradientcolor),
+//     borderRadius: BorderRadius.circular(10.0),
+//   ),
+//   child: ClipRRect(
+//     borderRadius: BorderRadius.circular(30.0),
+//     child: Image.asset(
+//       'assets/images/braid4.jpg',
+//       fit: BoxFit.cover,
+//     ),
+//   ),
+// ),
+//             ],
+//           ),
+//         );
+     
+//   }
+// }
+class Services extends StatefulWidget {
+  const Services({key});
+
+  @override
+  State<Services> createState() => _ServicesState();
+}
+
+class _ServicesState extends State<Services> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/book'),
+                      child: MyColumn(
+                        colorImg: Color(gradientcolor),
+                        columnImg: "images/relaxer.png",
+                        columnTxt: "Relaxer",
+                        columnBg: Color(secondarycolor),
+                        textColor: Color(secondarycolor),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/book'),
+                      child: MyColumn(
+                        colorImg: Color(gradientcolor),
+                        columnImg: "images/shampoo.png",
+                        columnTxt: "Shampoo",
+                        columnBg: Color(secondarycolor),
+                        textColor: Color(secondarycolor),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/book'),
+                      child: MyColumn(
+                        colorImg: Color(gradientcolor),
+                        columnImg: "images/nail.png",
+                        columnTxt: "Manicure",
+                        columnBg: Color(secondarycolor),
+                        textColor: Color(secondarycolor),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/book'),
+                      child: MyColumn(
+                        colorImg: Color(gradientcolor),
+                        columnImg: "images/more.png",
+                        columnTxt: "More",
+                        columnBg: Color(secondarycolor),
+                        textColor: Color(secondarycolor),
+                      ),
+                    ),
+                  ),
+                ]);
+              }}
