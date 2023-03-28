@@ -40,14 +40,62 @@ class MyButton extends StatelessWidget {
               Color(colorBackground ?? 0xff000000),
             ),
           )),
-      // child: FlatButton(
-      //   color: UIData.mainColor,
-      //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-      //   onPressed: onpressed,
-      //   child: Text(btnText, style: TextStyle(color: Colors.white,
-      //   fontSize: 15.5,
-      //   fontWeight: FontWeight.w400)),
-      // ),
+     
     );
+  }
+}
+
+
+class CustomSelectButton extends StatelessWidget {
+final String labelText;
+final String hintText;
+final int colorHintText;
+final int colorLabelText;
+
+   CustomSelectButton({key,
+   this.labelText, 
+   this.hintText,
+   this.colorHintText,
+   this.colorLabelText,
+   
+   });
+
+    final _emailController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+
+    return SizedBox(
+      width: 310,height: 50,
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(hintText:hintText,hintStyle: TextStyle(color:Color(colorHintText)), labelText: labelText,labelStyle: TextStyle(color:Color(colorLabelText),fontWeight: FontWeight.bold,),
+                   border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(gradientcolor)),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color:Color(gradientcolor)),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                               
+                  keyboardType: TextInputType.emailAddress,
+                                   
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Por favor ingrese su correo electrónico';
+                    }
+                    if (!value.contains('@')) {
+                      return 'Por favor ingrese un correo electrónico válido';
+                    }
+                    return null;
+                  },
+                ),
+              );
+    
   }
 }

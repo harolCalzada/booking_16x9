@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/login.dart';
+import 'package:salon_app/pages/register.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _IntroPageState extends State<IntroPage> {
                          letterSpacing: 1.3)),
                  SizedBox(height: 14,),
 
-                 TextButton(onPressed: () => Navigator.of(context).pushNamed('/home'),child: Text("Ingresar a JAUS"),),
+                 TextButton(onPressed: () => Navigator.of(context).pushNamed('/login'),child: Text("Ingresar a JAUS"),),
                  SizedBox(
                    height: 10,
                  ),
@@ -55,9 +55,7 @@ class _IntroPageState extends State<IntroPage> {
                    style: TextStyle(
                      fontSize: 19,
                        height: 1.8,
-                       color: Color(gradientcolor)
-                       
-      
+                       color: Color(gradientcolor)    
                        ),
                  ),
                
@@ -71,8 +69,7 @@ class _IntroPageState extends State<IntroPage> {
                              fontSize: 23,
                              fontWeight: FontWeight.bold,
                                color: Color(gradientcolor)
-                               
-                         
+                                                      
                                ),
                          ),
                    ),
@@ -81,19 +78,13 @@ class _IntroPageState extends State<IntroPage> {
                      textAlign: TextAlign.center,
                      style: TextStyle(
                        fontSize: 16,
-                         color: Color(gradientcolor)
-                         
-      
+                         color: Color(gradientcolor)  
                          ),
-                   ),
-                
-                
+                   ),             
                  ],
                ),
-               
-
-          SizedBox(height: 15,),
-                
+              
+          SizedBox(height: 15,),        
              GestureDetector(
   child: Text(
     "Registrate",

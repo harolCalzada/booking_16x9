@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: InkWell(
                         onTap: () {
-                          sendEmailRecoveryPasswordModal(context);
+                          servicesModal(context);
                         },
                         child: MyColumn(
                           colorImg: Color(secondarycolor),
@@ -82,7 +82,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                     onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                       colorImg: Color(secondarycolor),
                         columnImg: "images/abuja.png",
@@ -94,7 +96,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                     onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/blow.png",
@@ -106,7 +110,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                    onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                        colorImg: Color(secondarycolor),
                         columnImg: "images/haircut.png",
@@ -124,7 +130,9 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                     onTap: () {
+                         servicesModal(context);
+                        },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/relaxer.png",
@@ -136,7 +144,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                     onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/shampoo.png",
@@ -148,7 +158,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                     onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/nail.png",
@@ -160,7 +172,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
+                   onTap: () {
+                          servicesModal(context);
+                        },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/more.png",
