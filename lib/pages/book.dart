@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/date_column.dart';
 import 'package:salon_app/widgets/my_column.dart';
-
 
 class BookPage extends StatefulWidget {
   @override
@@ -19,15 +17,13 @@ class _BookPageState extends State<BookPage> {
     Widget buttonTime(timeText, btnBg, timeBtnColor) {
       return Container(
         height: 40,
-        
         padding: EdgeInsets.symmetric(horizontal: 8),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: btnBg,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-              side: BorderSide(width: 2,color:Color(secondarycolor))
-            ),
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(width: 2, color: Color(secondarycolor))),
           ),
           onPressed: () {},
           child: Text(timeText,
@@ -53,42 +49,39 @@ class _BookPageState extends State<BookPage> {
 
     return Scaffold(
       backgroundColor: Color(gradientcolor),
-  appBar: AppBar(
-    elevation: 0,
-    automaticallyImplyLeading: false,
-    backgroundColor: Colors.transparent,
-   leading: GestureDetector(
-      onTap: () {
-                          Navigator.pushNamed(context, '/home');
-                        },
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.only(left: 15.0),
-            child: Text(
-              "Atrás",
-              style: TextStyle(
-                color: Color(secondarycolor),
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/home');
+          },
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Text(
+                  "Atrás",
+                  style: TextStyle(
+                    color: Color(secondarycolor),
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
+        title: Text(
+          "Separa tu cita",
+          style: TextStyle(
+            fontSize: 19,
+            color: Color(secondarycolor),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-    ),
-    title: Text(
-      "Separa tu cita",
-      style: TextStyle(
-        fontSize: 19,
-        color: Color(secondarycolor),
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    
-
-  ),
-
       body: Container(
         width: screen_size_width,
         height: screen_size_height,
@@ -104,11 +97,16 @@ class _BookPageState extends State<BookPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         IconButton(
-                            icon: Icon(Icons.chevron_left, color: Color(secondarycolor)),
+                            icon: Icon(Icons.chevron_left,
+                                color: Color(secondarycolor)),
                             onPressed: () {}),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Expanded(
                           child: Text("Marzo, 2023",
                               textAlign: TextAlign.center,
@@ -116,12 +114,13 @@ class _BookPageState extends State<BookPage> {
                                   color: Color(secondarycolor),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600)),
-                       
                         ),
-                        SizedBox(height: 18,),
+                        SizedBox(
+                          height: 18,
+                        ),
                         IconButton(
-                            icon:
-                                Icon(Icons.chevron_right, color: Color(secondarycolor)),
+                            icon: Icon(Icons.chevron_right,
+                                color: Color(secondarycolor)),
                             onPressed: () {}),
                       ],
                     ),
@@ -129,52 +128,62 @@ class _BookPageState extends State<BookPage> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          
                           DateColumn(
                               weekDay: "Lun.",
                               date: "16",
                               dateBg: Colors.transparent,
                               dateTextColor: Color(secondarycolor)),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           DateColumn(
                               weekDay: "Mar.",
                               date: "17",
                               dateBg: Colors.transparent,
-                              dateTextColor:Color(secondarycolor)),
-                          SizedBox(height: 5,),
-                          
-                         DateColumn(
+                              dateTextColor: Color(secondarycolor)),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          DateColumn(
                               weekDay: "Miérc.",
                               date: "18",
                               dateBg: Colors.transparent,
-                              dateTextColor:Color(secondarycolor)),
-                               SizedBox(height: 5,),
+                              dateTextColor: Color(secondarycolor)),
+                          SizedBox(
+                            height: 5,
+                          ),
                           DateColumn(
                               weekDay: "Juev.",
                               date: "19",
                               dateBg: Colors.transparent,
                               dateTextColor: Color(secondarycolor)),
-                               SizedBox(height: 5,),
-                          
+                          SizedBox(
+                            height: 5,
+                          ),
                           DateColumn(
-                              weekDay: "Vier.",
-                              date: "20",
-                              dateBg:Color(secondarycolor),
-                              dateTextColor:  Colors.white,),
-                                SizedBox(height: 5,),
-                         
+                            weekDay: "Vier.",
+                            date: "20",
+                            dateBg: Color(secondarycolor),
+                            dateTextColor: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           DateColumn(
-                              weekDay: "Sáb.",
-                              date: "21",
-                              dateBg: Colors.transparent,
-                              dateTextColor: Color(secondarycolor),),
-                                   SizedBox(height: 5,),
-                          
+                            weekDay: "Sáb.",
+                            date: "21",
+                            dateBg: Colors.transparent,
+                            dateTextColor: Color(secondarycolor),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           DateColumn(
-                              weekDay: "Dom.",
-                              date: "22",
-                               dateBg: Colors.transparent,
-                              dateTextColor: Color(secondarycolor),),
+                            weekDay: "Dom.",
+                            date: "22",
+                            dateBg: Colors.transparent,
+                            dateTextColor: Color(secondarycolor),
+                          ),
                         ]),
                     SizedBox(height: 15),
                   ])),
@@ -186,7 +195,11 @@ class _BookPageState extends State<BookPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 30),
-                      Text("Horarios disponibles", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
+                      Text("Horarios disponibles",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(secondarycolor))),
                       SizedBox(height: 35),
                       Container(
                         alignment: Alignment.center,
@@ -195,21 +208,25 @@ class _BookPageState extends State<BookPage> {
                           spacing: 2,
                           children: <Widget>[
                             SizedBox(
-                             width:165,
-                              child:buttonTime("9:00- 10:00 AM", Color(gradientcolor),
-                                Colors.black54),),
+                              width: 165,
+                              child: buttonTime("9:00- 10:00 AM",
+                                  Color(gradientcolor), Colors.black54),
+                            ),
                             SizedBox(
-                             width:165,
-                             child:buttonTime("10:00-11:00 AM",Color(secondarycolor),
-                                Colors.white),),
-                             SizedBox(
-                             width:165,
-                            child:buttonTime("11:00-12:00 PM", Color(gradientcolor),
-                                Colors.black54),),
+                              width: 165,
+                              child: buttonTime("10:00-11:00 AM",
+                                  Color(secondarycolor), Colors.white),
+                            ),
                             SizedBox(
-                             width:165,
-                            child:buttonTime(
-                                "12:00-1:00 PM",Color(gradientcolor), Colors.black54),),
+                              width: 165,
+                              child: buttonTime("11:00-12:00 PM",
+                                  Color(gradientcolor), Colors.black54),
+                            ),
+                            SizedBox(
+                              width: 165,
+                              child: buttonTime("12:00-1:00 PM",
+                                  Color(gradientcolor), Colors.black54),
+                            ),
                             // SizedBox(
                             //  width:165,
                             // child:
@@ -230,7 +247,7 @@ class _BookPageState extends State<BookPage> {
                             // child:
                             // buttonTime(
                             //     "4:00 - 5:00 PM", Color(gradientcolor), Colors.black54),),
-                            
+
                             // SizedBox(
                             //  width:165,
                             // child:
@@ -241,29 +258,37 @@ class _BookPageState extends State<BookPage> {
                             // child:
                             // buttonTime(
                             //     "6:00 - 7:00 PM", Color(gradientcolor), Colors.black54),),
-                          
                           ],
                         ),
                       ),
-                   
-                      
-                      SizedBox(height: 25,),
-                    Text("Puedes agregar otros servicios", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
-                    SizedBox(height: 10,),
-                    Text("HAIR", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:Color(secondarycolor))),
-                    
-                    SizedBox(height: 12,),
-                   
-                    
-                   Services(), ],
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Text("Puedes agregar otros servicios",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(secondarycolor))),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text("HAIR",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color(secondarycolor))),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Services(),
+                    ],
                   )),
               SizedBox(height: 40),
-             TextButton(onPressed: () => Navigator.of(context).pushNamed('/home'),child: Text("Reservar"),),
-              
+              TextButton(
+                onPressed: () => Navigator.of(context).pushNamed('/home'),
+                child: Text("Reservar"),
+              ),
               SizedBox(height: 20)
-           
-             
-           
             ],
           ),
         ),
@@ -272,14 +297,12 @@ class _BookPageState extends State<BookPage> {
   }
 }
 
-
-
 // class ListViewImage extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
 //     return  Container(
 //           height: 150,
-          
+
 //           child: ListView(
 //             scrollDirection: Axis.horizontal,
 //             children: <Widget>[
@@ -297,7 +320,7 @@ class _BookPageState extends State<BookPage> {
 //     ),
 //   ),
 // ),
-//             SizedBox(width: 7,),   
+//             SizedBox(width: 7,),
 //               Container(
 //                 width: 170,
 //                decoration: BoxDecoration(
@@ -327,7 +350,7 @@ class _BookPageState extends State<BookPage> {
 //     ),
 //   ),
 // ),
-//          SizedBox(width: 7,),     
+//          SizedBox(width: 7,),
 //               Container(
 //                 width: 170,
 //                  decoration: BoxDecoration(
@@ -345,7 +368,7 @@ class _BookPageState extends State<BookPage> {
 //             ],
 //           ),
 //         );
-     
+
 //   }
 // }
 class Services extends StatefulWidget {
@@ -359,56 +382,57 @@ class _ServicesState extends State<Services> {
   @override
   Widget build(BuildContext context) {
     return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
-                      child: MyColumn(
-                        colorImg: Color(gradientcolor),
-                        columnImg: "images/relaxer.png",
-                        columnTxt: "Relaxer",
-                        columnBg: Color(secondarycolor),
-                        textColor: Color(secondarycolor),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
-                      child: MyColumn(
-                        colorImg: Color(gradientcolor),
-                        columnImg: "images/shampoo.png",
-                        columnTxt: "Shampoo",
-                        columnBg: Color(secondarycolor),
-                        textColor: Color(secondarycolor),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
-                      child: MyColumn(
-                        colorImg: Color(gradientcolor),
-                        columnImg: "images/nail.png",
-                        columnTxt: "Manicure",
-                        columnBg: Color(secondarycolor),
-                        textColor: Color(secondarycolor),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/book'),
-                      child: MyColumn(
-                        colorImg: Color(gradientcolor),
-                        columnImg: "images/more.png",
-                        columnTxt: "More",
-                        columnBg: Color(secondarycolor),
-                        textColor: Color(secondarycolor),
-                      ),
-                    ),
-                  ),
-                ]);
-              }}
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Expanded(
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, '/book'),
+              child: MyColumn(
+                colorImg: Color(gradientcolor),
+                columnImg: "images/relaxer.png",
+                columnTxt: "Relaxer",
+                columnBg: Color(secondarycolor),
+                textColor: Color(secondarycolor),
+              ),
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, '/book'),
+              child: MyColumn(
+                colorImg: Color(gradientcolor),
+                columnImg: "images/shampoo.png",
+                columnTxt: "Shampoo",
+                columnBg: Color(secondarycolor),
+                textColor: Color(secondarycolor),
+              ),
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, '/book'),
+              child: MyColumn(
+                colorImg: Color(gradientcolor),
+                columnImg: "images/nail.png",
+                columnTxt: "Manicure",
+                columnBg: Color(secondarycolor),
+                textColor: Color(secondarycolor),
+              ),
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, '/book'),
+              child: MyColumn(
+                colorImg: Color(gradientcolor),
+                columnImg: "images/more.png",
+                columnTxt: "More",
+                columnBg: Color(secondarycolor),
+                textColor: Color(secondarycolor),
+              ),
+            ),
+          ),
+        ]);
+  }
+}

@@ -36,10 +36,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-       
         ],
       ),
-      
       body: Container(
         decoration: BoxDecoration(
           color: Color(secondarycolor),
@@ -50,7 +48,9 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 25,),
+              SizedBox(
+                height: 25,
+              ),
               Container(
                   height: screen_size_height * .2,
                   width: screen_size_width,
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: InkWell(
                         onTap: () {
-                          servicesModal(context);
+                          Navigator.pushNamed(context, '/provider_screen');
                         },
                         child: MyColumn(
                           colorImg: Color(secondarycolor),
@@ -82,11 +82,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                     onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
-                      colorImg: Color(secondarycolor),
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/abuja.png",
                         columnTxt: "Abuja",
                         columnBg: Color(gradientcolor),
@@ -96,9 +96,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                     onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/blow.png",
@@ -110,11 +110,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                    onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
-                       colorImg: Color(secondarycolor),
+                        colorImg: Color(secondarycolor),
                         columnImg: "images/haircut.png",
                         columnTxt: "Haircut",
                         columnBg: Color(gradientcolor),
@@ -130,9 +130,9 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Expanded(
                     child: InkWell(
-                     onTap: () {
-                         servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/relaxer.png",
@@ -144,23 +144,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                     onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/shampoo.png",
                         columnTxt: "Shampoo",
-                        columnBg:Color(gradientcolor),
+                        columnBg: Color(gradientcolor),
                         textColor: Color(gradientcolor),
                       ),
                     ),
                   ),
                   Expanded(
                     child: InkWell(
-                     onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/nail.png",
@@ -172,9 +172,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: InkWell(
-                   onTap: () {
-                          servicesModal(context);
-                        },
+                      onTap: () {
+                        servicesModal(context);
+                      },
                       child: MyColumn(
                         colorImg: Color(secondarycolor),
                         columnImg: "images/more.png",
