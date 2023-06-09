@@ -26,16 +26,17 @@ class _ImageCardState extends State<ImageCard> {
               fit: BoxFit.cover)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Text("Look awesome \n & save Some",
+          Text("2 X 1 Makeup",
               style: TextStyle(
-                color: Color(primarycolor),
+                fontStyle: FontStyle.normal,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 18,
+                fontSize: 22,
               )),
           SizedBox(height: 15),
-          MyButton2(btnText: "GET UPTO 50% OFF", onpressed: () {})
+          MyButton2(btnText: "HASTA EL 19 JUN", onpressed: () {})
         ],
       ),
     );

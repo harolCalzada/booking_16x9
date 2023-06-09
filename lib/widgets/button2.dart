@@ -14,14 +14,14 @@ class MyButton2 extends StatelessWidget {
       height: 30,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Color(primarycolor),
+          primary: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
         ),
         onPressed: onpressed,
         child: Text(btnText,
             style: TextStyle(
-                color: Color(gradientcolor),
+                color: Colors.black,
                 fontSize: 15.5,
                 fontWeight: FontWeight.w400)),
       ),
