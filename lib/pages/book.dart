@@ -280,11 +280,6 @@ class _ServicesState extends State<Services> {
   bool isCheckedManicure = false;
   bool isCheckedTinte = false;
 
-  Color makeupColor = Color(secondarycolor);
-  Color corteHombreColor = Color(secondarycolor);
-  Color manicureColor = Color(secondarycolor);
-  Color tinteColor = Color(secondarycolor);
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -296,18 +291,16 @@ class _ServicesState extends State<Services> {
             onTap: () {
               setState(() {
                 isCheckedMakeup = !isCheckedMakeup;
-                makeupColor =
-                    isCheckedMakeup ? Colors.red : Color(secondarycolor);
               });
               Navigator.pushNamed(context, '/book');
             },
             child: Stack(
               children: [
                 IconServices(
-                  colorImg: Color(gradientcolor),
+                  colorImg: isCheckedMakeup ? Colors.red : Color(gradientcolor),
                   columnImg: "images/icon-makeup.png",
                   columnTxt: "Makeup",
-                  columnBg: makeupColor,
+                  // columnBg: makeupColor,
                   textColor: Color(secondarycolor),
                 ),
                 Positioned(
@@ -318,9 +311,6 @@ class _ServicesState extends State<Services> {
                     onChanged: (value) {
                       setState(() {
                         isCheckedMakeup = value ?? false;
-                        makeupColor = isCheckedMakeup
-                            ? Colors.red
-                            : Color(secondarycolor);
                       });
                     },
                     activeColor: Colors.green,
