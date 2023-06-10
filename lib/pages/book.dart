@@ -304,7 +304,7 @@ class _ServicesState extends State<Services> {
                   textColor: Color(secondarycolor),
                 ),
                 Positioned(
-                  top: 0,
+                  top: 30,
                   right: 0,
                   child: Checkbox(
                     value: isCheckedMakeup,
@@ -333,7 +333,7 @@ class _ServicesState extends State<Services> {
                   textColor: Color(secondarycolor),
                 ),
                 Positioned(
-                  top: 0,
+                  top: 30,
                   right: 0,
                   child: Checkbox(
                     value: isCheckedCorteHombre,
@@ -362,7 +362,7 @@ class _ServicesState extends State<Services> {
                   textColor: Color(secondarycolor),
                 ),
                 Positioned(
-                  top: 0,
+                  top: 30,
                   right: 0,
                   child: Checkbox(
                     value: isCheckedManicure,
@@ -391,7 +391,7 @@ class _ServicesState extends State<Services> {
                   textColor: Color(secondarycolor),
                 ),
                 Positioned(
-                  top: 0,
+                  top: 30,
                   right: 0,
                   child: Checkbox(
                     value: isCheckedTinte,
