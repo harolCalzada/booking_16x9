@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
+import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/image_card.dart';
 import 'package:salon_app/widgets/modal.dart';
-import 'package:salon_app/widgets/my_column.dart';
 import 'package:salon_app/widgets/specialist_column.dart';
 
 class HomePage extends StatefulWidget {
@@ -76,11 +76,11 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               servicesModal(context);
                             },
-                            child: MyColumn(
+                            child: IconServices(
                               // colorImg: Color(secondarycolor),
-                              columnImg: "images/corte_mujer.jpg",
+                              columnImg: "images/icon-cortemujer.png",
                               columnTxt: "CORTE MUJER",
-                              // columnBg: Color(gradientcolor),
+                              // columnBg: Color(backgroundimage),
                               textColor: Color(gradientcolor),
                             )),
                       ),
@@ -89,9 +89,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
-                            columnImg: "images/corte_hombre.jpg",
+                            columnImg: "images/icon-cortehombre.png",
                             columnTxt: "CORTE HOMBRE",
                             // columnBg: Color(gradientcolor),
                             textColor: Color(gradientcolor),
@@ -103,9 +103,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
-                            columnImg: "images/tinte.png",
+                            columnImg: "images/icon-tinte.png",
                             columnTxt: "TINTE",
                             // columnBg: Color(gradientcolor),
                             textColor: Color(gradientcolor),
@@ -117,9 +117,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
-                            columnImg: "images/highlights.png",
+                            columnImg: "images/icon-highlights.png",
                             columnTxt: "HIGHLIGHTS ",
                             // columnBg: Color(gradientcolor),
                             textColor: Color(gradientcolor),
@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
                             columnImg: "images/icon-makeup.png",
                             columnTxt: "MAKEUP",
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
                             columnImg: "images/icon-waves.png",
                             columnTxt: "WAVES",
@@ -165,9 +165,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
-                            columnImg: "images/manicure.png",
+                            columnImg: "images/icon-manicure.png",
                             columnTxt: "MANICURE",
                             // columnBg: Color(gradientcolor),
                             textColor: Color(gradientcolor),
@@ -179,9 +179,9 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             servicesModal(context);
                           },
-                          child: MyColumn(
+                          child: IconServices(
                             // colorImg: Color(secondarycolor),
-                            columnImg: "images/pedicure.png",
+                            columnImg: "images/icon-pedicure.png",
                             columnTxt: "PEDICURE",
                             // columnBg: Color(gradientcolor),
                             textColor: Color(gradientcolor),
@@ -192,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "Reservas Cercanas",
+                    "Próximas citas",
                     style: TextStyle(
                       color: Color(gradientcolor),
                     ),

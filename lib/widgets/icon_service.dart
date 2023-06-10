@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 
-class MyColumn extends StatelessWidget {
+class IconServices extends StatelessWidget {
   final String columnImg, columnTxt;
   final Color columnBg;
   final Color textColor;
   final Color colorImg;
 
-  const MyColumn(
+  const IconServices(
       {Key key,
       this.columnImg,
       this.columnTxt,
@@ -26,10 +26,13 @@ class MyColumn extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: columnBg,
+            color: Color(backgroundimage),
+            border: Border.all(color: Color(secondarycolor)),
           ),
           child: Image(
-              color: colorImg, image: AssetImage(columnImg), fit: BoxFit.cover),
+              // color: Colors.black,
+              image: AssetImage(columnImg),
+              fit: BoxFit.cover),
         ),
         SizedBox(height: 10),
         Text(columnTxt, style: TextStyle(color: (textColor), fontSize: 10)),

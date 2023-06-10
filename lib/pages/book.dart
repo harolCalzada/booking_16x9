@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/date_column.dart';
-import 'package:salon_app/widgets/my_column.dart';
+import 'package:salon_app/widgets/icon_service.dart';
 
 class BookPage extends StatefulWidget {
   @override
@@ -228,37 +228,6 @@ class _BookPageState extends State<BookPage> {
                               child: buttonTime("12:00-1:00 PM",
                                   Color(gradientcolor), Colors.black54),
                             ),
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "1:00 - 2:00 PM",Color(gradientcolor), Colors.black54),),
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "2:00 - 3:00 PM", Color(gradientcolor), Colors.black54),),
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "3:00 - 4:00 PM", Color(gradientcolor), Colors.black54),),
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "4:00 - 5:00 PM", Color(gradientcolor), Colors.black54),),
-
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "5:00 - 6:00 PM", Color(gradientcolor), Colors.black54),),
-                            // SizedBox(
-                            //  width:165,
-                            // child:
-                            // buttonTime(
-                            //     "6:00 - 7:00 PM", Color(gradientcolor), Colors.black54),),
                           ],
                         ),
                       ),
@@ -298,80 +267,6 @@ class _BookPageState extends State<BookPage> {
   }
 }
 
-// class ListViewImage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return  Container(
-//           height: 150,
-
-//           child: ListView(
-//             scrollDirection: Axis.horizontal,
-//             children: <Widget>[
-//               Container(
-//                width: 170,
-//   decoration: BoxDecoration(
-//     color: Color(gradientcolor),
-//     borderRadius: BorderRadius.circular(10.0),
-//   ),
-//   child: ClipRRect(
-//     borderRadius: BorderRadius.circular(30.0),
-//     child: Image.asset(
-//       'assets/images/braid4.jpg',
-//       fit: BoxFit.cover,
-//     ),
-//   ),
-// ),
-//             SizedBox(width: 7,),
-//               Container(
-//                 width: 170,
-//                decoration: BoxDecoration(
-//     color: Color(gradientcolor),
-//     borderRadius: BorderRadius.circular(10.0),
-//   ),
-//   child: ClipRRect(
-//     borderRadius: BorderRadius.circular(30.0),
-//     child: Image.asset(
-//       'assets/images/braid4.jpg',
-//       fit: BoxFit.cover,
-//     ),
-//   ),
-// ),
-//            SizedBox(width: 7,),
-//               Container(
-//                 width: 170,
-//                decoration: BoxDecoration(
-//     color: Color(gradientcolor),
-//     borderRadius: BorderRadius.circular(10.0),
-//   ),
-//   child: ClipRRect(
-//     borderRadius: BorderRadius.circular(30.0),
-//     child: Image.asset(
-//       'assets/images/braid4.jpg',
-//       fit: BoxFit.cover,
-//     ),
-//   ),
-// ),
-//          SizedBox(width: 7,),
-//               Container(
-//                 width: 170,
-//                  decoration: BoxDecoration(
-//     color: Color(gradientcolor),
-//     borderRadius: BorderRadius.circular(10.0),
-//   ),
-//   child: ClipRRect(
-//     borderRadius: BorderRadius.circular(30.0),
-//     child: Image.asset(
-//       'assets/images/braid4.jpg',
-//       fit: BoxFit.cover,
-//     ),
-//   ),
-// ),
-//             ],
-//           ),
-//         );
-
-//   }
-// }
 class Services extends StatefulWidget {
   const Services({key});
 
@@ -380,60 +275,149 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
+  bool isCheckedMakeup = false;
+  bool isCheckedCorteHombre = false;
+  bool isCheckedManicure = false;
+  bool isCheckedTinte = false;
+
+  Color makeupColor = Color(secondarycolor);
+  Color corteHombreColor = Color(secondarycolor);
+  Color manicureColor = Color(secondarycolor);
+  Color tinteColor = Color(secondarycolor);
+
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Expanded(
-            child: InkWell(
-              onTap: () => Navigator.pushNamed(context, '/book'),
-              child: MyColumn(
-                colorImg: Color(gradientcolor),
-                columnImg: "images/icon-makeup.png",
-                columnTxt: "Makeup",
-                columnBg: Color(secondarycolor),
-                textColor: Color(secondarycolor),
-              ),
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              setState(() {
+                isCheckedMakeup = !isCheckedMakeup;
+                makeupColor =
+                    isCheckedMakeup ? Colors.red : Color(secondarycolor);
+              });
+              Navigator.pushNamed(context, '/book');
+            },
+            child: Stack(
+              children: [
+                IconServices(
+                  colorImg: Color(gradientcolor),
+                  columnImg: "images/icon-makeup.png",
+                  columnTxt: "Makeup",
+                  columnBg: makeupColor,
+                  textColor: Color(secondarycolor),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Checkbox(
+                    value: isCheckedMakeup,
+                    onChanged: (value) {
+                      setState(() {
+                        isCheckedMakeup = value ?? false;
+                        makeupColor = isCheckedMakeup
+                            ? Colors.red
+                            : Color(secondarycolor);
+                      });
+                    },
+                    activeColor: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: InkWell(
-              onTap: () => Navigator.pushNamed(context, '/book'),
-              child: MyColumn(
-                colorImg: Color(gradientcolor),
-                columnImg: "images/corte_hombre.jpg",
-                columnTxt: "Corte Hombre",
-                columnBg: Color(secondarycolor),
-                textColor: Color(secondarycolor),
-              ),
+        ),
+        Expanded(
+          child: InkWell(
+            onTap: () => Navigator.pushNamed(context, '/book'),
+            child: Stack(
+              children: [
+                IconServices(
+                  colorImg: Color(gradientcolor),
+                  columnImg: "images/icon-cortehombre.png",
+                  columnTxt: "Corte Hombre",
+                  columnBg: Color(secondarycolor),
+                  textColor: Color(secondarycolor),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Checkbox(
+                    value: isCheckedCorteHombre,
+                    onChanged: (value) {
+                      setState(() {
+                        isCheckedCorteHombre = value ?? false;
+                      });
+                    },
+                    activeColor: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: InkWell(
-              onTap: () => Navigator.pushNamed(context, '/book'),
-              child: MyColumn(
-                colorImg: Color(gradientcolor),
-                columnImg: "images/manicure.png",
-                columnTxt: "Manicure",
-                columnBg: Color(secondarycolor),
-                textColor: Color(secondarycolor),
-              ),
+        ),
+        Expanded(
+          child: InkWell(
+            onTap: () => Navigator.pushNamed(context, '/book'),
+            child: Stack(
+              children: [
+                IconServices(
+                  colorImg: Color(gradientcolor),
+                  columnImg: "images/icon-manicure.png",
+                  columnTxt: "Manicure",
+                  columnBg: Color(secondarycolor),
+                  textColor: Color(secondarycolor),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Checkbox(
+                    value: isCheckedManicure,
+                    onChanged: (value) {
+                      setState(() {
+                        isCheckedManicure = value ?? false;
+                      });
+                    },
+                    activeColor: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: InkWell(
-              onTap: () => Navigator.pushNamed(context, '/book'),
-              child: MyColumn(
-                colorImg: Color(gradientcolor),
-                columnImg: "images/tinte.png",
-                columnTxt: "Tinte",
-                columnBg: Color(secondarycolor),
-                textColor: Color(secondarycolor),
-              ),
+        ),
+        Expanded(
+          child: InkWell(
+            onTap: () => Navigator.pushNamed(context, '/book'),
+            child: Stack(
+              children: [
+                IconServices(
+                  colorImg: Color(gradientcolor),
+                  columnImg: "images/icon-tinte.png",
+                  columnTxt: "Tinte",
+                  columnBg: Color(secondarycolor),
+                  textColor: Color(secondarycolor),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Checkbox(
+                    value: isCheckedTinte,
+                    onChanged: (value) {
+                      setState(() {
+                        isCheckedTinte = value ?? false;
+                      });
+                    },
+                    activeColor: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-        ]);
+        ),
+      ],
+    );
   }
 }
