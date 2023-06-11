@@ -255,7 +255,8 @@ class _BookPageState extends State<BookPage> {
                   )),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/home'),
+                onPressed: () =>
+                    Navigator.of(context).pushNamed('/reservation'),
                 child: Text("Reservar"),
               ),
               SizedBox(height: 20)
