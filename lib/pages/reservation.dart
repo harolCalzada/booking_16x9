@@ -53,7 +53,7 @@ class Reservation extends StatelessWidget {
               height: 25,
             ),
             Table(
-              border: TableBorder.all(),
+              border: TableBorder.all(color: Colors.transparent),
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               children: [
                 TableRow(
@@ -115,13 +115,38 @@ class Reservation extends StatelessWidget {
                     ),
                   ],
                 ),
+                // TableRow(children: [
+                //   TableCell(
+                //     child: Container(
+                //       width: double.infinity,
+                //       padding: EdgeInsets.all(10.0),
+                //     ),
+                //   ),
+                //   TableCell(
+                //     child: Container(
+                //       width: double.infinity,
+                //       padding: EdgeInsets.all(10.0),
+                //       child: Column(
+                //         children: [
+                //           Divider(
+                //             color: Colors.black, // Color de la línea
+                //             thickness: 1.0, // Grosor de la línea
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ]),
                 TableRow(
                   children: [
                     TableCell(
                       child: Container(
                         padding: EdgeInsets.all(8.0),
                         child: Text('Total',
-                            style: TextStyle(color: Color(secondarycolor))),
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Color(secondarycolor),
+                                fontWeight: FontWeight.bold)),
                       ),
                     ),
                     TableCell(
