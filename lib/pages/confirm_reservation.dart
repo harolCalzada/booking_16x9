@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 
-class Reservation extends StatelessWidget {
-  const Reservation({key});
+class ConfirmReservation extends StatelessWidget {
+  const ConfirmReservation({key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,10 @@ class Reservation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 30,
+              height: 40,
             ),
             Text(
-              "Orden del servicio",
+              "Resumen del Servicio",
               style: TextStyle(
                   color: Color(secondaryColor),
                   fontSize: 18,
@@ -61,7 +61,7 @@ class Reservation extends StatelessWidget {
                     TableCell(
                       child: Container(
                         padding: EdgeInsets.all(8.0),
-                        child: Text('Precio de Servicio',
+                        child: Text('Corte mujer',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
@@ -82,7 +82,7 @@ class Reservation extends StatelessWidget {
                     TableCell(
                       child: Container(
                         padding: EdgeInsets.all(8.0),
-                        child: Text('Descuento del Servicio',
+                        child: Text('Waves',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
@@ -90,7 +90,7 @@ class Reservation extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(8.0),
-                        child: Text('S/10.00',
+                        child: Text('S/45.00',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
@@ -101,7 +101,7 @@ class Reservation extends StatelessWidget {
                     TableCell(
                       child: Container(
                         padding: EdgeInsets.all(8.0),
-                        child: Text('Tax',
+                        child: Text('Highlights',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
@@ -109,12 +109,33 @@ class Reservation extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(8.0),
-                        child: Text('S/15.00',
+                        child: Text('S/70.00',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
                   ],
                 ),
+
+                TableRow(
+                  children: [
+                    TableCell(
+                      child: Container(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Makeup',
+                            style: TextStyle(color: Color(secondaryColor))),
+                      ),
+                    ),
+                    TableCell(
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('S/80.00',
+                            style: TextStyle(color: Color(secondaryColor))),
+                      ),
+                    ),
+                  ],
+                ),
+
                 // TableRow(children: [
                 //   TableCell(
                 //     child: Container(
@@ -153,7 +174,7 @@ class Reservation extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(8.0),
-                        child: Text('S/75.00',
+                        child: Text('S/245.00',
                             style: TextStyle(color: Color(secondaryColor))),
                       ),
                     ),
@@ -162,31 +183,32 @@ class Reservation extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            Center(
-              child: Image.asset(
-                "images/codigo-qr1.png",
-                height: 160,
-                width: 160,
-              ),
-            ),
+            // Center(
+            //   child: Image.asset(
+            //     "images/codigo-qr1.png",
+            //     height: 160,
+            //     width: 160,
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // Center(
+            //   child: Text(
+            //     "Paga y confirma el código QR",
+            //     style: TextStyle(
+            //       color: Color(secondaryColor),
+            //       fontSize: 14,
+            //     ),
+            //   ),
+            // ),
             SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Text(
-                "Paga y confirma el código QR",
-                style: TextStyle(
-                  color: Color(secondaryColor),
-                  fontSize: 14,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 45,
+              height: 75,
             ),
             Center(
               child: TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/login'),
+                onPressed: () =>
+                    Navigator.of(context).pushNamed('/succeed_reservation'),
                 child: Text("Confirmar"),
               ),
             ),

@@ -318,7 +318,8 @@ class NextReservationSectionWidget extends StatelessWidget {
                     height: 30,
                     colorBackground: Colors.black.value,
                     colorText: gradientColor,
-                    onpressed: () {},
+                    onpressed: () =>
+                        Navigator.of(context).pushNamed('/succeed_reservation'),
                   )
                 ],
               ),

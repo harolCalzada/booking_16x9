@@ -4,7 +4,8 @@ import 'package:salon_app/pages/forgot_password.dart';
 import 'package:salon_app/pages/home.dart';
 import 'package:salon_app/pages/login.dart';
 import 'package:salon_app/pages/register.dart';
-import 'package:salon_app/pages/reservation.dart';
+import 'package:salon_app/pages/confirm_reservation.dart';
+import 'package:salon_app/pages/succeed_reservation.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
@@ -13,6 +14,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     '/register': (BuildContext context) => RegisterPage(),
     '/login': (BuildContext context) => LoginPage(),
     '/forgot_password': (BuildContext context) => ForgotPassword(),
-    '/reservation': (BuildContext context) => Reservation(),
+    '/reservation': (BuildContext context) => ConfirmReservation(),
+    '/succeed_reservation': (BuildContext context) => SucceedReservation(),
   };
 }
