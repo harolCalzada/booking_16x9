@@ -44,7 +44,7 @@ class SucceedReservation extends StatelessWidget {
             ),
             Center(
               child: Text(
-                "GRACIAS POR SU COMPRA",
+                "GRACIAS POR SU RESERVA",
                 style: TextStyle(
                     color: Color(secondaryColor),
                     fontSize: 18,
@@ -55,7 +55,7 @@ class SucceedReservation extends StatelessWidget {
               height: 15,
             ),
             Text(
-              "Resumen del Servicio",
+              "Resumen de la Reserva",
               style: TextStyle(
                   color: Color(secondaryColor),
                   fontSize: 18,
@@ -206,7 +206,7 @@ class SucceedReservation extends StatelessWidget {
             ),
             Center(
               child: Text(
-                "Paga y confirma el código QR",
+                "Presenta el código en el establecimiento",
                 style: TextStyle(
                   color: Color(secondaryColor),
                   fontSize: 14,

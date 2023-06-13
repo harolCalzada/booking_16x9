@@ -43,7 +43,7 @@ class ConfirmReservation extends StatelessWidget {
               height: 40,
             ),
             Text(
-              "Resumen del Servicio",
+              "Resumen de la Reserva",
               style: TextStyle(
                   color: Color(secondaryColor),
                   fontSize: 18,
