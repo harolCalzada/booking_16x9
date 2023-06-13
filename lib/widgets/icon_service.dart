@@ -26,8 +26,8 @@ class IconServices extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Color(backgroundimage),
-            border: Border.all(color: Color(secondarycolor)),
+            color: Color(backgroundImage),
+            border: Border.all(color: Color(secondaryColor)),
           ),
           child: Image(
               // color: Colors.black,

@@ -19,11 +19,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(secondarycolor),
+          backgroundColor: Color(secondaryColor),
         ),
         body: Container(
           decoration: BoxDecoration(
-            color: Color(secondarycolor), // Color de fondo del Container
+            color: Color(secondaryColor), // Color de fondo del Container
           ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold,
                         fontSize: 26,
                         height: 1.8,
-                        color: Color(gradientcolor)),
+                        color: Color(gradientColor)),
                   ),
                   SizedBox(
                     height: 10,
@@ -56,16 +56,16 @@ class _LoginPageState extends State<LoginPage> {
                     "Ingresa a tu cuenta",
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        fontSize: 19, height: 1.8, color: Color(gradientcolor)),
+                        fontSize: 19, height: 1.8, color: Color(gradientColor)),
                   ),
                   SizedBox(
                     height: 30,
                   ),
                   CustomSelectButton(
                     labelText: "Correo electrónico",
-                    colorLabelText: gradientcolor,
+                    colorLabelText: gradientColor,
                     hintText: "Escriba su correo electronico",
-                    colorHintText: primarycolor,
+                    colorHintText: primaryColor,
                   ),
                   SizedBox(
                     height: 40,
@@ -77,20 +77,20 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _passwordController,
                       decoration: InputDecoration(
                         hintText: "Escribe tu contraseña",
-                        hintStyle: TextStyle(color: Color(primarycolor)),
+                        hintStyle: TextStyle(color: Color(primaryColor)),
                         labelText: 'Contraseña',
                         labelStyle: TextStyle(
-                            color: Color(gradientcolor),
+                            color: Color(gradientColor),
                             fontWeight: FontWeight.bold),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(gradientcolor)),
+                          borderSide: BorderSide(color: Color(gradientColor)),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(gradientcolor)),
+                          borderSide: BorderSide(color: Color(gradientColor)),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         // Agregar el icono de ojo aquí
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                             _obscureText
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Color(gradientcolor),
+                            color: Color(gradientColor),
                             semanticLabel: _obscureText
                                 ? 'Mostrar contraseña'
                                 : 'Ocultar contraseña',
@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                           "¿Olvidaste tu contraseña?",
                           textAlign: TextAlign.right,
                           style: TextStyle(
-                              fontSize: 12, color: Color(gradientcolor)),
+                              fontSize: 12, color: Color(gradientColor)),
                         ),
                       ),
                     ),
@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: Color(gradientcolor)),
+                        color: Color(gradientColor)),
                   ),
                   SizedBox(
                     height: 10,
@@ -174,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
-                          color: Color(gradientcolor)),
+                          color: Color(gradientColor)),
                     ),
                     onTap: () {
                       Navigator.push(

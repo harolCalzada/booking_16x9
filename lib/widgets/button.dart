@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
-class MyButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String btnText;
   final VoidCallback onpressed;
   final int colorText;
@@ -10,7 +10,7 @@ class MyButton extends StatelessWidget {
   final double height;
   final int colorBackground;
 
-  const MyButton({
+  const CustomButton({
     Key key,
     this.btnText,
     this.onpressed,
@@ -40,62 +40,64 @@ class MyButton extends StatelessWidget {
               Color(colorBackground ?? 0xff000000),
             ),
           )),
-     
     );
   }
 }
 
-
 class CustomSelectButton extends StatelessWidget {
-final String labelText;
-final String hintText;
-final int colorHintText;
-final int colorLabelText;
+  final String labelText;
+  final String hintText;
+  final int colorHintText;
+  final int colorLabelText;
 
-   CustomSelectButton({key,
-   this.labelText, 
-   this.hintText,
-   this.colorHintText,
-   this.colorLabelText,
-   
-   });
+  CustomSelectButton({
+    key,
+    this.labelText,
+    this.hintText,
+    this.colorHintText,
+    this.colorLabelText,
+  });
 
-    final _emailController = TextEditingController();
+  final _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
-      width: 310,height: 50,
-                child: TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(hintText:hintText,hintStyle: TextStyle(color:Color(colorHintText)), labelText: labelText,labelStyle: TextStyle(color:Color(colorLabelText),fontWeight: FontWeight.bold,),
-                   border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(gradientcolor)),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color:Color(gradientcolor)),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                               
-                  keyboardType: TextInputType.emailAddress,
-                                   
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Por favor ingrese su correo electrónico';
-                    }
-                    if (!value.contains('@')) {
-                      return 'Por favor ingrese un correo electrónico válido';
-                    }
-                    return null;
-                  },
-                ),
-              );
-    
+      width: 310,
+      height: 50,
+      child: TextFormField(
+        controller: _emailController,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: TextStyle(color: Color(colorHintText)),
+          labelText: labelText,
+          labelStyle: TextStyle(
+            color: Color(colorLabelText),
+            fontWeight: FontWeight.bold,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(gradientColor)),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(gradientColor)),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        ),
+        keyboardType: TextInputType.emailAddress,
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Por favor ingrese su correo electrónico';
+          }
+          if (!value.contains('@')) {
+            return 'Por favor ingrese un correo electrónico válido';
+          }
+          return null;
+        },
+      ),
+    );
   }
 }

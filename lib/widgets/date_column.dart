@@ -12,7 +12,7 @@ class DateColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(weekDay, style: TextStyle(color: Color(secondarycolor))),
+        Text(weekDay, style: TextStyle(color: Color(secondaryColor))),
         SizedBox(height: 15),
         Container(
             padding: EdgeInsets.all(8),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
+import 'package:salon_app/widgets/button.dart';
+import 'package:salon_app/widgets/button2.dart';
 import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/image_card.dart';
 import 'package:salon_app/widgets/modal.dart';
@@ -20,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     final screen_size_height = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(secondarycolor),
+          backgroundColor: Color(secondaryColor),
           elevation: 0,
           leading: IconButton(
               icon: Icon(Icons.short_text, color: Colors.black87),
@@ -40,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Container(
           decoration: BoxDecoration(
-            color: Color(secondarycolor),
+            color: Color(secondaryColor),
           ),
           width: screen_size_width,
           height: screen_size_height,
@@ -81,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                               columnImg: "images/icon-cortemujer.png",
                               columnTxt: "CORTE MUJER",
                               // columnBg: Color(backgroundimage),
-                              textColor: Color(gradientcolor),
+                              textColor: Color(gradientColor),
                             )),
                       ),
                       Expanded(
@@ -94,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-cortehombre.png",
                             columnTxt: "CORTE HOMBRE",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -108,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-tinte.png",
                             columnTxt: "TINTE",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -122,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-highlights.png",
                             columnTxt: "HIGHLIGHTS ",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -142,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-makeup.png",
                             columnTxt: "MAKEUP",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -156,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-waves.png",
                             columnTxt: "WAVES",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -170,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-manicure.png",
                             columnTxt: "MANICURE",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
@@ -184,136 +186,146 @@ class _HomePageState extends State<HomePage> {
                             columnImg: "images/icon-pedicure.png",
                             columnTxt: "PEDICURE",
                             // columnBg: Color(gradientcolor),
-                            textColor: Color(gradientcolor),
+                            textColor: Color(gradientColor),
                           ),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: 15),
-                  Text(
-                    "Próximas citas",
-                    style: TextStyle(
-                      color: Color(gradientcolor),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      width: double.infinity,
-                      height: 120,
-                      padding: EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        color: Color(secondarycolor),
-                        border:
-                            Border.all(color: Color(gradientcolor), width: 1),
-                        borderRadius: BorderRadius.circular(14.0),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "18-06-23 ",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "5:00 PM",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "Miraflores",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "Corte de cabello",
-                                style: TextStyle(
-                                  color: Color(gradientcolor),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
+                  NextReservationSectionWidget()
                 ]),
           ),
         ));
+  }
+}
+
+class NextReservationSectionWidget extends StatelessWidget {
+  const NextReservationSectionWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Próxima cita",
+            style: TextStyle(
+              color: Color(gradientColor),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Center(
+            child: Container(
+              width: double.infinity,
+              height: 140,
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Color(secondaryColor),
+                border: Border.all(color: Color(gradientColor), width: 1),
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Fecha:",
+                        style: TextStyle(
+                          color: Color(gradientColor),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "16 de Julio del 2023",
+                        style: TextStyle(
+                          color: Color(gradientColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Hora:",
+                        style: TextStyle(
+                            color: Color(gradientColor),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "5:00 PM",
+                        style: TextStyle(
+                          color: Color(gradientColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Dirección:",
+                        style: TextStyle(
+                          color: Color(gradientColor),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Text(
+                          "Av. José Larco 999, Miraflores",
+                          softWrap: false,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Color(gradientColor),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  CustomButton(
+                    btnText: 'Ver QR',
+                    height: 30,
+                    colorBackground: Colors.black.value,
+                    colorText: gradientColor,
+                    onpressed: () {},
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

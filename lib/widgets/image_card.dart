@@ -36,7 +36,8 @@ class _ImageCardState extends State<ImageCard> {
                 fontSize: 22,
               )),
           SizedBox(height: 15),
-          MyButton2(btnText: "HASTA EL 19 JUN", onpressed: () {})
+          CustomElevatedButtonRounded(
+              btnText: "HASTA EL 19 JUN", onPressed: () {})
         ],
       ),
     );

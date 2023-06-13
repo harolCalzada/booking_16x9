@@ -5,7 +5,8 @@ import 'package:salon_app/uidata.dart';
 class SpecialistColumn extends StatelessWidget {
   final String specImg, specName;
 
-  const SpecialistColumn({Key key, this.specImg, this.specName}) : super(key: key);
+  const SpecialistColumn({Key key, this.specImg, this.specName})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,26 +29,29 @@ class SpecialistColumn extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                  SizedBox(height: 4),
-              Row(children: <Widget>[
-                Icon(Icons.star, color: Color(primarycolor), size: 14),
-                SizedBox(width: 1),
-                Icon(Icons.star, color: Color(primarycolor), size: 14),
-                SizedBox(width: 1),
-                Icon(Icons.star, color: Color(primarycolor), size: 14),
-                SizedBox(width: 1),
-                Icon(Icons.star, color: Color(primarycolor), size: 14),
-                SizedBox(width: 1),
-                Icon(Icons.star, color:Color(gradientcolor), size: 14),
-              ]),
               SizedBox(height: 4),
               Row(children: <Widget>[
-                Icon(Icons.phone, size: 15, color: Color(primarycolor)),
-                SizedBox(width:2),
-                Expanded(child: Text("0722000000", style: TextStyle(
-                  color: Color(gradientcolor), fontSize: 12
-                )))
-              ],)
+                Icon(Icons.star, color: Color(primaryColor), size: 14),
+                SizedBox(width: 1),
+                Icon(Icons.star, color: Color(primaryColor), size: 14),
+                SizedBox(width: 1),
+                Icon(Icons.star, color: Color(primaryColor), size: 14),
+                SizedBox(width: 1),
+                Icon(Icons.star, color: Color(primaryColor), size: 14),
+                SizedBox(width: 1),
+                Icon(Icons.star, color: Color(gradientColor), size: 14),
+              ]),
+              SizedBox(height: 4),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.phone, size: 15, color: Color(primaryColor)),
+                  SizedBox(width: 2),
+                  Expanded(
+                      child: Text("0722000000",
+                          style: TextStyle(
+                              color: Color(gradientColor), fontSize: 12)))
+                ],
+              )
             ],
           ),
         )

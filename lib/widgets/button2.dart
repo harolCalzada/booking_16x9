@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
-class MyButton2 extends StatelessWidget {
+class CustomElevatedButtonRounded extends StatelessWidget {
   final String btnText;
-  final VoidCallback onpressed;
+  final VoidCallback onPressed;
 
-  const MyButton2({Key key, this.btnText, this.onpressed}) : super(key: key);
+  const CustomElevatedButtonRounded({Key key, this.btnText, this.onPressed})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,25 +15,20 @@ class MyButton2 extends StatelessWidget {
       height: 30,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.white,
+          backgroundColor: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
         ),
-        onPressed: onpressed,
-        child: Text(btnText,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 15.5,
-                fontWeight: FontWeight.w400)),
+        onPressed: onPressed,
+        child: Text(
+          btnText,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 15.5,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
-      // child: TextButton(
-
-      //     // color: UIData.mainColor,
-      //     // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-      //     // onPressed: onpressed,
-      //     // child: Text(btnText, style: TextStyle(color: Colors.white,
-      //     // fontWeight: FontWeight.w400)),
-      //     ),
     );
   }
 }
