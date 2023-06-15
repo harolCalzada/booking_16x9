@@ -30,7 +30,16 @@ class ModalServices extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.8,
       decoration: BoxDecoration(
-          color: Color(secondaryColor),
+          gradient: LinearGradient(
+              colors: [
+                Color(primarygray), // Color de inicio del gradiente
+                Color(secondarygray), // Color de fin del gradiente
+              ],
+              begin: Alignment.center, // Punto de inicio del gradiente
+              end: Alignment.centerRight, // Punto de fin del gradiente
+              // Opcional: puedes ajustar los stops y tileMode según tus necesidades
+              stops: [0.0, 1.0],
+              tileMode: TileMode.mirror),
           borderRadius: BorderRadius.circular(40)),
       child: Center(
         child: Column(

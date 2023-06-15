@@ -13,7 +13,16 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: Color(secondaryColor),
+          gradient: LinearGradient(
+              colors: [
+                Color(primarygray), // Color de inicio del gradiente
+                Color(secondarygray), // Color de fin del gradiente
+              ],
+              begin: Alignment.center, // Punto de inicio del gradiente
+              end: Alignment.centerRight, // Punto de fin del gradiente
+              // Opcional: puedes ajustar los stops y tileMode según tus necesidades
+              stops: [0.0, 1.0],
+              tileMode: TileMode.mirror),
         ),
         padding: EdgeInsets.all(16),
         width: MediaQuery.of(context).size.width,
