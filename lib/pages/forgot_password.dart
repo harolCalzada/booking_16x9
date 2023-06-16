@@ -15,15 +15,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(gradientColor),
+          backgroundColor: Color(primarygray),
         ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(gradientColor), Color(secondaryColor)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ), // Color de fondo del Container
+                colors: [
+                  Color(primarygray), // Color de inicio del gradiente
+                  Color(secondarygray), // Color de fin del gradiente
+                ],
+                begin: Alignment.topRight, // Punto de inicio del gradiente
+                end: Alignment.bottomRight, // Punto de fin del gradiente
+                // Opcional: puedes ajustar los stops y tileMode según tus necesidades
+                stops: [0.0, 1.0],
+                tileMode: TileMode.mirror),
           ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -47,7 +52,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         height: 1.8,
-                        color: Color(secondaryColor)),
+                        color: Color(gradientColor)),
                   ),
                   SizedBox(
                     height: 10,
@@ -59,7 +64,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         height: 1.8,
-                        color: Color(primaryColor)),
+                        color: Color(gradientColor)),
                   ),
                   SizedBox(
                     height: 12,
@@ -88,7 +93,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               child: const Align(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "Por favor ingresa tu correo electronico que ingresaste al crear tu cuenta en la App,en unos minutos recibiras un correo para recuperar tu contraseña.",
+                                  "Por favor ingresa tu correo electrónico que ingresaste al crear tu cuenta en la App,en unos minutos recibirás un correo para recuperar tu contraseña.",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 11,

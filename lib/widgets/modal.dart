@@ -35,8 +35,8 @@ class ModalServices extends StatelessWidget {
                 Color(primarygray), // Color de inicio del gradiente
                 Color(secondarygray), // Color de fin del gradiente
               ],
-              begin: Alignment.center, // Punto de inicio del gradiente
-              end: Alignment.centerRight, // Punto de fin del gradiente
+              begin: Alignment.topRight, // Punto de inicio del gradiente
+              end: Alignment.bottomRight, // Punto de fin del gradiente
               // Opcional: puedes ajustar los stops y tileMode según tus necesidades
               stops: [0.0, 1.0],
               tileMode: TileMode.mirror),

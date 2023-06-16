@@ -17,12 +17,22 @@ class _RegistroPageState extends State<RegisterPage> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(secondaryColor),
+          backgroundColor: Color(primarygray),
         ),
         body: Container(
           decoration: BoxDecoration(
-            color: Color(secondaryColor), // Color de fondo del Container
-          ),
+            gradient: LinearGradient(
+                colors: [
+                  Color(primarygray), // Color de inicio del gradiente
+                  Color(secondarygray), // Color de fin del gradiente
+                ],
+                begin: Alignment.topRight, // Punto de inicio del gradiente
+                end: Alignment.bottomRight, // Punto de fin del gradiente
+                // Opcional: puedes ajustar los stops y tileMode según tus necesidades
+                stops: [0.0, 1.0],
+                tileMode: TileMode.mirror),
+          ), // Color de fondo del Container
+
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Form(

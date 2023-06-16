@@ -20,20 +20,7 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Color(primarygray), // Color de inicio del gradiente
-                      Color(secondarygray), // Color de fin del gradiente
-                    ],
-                    begin: Alignment.center, // Punto de inicio del gradiente
-                    end: Alignment.centerRight, // Punto de fin del gradiente
-                    // Opcional: puedes ajustar los stops y tileMode según tus necesidades
-                    stops: [0.0, 1.0],
-                    tileMode: TileMode.mirror),
-              ),
-            ),
+            backgroundColor: Color(primarygray),
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -42,8 +29,8 @@ class _LoginPageState extends State<LoginPage> {
                     Color(primarygray), // Color de inicio del gradiente
                     Color(secondarygray), // Color de fin del gradiente
                   ],
-                  begin: Alignment.center, // Punto de inicio del gradiente
-                  end: Alignment.centerRight, // Punto de fin del gradiente
+                  begin: Alignment.topRight, // Punto de inicio del gradiente
+                  end: Alignment.bottomRight, // Punto de fin del gradiente
                   // Opcional: puedes ajustar los stops y tileMode según tus necesidades
                   stops: [0.0, 1.0],
                   tileMode: TileMode.mirror),
