@@ -13,16 +13,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(primarygray),
+          backgroundColor: Color(primaryGray),
         ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  Color(primarygray), // Color de inicio del gradiente
-                  Color(secondarygray), // Color de fin del gradiente
+                  Color(primaryGray), // Color de inicio del gradiente
+                  Color(secondaryGray), // Color de fin del gradiente
                 ],
                 begin: Alignment.topRight, // Punto de inicio del gradiente
                 end: Alignment.bottomRight, // Punto de fin del gradiente

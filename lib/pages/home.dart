@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(primarygray),
+          backgroundColor: Color(primaryGray),
           leading: IconButton(
             icon: Icon(Icons.short_text, color: Colors.black87),
             onPressed: () {},
@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  Color(primarygray), // Color de inicio del gradiente
-                  Color(secondarygray), // Color de fin del gradiente
+                  Color(primaryGray), // Color de inicio del gradiente
+                  Color(secondaryGray), // Color de fin del gradiente
                 ],
                 begin: Alignment.topRight, // Punto de inicio del gradiente
                 end: Alignment.bottomRight, // Punto de fin del gradiente
