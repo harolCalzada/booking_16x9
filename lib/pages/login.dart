@@ -88,10 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                       width: 310,
                       height: 50,
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white),
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: "Escribe tu contraseña",
-                          hintStyle: TextStyle(color: Color(primaryColor)),
+                          hintStyle: TextStyle(color: Colors.white),
                           labelText: 'Contraseña',
                           labelStyle: TextStyle(
                               color: Color(gradientColor),

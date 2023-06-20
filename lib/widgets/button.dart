@@ -66,10 +66,11 @@ class CustomSelectButton extends StatelessWidget {
       width: 310,
       height: 50,
       child: TextFormField(
+        style: TextStyle(color: Colors.white),
         controller: _emailController,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: Color(colorHintText)),
+          hintStyle: TextStyle(color: Colors.white),
           labelText: labelText,
           labelStyle: TextStyle(
             color: Color(colorLabelText),
