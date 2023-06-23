@@ -24,22 +24,56 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color(primaryGray),
-          leading: IconButton(
-            icon: Icon(Icons.short_text, color: Colors.black87),
-            onPressed: () {},
-          ),
-          actions: <Widget>[
-            Container(
-              decoration: BoxDecoration(),
-              margin: EdgeInsets.only(right: 15, top: 15),
-              child: CircleAvatar(
-                radius: 22,
-                backgroundImage: AssetImage(
-                  "images/profile.jpg",
-                ),
+          leading: Container(
+            width: MediaQuery.of(context).size.width * 0.28,
+            child: PopupMenuButton(
+              color: Color(gradientColor),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
+              icon: Icon(
+                Icons.short_text_rounded,
+                color: Color(gradientColor),
+                size: 29,
+              ),
+              offset: Offset(0, 50), // Ajusta la posición vertical del menú
+
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(
+                    child: Text(
+                      'Perfil',
+                      style: TextStyle(color: Color(primaryGray)),
+                    ),
+                    value: 'opcion1',
+                  ),
+                  PopupMenuItem(
+                    child: Text(
+                      'Reservas',
+                      style: TextStyle(color: Color(primaryGray)),
+                    ),
+                    value: 'opcion2',
+                  ),
+                  PopupMenuItem(
+                    child: Text(
+                      'Cerrar sesión',
+                      style: TextStyle(color: Color(primaryGray)),
+                    ),
+                    value: 'opcion2',
+                  ),
+                ];
+              },
+
+              onSelected: (value) {
+                // Lógica para manejar la opción seleccionada
+                if (value == 'opcion1') {
+                  // Acción para la opción 1
+                } else if (value == 'opcion2') {
+                  // Acción para la opción 2
+                }
+              },
             ),
-          ],
+          ),
         ),
         body: Container(
           decoration: BoxDecoration(
