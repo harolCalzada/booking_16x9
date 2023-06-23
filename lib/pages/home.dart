@@ -25,11 +25,11 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Color(primaryGray),
           leading: Container(
-            width: MediaQuery.of(context).size.width * 0.28,
+            // width: MediaQuery.of(context).size.width * 0.28,
             child: PopupMenuButton(
               color: Color(gradientColor),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(5),
               ),
               icon: Icon(
                 Icons.short_text_rounded,
@@ -41,25 +41,70 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext context) {
                 return [
                   PopupMenuItem(
-                    child: Text(
-                      'Perfil',
-                      style: TextStyle(color: Color(primaryGray)),
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.person,
+                            color: Color(primaryGray),
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            'Perfil',
+                            style: TextStyle(color: Color(primaryGray)),
+                          ),
+                        ],
+                      ),
                     ),
                     value: 'opcion1',
                   ),
                   PopupMenuItem(
-                    child: Text(
-                      'Reservas',
-                      style: TextStyle(color: Color(primaryGray)),
+                    child: Container(
+                        height: 0.5,
+                        width: double.infinity,
+                        color: Color(primaryGray)),
+
+                    // Desactiva el elemento para que no sea seleccionable
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_today,
+                          color: Color(primaryGray),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Reservas',
+                          style: TextStyle(color: Color(primaryGray)),
+                        ),
+                      ],
                     ),
                     value: 'opcion2',
                   ),
                   PopupMenuItem(
-                    child: Text(
-                      'Cerrar sesión',
-                      style: TextStyle(color: Color(primaryGray)),
+                    child: Container(
+                        height: 0.5,
+                        width: double.infinity,
+                        color: Color(primaryGray)),
+
+                    // Desactiva el elemento para que no sea seleccionable
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.exit_to_app,
+                          color: Color(primaryGray),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Cerrar sesión',
+                          style: TextStyle(color: Color(primaryGray)),
+                        ),
+                      ],
                     ),
-                    value: 'opcion2',
+                    value: 'opcion3',
                   ),
                 ];
               },
