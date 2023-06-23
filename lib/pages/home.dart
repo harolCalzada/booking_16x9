@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Color(primaryGray),
           leading: Container(
-            // width: MediaQuery.of(context).size.width * 0.28,
+            width: MediaQuery.of(context).size.width * 0.28,
             child: PopupMenuButton(
               color: Color(gradientColor),
               shape: RoundedRectangleBorder(
@@ -42,16 +42,24 @@ class _HomePageState extends State<HomePage> {
                 return [
                   PopupMenuItem(
                     child: Container(
-                      child: Row(
+                      child: Column(
                         children: [
-                          Icon(
-                            Icons.person,
-                            color: Color(primaryGray),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: Color(primaryGray),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Perfil',
+                                style: TextStyle(color: Color(primaryGray)),
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 8),
-                          Text(
-                            'Perfil',
-                            style: TextStyle(color: Color(primaryGray)),
+                          Divider(
+                            color: Colors.grey,
+                            thickness: 1,
                           ),
                         ],
                       ),
@@ -59,48 +67,48 @@ class _HomePageState extends State<HomePage> {
                     value: 'opcion1',
                   ),
                   PopupMenuItem(
-                    child: Container(
-                        height: 0.5,
-                        width: double.infinity,
-                        color: Color(primaryGray)),
-
-                    // Desactiva el elemento para que no sea seleccionable
-                  ),
-                  PopupMenuItem(
-                    child: Row(
+                    child: Column(
                       children: [
-                        Icon(
-                          Icons.calendar_today,
-                          color: Color(primaryGray),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_today,
+                              color: Color(primaryGray),
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              'Reservas',
+                              style: TextStyle(color: Color(primaryGray)),
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 8),
-                        Text(
-                          'Reservas',
-                          style: TextStyle(color: Color(primaryGray)),
+                        Divider(
+                          color: Colors.grey,
+                          thickness: 1,
                         ),
                       ],
                     ),
                     value: 'opcion2',
                   ),
                   PopupMenuItem(
-                    child: Container(
-                        height: 0.5,
-                        width: double.infinity,
-                        color: Color(primaryGray)),
-
-                    // Desactiva el elemento para que no sea seleccionable
-                  ),
-                  PopupMenuItem(
-                    child: Row(
+                    child: Column(
                       children: [
-                        Icon(
-                          Icons.exit_to_app,
-                          color: Color(primaryGray),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.exit_to_app,
+                              color: Color(primaryGray),
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              'Cerrar sesión',
+                              style: TextStyle(color: Color(primaryGray)),
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 8),
-                        Text(
-                          'Cerrar sesión',
-                          style: TextStyle(color: Color(primaryGray)),
+                        Divider(
+                          color: Colors.grey,
+                          thickness: 1,
                         ),
                       ],
                     ),
