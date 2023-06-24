@@ -25,7 +25,8 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Color(primaryGray),
           leading: Container(
-            width: MediaQuery.of(context).size.width * 0.28,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             child: PopupMenuButton(
               color: Color(gradientColor),
               shape: RoundedRectangleBorder(
@@ -36,12 +37,12 @@ class _HomePageState extends State<HomePage> {
                 color: Color(gradientColor),
                 size: 29,
               ),
-              offset: Offset(0, 50), // Ajusta la posición vertical del menú
-
+              offset: Offset(0, 50),
               itemBuilder: (BuildContext context) {
                 return [
                   PopupMenuItem(
                     child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
                       child: Column(
                         children: [
                           Row(
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                           Divider(
+                            // Agrega la línea divisoria
                             color: Colors.grey,
                             thickness: 1,
                           ),
@@ -67,10 +69,11 @@ class _HomePageState extends State<HomePage> {
                     value: 'opcion1',
                   ),
                   PopupMenuItem(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
+                    child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
+                      child: Column(
+                        children: [
+                          Row(children: [
                             Icon(
                               Icons.calendar_today,
                               color: Color(primaryGray),
@@ -80,43 +83,47 @@ class _HomePageState extends State<HomePage> {
                               'Reservas',
                               style: TextStyle(color: Color(primaryGray)),
                             ),
-                          ],
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                      ],
+                          ]),
+                          Divider(
+                            // Agrega la línea divisoria
+                            color: Colors.grey,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
                     ),
                     value: 'opcion2',
                   ),
                   PopupMenuItem(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.exit_to_app,
-                              color: Color(primaryGray),
-                            ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Cerrar sesión',
-                              style: TextStyle(color: Color(primaryGray)),
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                      ],
+                    child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.exit_to_app,
+                                color: Color(primaryGray),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Cerrar sesión',
+                                style: TextStyle(color: Color(primaryGray)),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            // Agrega la línea divisoria
+                            color: Colors.grey,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
                     ),
                     value: 'opcion3',
                   ),
                 ];
               },
-
               onSelected: (value) {
                 // Lógica para manejar la opción seleccionada
                 if (value == 'opcion1') {
