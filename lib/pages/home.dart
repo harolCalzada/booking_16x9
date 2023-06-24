@@ -25,8 +25,8 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Color(primaryGray),
           leading: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            // width: MediaQuery.of(context).size.width,
+            // height: MediaQuery.of(context).size.height,
             child: PopupMenuButton(
               color: Color(gradientColor),
               shape: RoundedRectangleBorder(
@@ -112,11 +112,11 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          Divider(
-                            // Agrega la línea divisoria
-                            color: Colors.grey,
-                            thickness: 1,
-                          ),
+                          // Divider(
+                          //   // Agrega la línea divisoria
+                          //   color: Colors.grey,
+                          //   thickness: 1,
+                          // ),
                         ],
                       ),
                     ),
