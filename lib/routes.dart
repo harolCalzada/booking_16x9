@@ -19,6 +19,27 @@ GoRouter getApplicationRoutes() {
           return IntroPage();
         },
       ),
+
+      GoRoute(
+        path: '/register',
+        builder: (BuildContext context, GoRouterState state) {
+          return RegisterPage();
+        },
+      ),
+
+      GoRoute(
+        path: '/login',
+        builder: (BuildContext context, GoRouterState state) {
+          return LoginPage();
+        },
+      ),
+      GoRoute(
+        path: '/password',
+        builder: (BuildContext context, GoRouterState state) {
+          return ForgotPassword();
+        },
+      ),
+
       GoRoute(
         path: '/home',
         builder: (BuildContext context, GoRouterState state) {
@@ -31,13 +52,27 @@ GoRouter getApplicationRoutes() {
           return BookPage();
         },
       ),
+
+      // Agrega más rutas según tus necesidades
       GoRoute(
-        path: '/register',
+        path: '/confirm_reservation',
         builder: (BuildContext context, GoRouterState state) {
-          return RegisterPage();
+          return ConfirmReservation();
         },
       ),
-      // Agrega más rutas según tus necesidades
+      GoRoute(
+        path: '/succeed_reservation',
+        builder: (BuildContext context, GoRouterState state) {
+          return SucceedReservation();
+        },
+      ),
+
+      GoRoute(
+        path: '/administrator',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
     ],
   );
 

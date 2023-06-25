@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 
 class SucceedReservation extends StatelessWidget {
@@ -14,7 +15,7 @@ class SucceedReservation extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/home');
+            context.go('/home');
           },
           child: Row(
             children: [
@@ -218,7 +219,7 @@ class SucceedReservation extends StatelessWidget {
             ),
             Center(
               child: TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/home'),
+                onPressed: () => context.go('/home'),
                 child: Text("Ir a Home"),
               ),
             ),

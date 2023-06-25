@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/pages/register.dart';
 
@@ -55,7 +56,7 @@ class _IntroPageState extends State<IntroPage> {
               height: 14,
             ),
             TextButton(
-              onPressed: () => Navigator.of(context).pushNamed('/login'),
+              onPressed: () => context.go('/login'),
               child: Text("Ingresar a JAUS"),
             ),
             SizedBox(
@@ -102,10 +103,7 @@ class _IntroPageState extends State<IntroPage> {
                     color: Color(gradientColor)),
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterPage()),
-                );
+                context.go('/register');
               },
             )
           ],

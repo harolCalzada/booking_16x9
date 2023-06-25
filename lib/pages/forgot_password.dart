@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
@@ -143,8 +144,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       width: 220,
                       height: 50,
                       child: TextButton(
-                        onPressed: () =>
-                            Navigator.of(context).pushNamed('/home'),
+                        onPressed: () => context.go('/home'),
                         child: Text("Enviar correo"),
                       )),
                   SizedBox(height: 20.0),

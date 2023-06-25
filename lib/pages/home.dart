@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
@@ -422,8 +423,7 @@ class NextReservationSectionWidget extends StatelessWidget {
                     height: 30,
                     colorBackground: Colors.black.value,
                     colorText: gradientColor,
-                    onpressed: () =>
-                        Navigator.of(context).pushNamed('/succeed_reservation'),
+                    onpressed: () => context.go('/succeed_reservation'),
                   )
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/date_column.dart';
 import 'package:salon_app/widgets/icon_service.dart';
@@ -45,7 +46,7 @@ class _BookPageState extends State<BookPage> {
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/home');
+            context.go('/home');
           },
           child: Row(
             children: [
@@ -244,8 +245,7 @@ class _BookPageState extends State<BookPage> {
                   )),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed('/reservation'),
+                onPressed: () => context.go('/reservation'),
                 child: Text("Reservar"),
               ),
               SizedBox(height: 20)

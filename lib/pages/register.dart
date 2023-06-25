@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
@@ -154,8 +155,7 @@ class _RegistroPageState extends State<RegisterPage> {
                         width: 220,
                         height: 50,
                         child: TextButton(
-                          onPressed: () =>
-                              Navigator.of(context).pushNamed('/home'),
+                          onPressed: () => context.go('/home'),
                           child: Text("Registrarse"),
                         )),
                   ],
