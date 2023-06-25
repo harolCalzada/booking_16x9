@@ -103,7 +103,7 @@ class ModalServices extends StatelessWidget {
                 colorText: gradientColor,
                 // width: 40,
                 // height: 20,
-                onpressed: () => Navigator.of(context).pushNamed('/home'),
+                onpressed: () => Navigator.pop(context),
               ),
             ),
           ],

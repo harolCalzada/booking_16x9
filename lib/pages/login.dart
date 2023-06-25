@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/pages/forgot_password.dart';
 import 'package:salon_app/pages/register.dart';
@@ -88,10 +89,11 @@ class _LoginPageState extends State<LoginPage> {
                       width: 310,
                       height: 50,
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white),
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: "Escribe tu contraseña",
-                          hintStyle: TextStyle(color: Color(primaryColor)),
+                          hintStyle: TextStyle(color: Colors.white),
                           labelText: 'Contraseña',
                           labelStyle: TextStyle(
                               color: Color(gradientColor),
@@ -169,6 +171,15 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () =>
                               Navigator.of(context).pushNamed('/home'),
                           child: Text("Ingresar"),
+                        )),
+                    SizedBox(height: 20.0),
+                    SizedBox(
+                        width: 220,
+                        height: 50,
+                        child: TextButton(
+                          onPressed: () =>
+                              GoRouter.of(context).go('/side_menu'),
+                          child: Text("Ir a administrador"),
                         )),
                     SizedBox(height: 20.0),
                     Text(

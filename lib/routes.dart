@@ -1,20 +1,38 @@
-import 'package:flutter/material.dart';
-import 'package:salon_app/pages/book.dart';
-import 'package:salon_app/pages/forgot_password.dart';
-import 'package:salon_app/pages/home.dart';
-import 'package:salon_app/pages/login.dart';
-import 'package:salon_app/pages/register.dart';
-import 'package:salon_app/pages/confirm_reservation.dart';
-import 'package:salon_app/pages/succeed_reservation.dart';
+// import 'package:flutter/material.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:salon_app/pages/book.dart';
+// import 'package:salon_app/pages/forgot_password.dart';
+// import 'package:salon_app/pages/home.dart';
+// import 'package:salon_app/pages/login.dart';
+// import 'package:salon_app/pages/register.dart';
+// import 'package:salon_app/pages/confirm_reservation.dart';
+// import 'package:salon_app/pages/succeed_reservation.dart';
+// import 'package:salon_app/widgets/administrator.dart';
 
-Map<String, WidgetBuilder> getApplicationRoutes() {
-  return <String, WidgetBuilder>{
-    '/home': (BuildContext context) => HomePage(),
-    '/book': (BuildContext context) => BookPage(),
-    '/register': (BuildContext context) => RegisterPage(),
-    '/login': (BuildContext context) => LoginPage(),
-    '/forgot_password': (BuildContext context) => ForgotPassword(),
-    '/reservation': (BuildContext context) => ConfirmReservation(),
-    '/succeed_reservation': (BuildContext context) => SucceedReservation(),
-  };
-}
+// GoRouter getApplicationRoutes() {
+//   final goRouter = GoRouter(
+//     routes: [
+//       GoRoute(
+//         path: '/home',
+//         builder: (BuildContext context, GoRouterState state) {
+//           return HomePage();
+//         },
+//       ),
+//       GoRoute(
+//         path: '/book',
+//         builder: (BuildContext context, GoRouterState state) {
+//           return BookPage();
+//         },
+//       ),
+//       GoRoute(
+//         path: '/register',
+//         builder: (BuildContext context, GoRouterState state) {
+//           return RegisterPage();
+//         },
+//       ),
+//       // Agrega más rutas según tus necesidades
+//     ],
+//   );
+
+//   return goRouter;
+// }

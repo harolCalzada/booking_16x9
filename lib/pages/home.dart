@@ -24,22 +24,116 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color(primaryGray),
-          leading: IconButton(
-            icon: Icon(Icons.short_text, color: Colors.black87),
-            onPressed: () {},
-          ),
-          actions: <Widget>[
-            Container(
-              decoration: BoxDecoration(),
-              margin: EdgeInsets.only(right: 15, top: 15),
-              child: CircleAvatar(
-                radius: 22,
-                backgroundImage: AssetImage(
-                  "images/profile.jpg",
-                ),
+          leading: Container(
+            // width: MediaQuery.of(context).size.width,
+            // height: MediaQuery.of(context).size.height,
+            child: PopupMenuButton(
+              color: Color(gradientColor),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
               ),
+              icon: Icon(
+                Icons.short_text_rounded,
+                color: Color(gradientColor),
+                size: 29,
+              ),
+              offset: Offset(0, 50),
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(
+                    child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: Color(primaryGray),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Perfil',
+                                style: TextStyle(color: Color(primaryGray)),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            // Agrega la línea divisoria
+                            color: Colors.grey,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                    value: 'opcion1',
+                  ),
+                  PopupMenuItem(
+                    child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
+                      child: Column(
+                        children: [
+                          Row(children: [
+                            Icon(
+                              Icons.calendar_today,
+                              color: Color(primaryGray),
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              'Reservas',
+                              style: TextStyle(color: Color(primaryGray)),
+                            ),
+                          ]),
+                          Divider(
+                            // Agrega la línea divisoria
+                            color: Colors.grey,
+                            thickness: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                    value: 'opcion2',
+                  ),
+                  PopupMenuItem(
+                    child: Container(
+                      height: 40, // Ajusta este valor según tus necesidades
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.exit_to_app,
+                                color: Color(primaryGray),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Cerrar sesión',
+                                style: TextStyle(color: Color(primaryGray)),
+                              ),
+                            ],
+                          ),
+                          // Divider(
+                          //   // Agrega la línea divisoria
+                          //   color: Colors.grey,
+                          //   thickness: 1,
+                          // ),
+                        ],
+                      ),
+                    ),
+                    value: 'opcion3',
+                  ),
+                ];
+              },
+              onSelected: (value) {
+                // Lógica para manejar la opción seleccionada
+                if (value == 'opcion1') {
+                  // Acción para la opción 1
+                } else if (value == 'opcion2') {
+                  // Acción para la opción 2
+                }
+              },
             ),
-          ],
+          ),
         ),
         body: Container(
           decoration: BoxDecoration(
