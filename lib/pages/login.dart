@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Correo electrónico",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electronico",

@@ -52,7 +52,7 @@ class _RegistroPageState extends State<RegisterPage> {
                         height: 120,
                       ),
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Nombre",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su nombre",
@@ -61,7 +61,7 @@ class _RegistroPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 13,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Apellido",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su apellido",
@@ -70,7 +70,7 @@ class _RegistroPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 13,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Teléfono",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su teléfono",
@@ -79,7 +79,7 @@ class _RegistroPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 13,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Correo electrónico",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electrónico",
@@ -88,7 +88,7 @@ class _RegistroPageState extends State<RegisterPage> {
                     SizedBox(
                       height: 13,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Distrito",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su distrito",

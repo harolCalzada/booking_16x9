@@ -13,25 +13,12 @@ class SucceedReservation extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        leading: GestureDetector(
-          onTap: () {
-            context.go('/home');
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.black,
+          onPressed: () {
+            context.go('/Home'); // Redirige a la pantalla anterior
           },
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Text(
-                  "Atrás",
-                  style: TextStyle(
-                    color: Color(secondaryColor),
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
       body: Padding(

@@ -25,7 +25,7 @@ class _SideMenuState extends State<SideMenu> {
             color: Colors.black,
           ),
           onPressed: () {
-            context.go('/menu_administrator');
+            context.go('/home');
           },
         ),
       ),
@@ -50,11 +50,8 @@ class _SideMenuState extends State<SideMenu> {
             case 2:
               context.go('/Services');
               break;
-              // case 3:
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => PromocionesScreen()),
-              //   );
+            case 3:
+              context.go('/Promotions');
               break;
               // case 4:
               //   Navigator.push(

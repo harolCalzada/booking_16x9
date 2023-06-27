@@ -44,13 +44,13 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-class CustomSelectButton extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final String hintText;
   final int colorHintText;
   final int colorLabelText;
 
-  CustomSelectButton({
+  CustomTextFormField({
     key,
     this.labelText,
     this.hintText,
