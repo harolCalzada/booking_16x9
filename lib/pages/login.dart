@@ -174,7 +174,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: 220,
                         height: 50,
                         child: TextButton(
-                          onPressed: () => context.go('/administrator'),
+                          onPressed: () => context.go(
+                            '/menu_administrator',
+                          ),
                           child: Text("Ir a administrador"),
                         )),
                     SizedBox(height: 20.0),
