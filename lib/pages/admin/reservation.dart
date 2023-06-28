@@ -26,8 +26,16 @@ class ReservationService extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/logo-jaus-dorado.png',
+              width: 100,
+              height: 100,
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -40,14 +48,6 @@ class ReservationService extends StatelessWidget {
                   onpressed: () => context.go('/AddReservation'),
                 ),
               ],
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/images/logo-jaus-dorado.png',
-              width: 80,
-              height: 80,
             ),
           ),
           SingleChildScrollView(

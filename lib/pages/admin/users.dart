@@ -54,8 +54,8 @@ class _UsersPageState extends State<UsersPage> {
                             alignment: Alignment.center,
                             child: Image.asset(
                               'assets/images/logo-jaus-dorado.png',
-                              width: 80,
-                              height: 80,
+                              width: 100,
+                              height: 100,
                             ),
                           ),
                           SingleChildScrollView(

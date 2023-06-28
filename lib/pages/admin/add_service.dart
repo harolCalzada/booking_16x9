@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
-class AddReservation extends StatefulWidget {
+class AddService extends StatefulWidget {
   @override
-  _AddReservationState createState() => _AddReservationState();
+  _AddServiceState createState() => _AddServiceState();
 }
 
-class _AddReservationState extends State<AddReservation> {
+class _AddServiceState extends State<AddService> {
   bool _obscureText = true;
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
@@ -61,60 +61,25 @@ class _AddReservationState extends State<AddReservation> {
                       ),
                     ),
                     CustomTextFormField(
-                      labelText: "Nombre",
+                      labelText: "Nombre del Servicio",
                       colorLabelText: gradientColor,
                     ),
                     SizedBox(
                       height: 13,
                     ),
                     CustomTextFormField(
-                      labelText: "Apellido",
+                      labelText: "Precio",
                       colorLabelText: gradientColor,
                     ),
                     SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Distrito",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Teléfono",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Correo electrónico",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Hora",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Tipo de Servicio",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 20,
+                      height: 29,
                     ),
                     SizedBox(
                         width: 220,
                         height: 50,
                         child: TextButton(
                           onPressed: () => context.go('/home'),
-                          child: Text("Registrar"),
+                          child: Text("Guardar"),
                         )),
                   ],
                 ),

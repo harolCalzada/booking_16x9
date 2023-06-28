@@ -41,23 +41,25 @@ class Promotions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomButton(
-                  btnText: 'Agregar nuevo servicio',
-                  height: 30,
-                  width: 200,
-                  colorBackground: Colors.black.value,
-                  colorText: gradientColor,
-                  onpressed: () => context.go('/'),
-                ),
-              ),
               Container(
                 alignment: Alignment.center,
                 child: Image.asset(
                   'assets/images/logo-jaus-dorado.png',
-                  width: 75,
-                  height: 75,
+                  width: 100,
+                  height: 100,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomButton(
+                  btnText: ' Nueva promoción',
+                  height: 38,
+                  width: 180,
+                  colorBackground: Colors.black.value,
+                  colorText: gradientColor,
+                  onpressed: () => context.go(
+                    '/AddPromotion',
+                  ),
                 ),
               ),
               Center(
