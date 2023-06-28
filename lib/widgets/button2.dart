@@ -57,3 +57,29 @@ class ReturnButton extends StatelessWidget {
     );
   }
 }
+
+class CustomTextButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+
+  const CustomTextButton({
+    this.text,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: onPressed,
+        child: Container(
+          color: Colors.transparent,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ));
+  }
+}

@@ -4,138 +4,106 @@ import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class ReservationService extends StatefulWidget {
-  @override
-  _ReservationPageState createState() => _ReservationPageState();
-}
-
-class _ReservationPageState extends State<ReservationService> {
-  bool _obscureText = true;
-  final _formKey = GlobalKey<FormState>();
-  final _passwordController = TextEditingController();
+class ReservationService extends StatelessWidget {
+  const ReservationService({Key key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          leading: ReturnButton(
-              icon: Icons.arrow_back,
-              iconColor: Colors.black,
-              onPressed: () {
-                context.go('/SideMenu');
-              }),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: ReturnButton(
+          icon: Icons.arrow_back,
+          iconColor: Colors.black,
+          onPressed: () {
+            context.go('/SideMenu');
+          },
         ),
-        body: SingleChildScrollView(
-            child: Container(
-                height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                        Colors.white, // Color de inicio del gradiente
-                        Colors.white, // Color de fin del gradiente
-                      ],
-                      begin:
-                          Alignment.topRight, // Punto de inicio del gradiente
-                      end: Alignment.bottomRight, // Punto de fin del gradiente
-                      // Opcional: puedes ajustar los stops y tileMode según tus necesidades
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.mirror),
-                ), // Color de fondo del Container
-
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            'assets/images/logo-jaus-dorado.png',
-                            width: 75,
-                            height: 75,
-                          ),
-                        ),
-                        Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipOval(
-                                child: Image.asset(
-                                  'assets/images/braid4.jpg',
-                                  width: 180,
-                                  height: 180,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Nombres",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su nombre",
-                                colorHintText: primaryColor,
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Apellidos",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su apellido",
-                                colorHintText: primaryColor,
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Teléfono",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su teléfono",
-                                colorHintText: primaryColor,
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Correo electrónico",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su correo electrónico",
-                                colorHintText: primaryColor,
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Fecha de la Reservación",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su correo electrónico",
-                                colorHintText: primaryColor,
-                              ),
-
-                              SizedBox(
-                                height: 13,
-                              ),
-                              CustomTextFormField(
-                                labelText: "Hora de Reservación",
-                                colorLabelText: gradientColor,
-                                // hintText: "Escriba su correo electrónico",
-                                colorHintText: primaryColor,
-                              ),
-
-                              // SizedBox(
-                              //     width: 220,
-                              //     height: 50,
-                              //     child: TextButton(
-                              //       onPressed: () => context.go('/home'),
-                              //       child: Text("Registrarse"),
-                              //     )),
-                            ],
-                          ),
-                        ),
-                      ]),
-                ))));
+      ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CustomButton(
+              btnText: 'Agregar ',
+              height: 30,
+              width: 140,
+              colorBackground: Colors.black.value,
+              colorText: gradientColor,
+              onpressed: () => context.go('/'),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text('Fecha'),
+                  ),
+                  DataColumn(
+                    label: Text('Hora'),
+                  ),
+                  DataColumn(
+                    label: Text('Nombre'),
+                  ),
+                ],
+                rows: [
+                  DataRow(cells: [
+                    DataCell(Text("10-06-2023")),
+                    DataCell(Text("10:00")),
+                    DataCell(Text("Ingrid")),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text("03-06-2023")),
+                    DataCell(Text("12:00")),
+                    DataCell(Text("Anderson")),
+                  ]),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.transparent),
+                  ),
+                  onPressed: () {
+                    context.go('/'); // Agrega la navegación deseada
+                  },
+                  child: Text(
+                    'Anterior',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.transparent),
+                  ),
+                  onPressed: () {
+                    context.go('/'); // Agrega la navegación deseada
+                  },
+                  child: Text(
+                    'Siguiente',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

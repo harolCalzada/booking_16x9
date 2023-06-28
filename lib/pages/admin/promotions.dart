@@ -38,7 +38,21 @@ class Promotions extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomButton(
+                  btnText: 'Agregar nuevo servicio',
+                  height: 30,
+                  width: 200,
+                  colorBackground: Colors.black.value,
+                  colorText: gradientColor,
+                  onpressed: () => context.go('/'),
+                ),
+              ),
+
               Container(
                 alignment: Alignment.center,
                 child: Image.asset(
@@ -47,68 +61,69 @@ class Promotions extends StatelessWidget {
                   height: 75,
                 ),
               ),
+              // Center(
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       ClipOval(
+              //         child: Image.asset(
+              //           'assets/images/braid4.jpg',
+              //           width: 180,
+              //           height: 180,
+              //           fit: BoxFit.cover,
+              //         ),
+              //       ),
+              SizedBox(height: 10),
               Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ClipOval(
-                      child: Image.asset(
-                        'assets/images/braid4.jpg',
-                        width: 180,
-                        height: 180,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    SizedBox(height: 18),
-                    CustomTextFormField(
-                      labelText: "Texto de Promociones",
-                      colorLabelText: gradientColor,
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(height: 25),
-                    CustomTextFormField(
-                      labelText: "Fecha de Promo",
-                      colorLabelText: gradientColor,
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(height: 13),
-                    DataTable(
-                      columns: [
-                        DataColumn(label: Text('Tipo de Servicio')),
-                        DataColumn(label: Text('Descripción')),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          DataCell(InkWell(
-                            onTap: () {
-                              context.go('/details');
-                            },
-                            child: Text('Manicure'),
-                          )),
-                          DataCell(Text('Descripción del Servicio 1')),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(InkWell(
-                            onTap: () {
-                              Navigator.of(context).pushNamed('/servicio2');
-                            },
-                            child: Text('Corte'),
-                          )),
-                          DataCell(Text('Descripción del Servicio 2')),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(InkWell(
-                            onTap: () {
-                              Navigator.of(context).pushNamed('/servicio3');
-                            },
-                            child: Text('Pedicure'),
-                          )),
-                          DataCell(Text('Descripción del Servicio 3')),
-                        ]),
-                      ],
-                    ),
-                  ],
+                child: CustomTextFormField(
+                  labelText: "Texto de Promociones",
+                  colorLabelText: gradientColor,
+                  colorHintText: primaryColor,
                 ),
+              ),
+              SizedBox(height: 25),
+              Center(
+                child: CustomTextFormField(
+                  labelText: "Fecha de Promo",
+                  colorLabelText: gradientColor,
+                  colorHintText: primaryColor,
+                ),
+              ),
+              SizedBox(height: 13),
+              DataTable(
+                columns: [
+                  DataColumn(label: Text('Tipo de Servicio')),
+                  DataColumn(label: Text('Descripción')),
+                ],
+                rows: [
+                  DataRow(cells: [
+                    DataCell(InkWell(
+                      onTap: () {
+                        context.go('/details');
+                      },
+                      child: Text('Manicure'),
+                    )),
+                    DataCell(Text('Descripción del Servicio 1')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/servicio2');
+                      },
+                      child: Text('Corte'),
+                    )),
+                    DataCell(Text('Descripción del Servicio 2')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/servicio3');
+                      },
+                      child: Text('Pedicure'),
+                    )),
+                    DataCell(Text('Descripción del Servicio 3')),
+                  ]),
+                ],
               ),
             ],
           ),
