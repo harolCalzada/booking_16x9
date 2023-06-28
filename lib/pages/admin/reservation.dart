@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
+import 'package:salon_app/widgets/button2.dart';
 
 class ReservationService extends StatefulWidget {
   @override
@@ -19,15 +20,13 @@ class _ReservationPageState extends State<ReservationService> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            color: Colors.black,
-            onPressed: () {
-              context.go('/SideMenu'); // Redirige a la pantalla anterior
-            },
-          ),
+          leading: ReturnButton(
+              icon: Icons.arrow_back,
+              iconColor: Colors.black,
+              onPressed: () {
+                context.go('/SideMenu');
+              }),
         ),
-        backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child: Container(
                 height: MediaQuery.of(context).size.height,

@@ -53,11 +53,8 @@ class _SideMenuState extends State<SideMenu> {
             case 3:
               context.go('/Promotions');
               break;
-              // case 4:
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => UsuariosScreen()),
-              //   );
+            case 4:
+              context.go('/Users');
               break;
               // case 5:
               //   Navigator.push(
@@ -66,7 +63,8 @@ class _SideMenuState extends State<SideMenu> {
               //   );
               break;
             case 6:
-              // Lógica para cerrar sesión
+              context.go('/login');
+
               break;
           }
         },

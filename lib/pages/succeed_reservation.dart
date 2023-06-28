@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/widgets/button2.dart';
 
 class SucceedReservation extends StatelessWidget {
   const SucceedReservation({key});
@@ -13,13 +14,12 @@ class SucceedReservation extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          color: Colors.black,
-          onPressed: () {
-            context.go('/Home'); // Redirige a la pantalla anterior
-          },
-        ),
+        leading: ReturnButton(
+            icon: Icons.arrow_back,
+            iconColor: Colors.black,
+            onPressed: () {
+              context.go('/Home');
+            }),
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),

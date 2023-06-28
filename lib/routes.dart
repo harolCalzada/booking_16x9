@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/pages/admin/detail_promotions.dart';
 import 'package:salon_app/pages/admin/promotions.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/pages/admin/users.dart';
 import 'package:salon_app/pages/book.dart';
 import 'package:salon_app/pages/forgot_password.dart';
 import 'package:salon_app/pages/home.dart';
@@ -49,7 +51,7 @@ GoRouter getApplicationRoutes() {
       GoRoute(
         path: '/home',
         builder: (BuildContext context, GoRouterState state) {
-          return HomePage();
+          return HomePage(context);
         },
       ),
       GoRoute(
@@ -112,6 +114,20 @@ GoRouter getApplicationRoutes() {
         path: '/SideMenu',
         builder: (BuildContext context, GoRouterState state) {
           return SideMenu();
+        },
+      ),
+
+      GoRoute(
+        path: '/Details',
+        builder: (BuildContext context, GoRouterState state) {
+          return Details();
+        },
+      ),
+
+      GoRoute(
+        path: '/Users',
+        builder: (BuildContext context, GoRouterState state) {
+          return UsersPage();
         },
       ),
     ],

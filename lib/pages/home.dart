@@ -10,6 +10,10 @@ import 'package:salon_app/widgets/modal.dart';
 import 'package:salon_app/widgets/specialist_column.dart';
 
 class HomePage extends StatefulWidget {
+  final BuildContext context; // Agrega este campo
+
+  HomePage(this.context); // Actualiza el constructor
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -100,24 +104,30 @@ class _HomePageState extends State<HomePage> {
                       height: 40, // Ajusta este valor según tus necesidades
                       child: Column(
                         children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.exit_to_app,
-                                color: Color(primaryGray),
-                              ),
-                              SizedBox(width: 8),
-                              Text(
-                                'Cerrar sesión',
-                                style: TextStyle(color: Color(primaryGray)),
-                              ),
-                            ],
-                          ),
-                          // Divider(
-                          //   // Agrega la línea divisoria
-                          //   color: Colors.grey,
-                          //   thickness: 1,
-                          // ),
+                          GestureDetector(
+                            onTap: () {
+                              context.go(
+                                  '/login'); // Reemplaza '/logout' con la ruta de la página a la que deseas redirigir
+                            },
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.exit_to_app,
+                                  color: Color(primaryGray),
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  'Cerrar sesión',
+                                  style: TextStyle(color: Color(primaryGray)),
+                                ),
+                              ],
+                            ),
+                            // Divider(
+                            //   // Agrega la línea divisoria
+                            //   color: Colors.grey,
+                            //   thickness: 1,
+                            // ),
+                          )
                         ],
                       ),
                     ),

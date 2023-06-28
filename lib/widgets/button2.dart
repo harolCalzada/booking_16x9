@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 
@@ -29,6 +30,30 @@ class CustomElevatedButtonRounded extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ReturnButton extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final VoidCallback onPressed;
+
+  const ReturnButton({
+    Key key,
+    this.icon,
+    this.iconColor,
+    this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        icon,
+        color: iconColor,
+      ),
+      onPressed: onPressed,
     );
   }
 }
