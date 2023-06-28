@@ -69,17 +69,40 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return TextButton(
-        onPressed: onPressed,
-        child: Container(
-          color: Colors.transparent,
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ));
+      onPressed: onPressed,
+      style: ButtonStyle(
+        textStyle: MaterialStateProperty.resolveWith<TextStyle>(
+          (_) {
+            return TextStyle(
+                color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold);
+          },
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(
+          Colors.transparent,
+        ),
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Colors.black,
+        ),
+        shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+          (_) {
+            return RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+            );
+          },
+        ),
+        minimumSize: MaterialStateProperty.all<Size>(
+          Size(220, 50),
+        ),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          backgroundColor: Colors.transparent,
+        ),
+      ),
+    );
   }
 }

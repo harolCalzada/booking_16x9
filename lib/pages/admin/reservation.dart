@@ -67,37 +67,17 @@ class ReservationService extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                  ),
+                CustomTextButton(
+                  text: "Anterior",
                   onPressed: () {
                     context.go('/'); // Agrega la navegación deseada
                   },
-                  child: Text(
-                    'Anterior',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                  ),
+                CustomTextButton(
+                  text: "Siguiente",
                   onPressed: () {
                     context.go('/'); // Agrega la navegación deseada
                   },
-                  child: Text(
-                    'Siguiente',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
               ],
             ),
