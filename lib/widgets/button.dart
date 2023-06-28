@@ -49,6 +49,7 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final int colorHintText;
   final int colorLabelText;
+  final colorTextStyle;
 
   CustomTextFormField({
     key,
@@ -56,6 +57,7 @@ class CustomTextFormField extends StatelessWidget {
     this.hintText,
     this.colorHintText,
     this.colorLabelText,
+    this.colorTextStyle,
   });
 
   final _emailController = TextEditingController();
@@ -66,7 +68,7 @@ class CustomTextFormField extends StatelessWidget {
       width: 310,
       height: 50,
       child: TextFormField(
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: colorTextStyle),
         controller: _emailController,
         decoration: InputDecoration(
           hintText: hintText,

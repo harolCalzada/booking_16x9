@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/pages/admin/add_reservation.dart';
 import 'package:salon_app/pages/admin/detail_promotions.dart';
 import 'package:salon_app/pages/admin/promotions.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/pages/admin/services.dart';
 import 'package:salon_app/pages/admin/users.dart';
 import 'package:salon_app/pages/book.dart';
 import 'package:salon_app/pages/forgot_password.dart';
@@ -13,6 +15,7 @@ import 'package:salon_app/pages/register.dart';
 import 'package:salon_app/pages/confirm_reservation.dart';
 import 'package:salon_app/pages/succeed_reservation.dart';
 import 'package:salon_app/widgets/menu_administrator.dart';
+import 'pages/admin/detail_reservation.dart';
 import 'pages/admin/scaner.dart';
 
 // import 'package:salon_app/widgets/administrator.dart';
@@ -97,9 +100,9 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
-        path: '/Services',
+        path: '/ServicesData',
         builder: (BuildContext context, GoRouterState state) {
-          return Services();
+          return ServicesData();
         },
       ),
 
@@ -128,6 +131,20 @@ GoRouter getApplicationRoutes() {
         path: '/Users',
         builder: (BuildContext context, GoRouterState state) {
           return UsersPage();
+        },
+      ),
+
+      GoRoute(
+        path: '/DetailReservation',
+        builder: (BuildContext context, GoRouterState state) {
+          return DetailReservation();
+        },
+      ),
+
+      GoRoute(
+        path: '/AddReservation',
+        builder: (BuildContext context, GoRouterState state) {
+          return AddReservation();
         },
       ),
     ],

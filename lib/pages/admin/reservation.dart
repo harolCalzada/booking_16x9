@@ -37,7 +37,7 @@ class ReservationService extends StatelessWidget {
                   width: 140,
                   colorBackground: Colors.black.value,
                   colorText: gradientColor,
-                  onpressed: () => context.go('/'),
+                  onpressed: () => context.go('/AddReservation'),
                 ),
               ],
             ),
@@ -68,7 +68,12 @@ class ReservationService extends StatelessWidget {
                 DataRow(cells: [
                   DataCell(Text("10-06-2023")),
                   DataCell(Text("10:00")),
-                  DataCell(Text("Ingrid")),
+                  DataCell(GestureDetector(
+                      onTap: () {
+                        context.go(
+                            '/DetailReservation'); // Reemplaza '/otra_pantalla' con la ruta de tu otra pantalla
+                      },
+                      child: Text("Ingrid"))),
                 ]),
                 DataRow(cells: [
                   DataCell(Text("05-06-2023")),
@@ -93,27 +98,21 @@ class ReservationService extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CustomTextButton(
-                    text: "Anterior",
-                    onPressed: () {
-                      context.go('/'); // Agrega la navegación deseada
-                    },
-                  ),
-                  CustomTextButton(
-                    text: "Siguiente",
-                    onPressed: () {
-                      context.go('/'); // Agrega la navegación deseada
-                    },
-                  ),
-                ],
+          Row(
+            children: [
+              CustomTextButton(
+                text: "Anterior",
+                onPressed: () {
+                  context.go('/'); // Agrega la navegación deseada
+                },
               ),
-            ),
+              CustomTextButton(
+                text: "Siguiente",
+                onPressed: () {
+                  context.go('/'); // Agrega la navegación deseada
+                },
+              ),
+            ],
           )
         ],
       ),
