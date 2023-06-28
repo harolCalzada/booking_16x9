@@ -22,67 +22,100 @@ class ReservationService extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomButton(
-              btnText: 'Agregar ',
-              height: 30,
-              width: 140,
-              colorBackground: Colors.black.value,
-              colorText: gradientColor,
-              onpressed: () => context.go('/'),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                columns: [
-                  DataColumn(
-                    label: Text('Fecha'),
-                  ),
-                  DataColumn(
-                    label: Text('Hora'),
-                  ),
-                  DataColumn(
-                    label: Text('Nombre'),
-                  ),
-                ],
-                rows: [
-                  DataRow(cells: [
-                    DataCell(Text("10-06-2023")),
-                    DataCell(Text("10:00")),
-                    DataCell(Text("Ingrid")),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text("03-06-2023")),
-                    DataCell(Text("12:00")),
-                    DataCell(Text("Anderson")),
-                  ]),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                CustomTextButton(
-                  text: "Anterior",
-                  onPressed: () {
-                    context.go('/'); // Agrega la navegación deseada
-                  },
-                ),
-                CustomTextButton(
-                  text: "Siguiente",
-                  onPressed: () {
-                    context.go('/'); // Agrega la navegación deseada
-                  },
+                CustomButton(
+                  btnText: 'Agregar ',
+                  height: 30,
+                  width: 140,
+                  colorBackground: Colors.black.value,
+                  colorText: gradientColor,
+                  onpressed: () => context.go('/'),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/logo-jaus-dorado.png',
+              width: 80,
+              height: 80,
+            ),
+          ),
+          SingleChildScrollView(
+            // scrollDirection: Axis.vertical,
+            child: DataTable(
+              columns: [
+                DataColumn(
+                  label: Text('Fecha'),
+                ),
+                DataColumn(
+                  label: Text('Hora'),
+                ),
+                DataColumn(
+                  label: Text('Nombre'),
+                ),
+              ],
+              rows: [
+                DataRow(cells: [
+                  DataCell(Text("10-06-2023")),
+                  DataCell(Text("10:00")),
+                  DataCell(Text("Ingrid")),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("05-06-2023")),
+                  DataCell(Text("1:00")),
+                  DataCell(Text("Anderson")),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("07-06-2023")),
+                  DataCell(Text("12:00")),
+                  DataCell(Text("Harol")),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("09-06-2023")),
+                  DataCell(Text("2:00")),
+                  DataCell(Text("Luis")),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("18-06-2023")),
+                  DataCell(Text("3:00")),
+                  DataCell(Text("America")),
+                ])
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CustomTextButton(
+                    text: "Anterior",
+                    onPressed: () {
+                      context.go('/'); // Agrega la navegación deseada
+                    },
+                  ),
+                  CustomTextButton(
+                    text: "Siguiente",
+                    onPressed: () {
+                      context.go('/'); // Agrega la navegación deseada
+                    },
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

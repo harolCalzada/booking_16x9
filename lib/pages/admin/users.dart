@@ -29,85 +29,104 @@ class _UsersPageState extends State<UsersPage> {
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.white,
-                    Colors.white,
-                  ],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomRight,
-                  stops: [0.0, 1.0],
-                  tileMode: TileMode.mirror),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        'assets/images/logo-jaus-dorado.png',
-                        width: 75,
-                        height: 75,
-                      ),
-                    ),
-                    CustomTextFormField(
-                      labelText: "Nombre",
-                      colorLabelText: gradientColor,
-                      hintText: "Escriba su nombre",
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Apellido",
-                      colorLabelText: gradientColor,
-                      hintText: "Escriba su apellido",
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Teléfono",
-                      colorLabelText: gradientColor,
-                      hintText: "Escriba su teléfono",
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Correo electrónico",
-                      colorLabelText: gradientColor,
-                      hintText: "Escriba su correo electrónico",
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Distrito",
-                      colorLabelText: gradientColor,
-                      hintText: "Escriba su distrito",
-                      colorHintText: primaryColor,
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    SizedBox(height: 50.0),
-                  ],
+            scrollDirection: Axis.horizontal,
+            child: Container(
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [
+                        Colors.white,
+                        Colors.white,
+                      ],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomRight,
+                      stops: [0.0, 1.0],
+                      tileMode: TileMode.mirror),
                 ),
-              ),
-            ),
-          ),
-        ));
+                child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        // crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Container(
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              'assets/images/logo-jaus-dorado.png',
+                              width: 80,
+                              height: 80,
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: DataTable(
+                              columns: [
+                                DataColumn(
+                                  label: Text('Nombre'),
+                                ),
+                                DataColumn(
+                                  label: Text('Fecha '),
+                                ),
+                                DataColumn(
+                                  label: Text('Correo'),
+                                ),
+                              ],
+                              rows: [
+                                DataRow(cells: [
+                                  DataCell(Text("Ingrid")),
+                                  DataCell(Text("10-07-23")),
+                                  DataCell(Text("ingrid10@gmail.com")),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text("Anderson")),
+                                  DataCell(Text("12-07-23")),
+                                  DataCell(Text("ander10@gmail.com")),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text("Valerie")),
+                                  DataCell(Text("13-07-23")),
+                                  DataCell(Text("ingrid10@gmail.com")),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text("AlisoN")),
+                                  DataCell(Text("26-07-23")),
+                                  DataCell(Text("ali10@gmail.com")),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text("Jose")),
+                                  DataCell(Text("30-07-23")),
+                                  DataCell(Text("jose18@gmail.com")),
+                                ]),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  CustomTextButton(
+                                    text: "Anterior",
+                                    onPressed: () {
+                                      context.go(
+                                          '/'); // Agrega la navegación deseada
+                                    },
+                                  ),
+                                  CustomTextButton(
+                                    text: "Siguiente",
+                                    onPressed: () {
+                                      context.go(
+                                          '/'); // Agrega la navegación deseada
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )))));
   }
 }
