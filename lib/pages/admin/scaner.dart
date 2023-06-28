@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:salon_app/pages/home.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+// // import 'package:mobile_scanner/mobile_scanner.dart';
+// import 'package:salon_app/pages/home.dart';
 
 // class ScanQRScreen extends StatefulWidget {
 //   @override

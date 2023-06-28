@@ -4,23 +4,8 @@ import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class Promotions extends StatefulWidget {
-  @override
-  _PromotionsState createState() => _PromotionsState();
-}
-
-class _PromotionsState extends State<Promotions> {
-  List<DataRow> _rows = [
-    DataRow(cells: [
-      DataCell(Text('Promoción 1')),
-      DataCell(Text('Corte de pelo')),
-    ]),
-    DataRow(cells: [
-      DataCell(Text('Promoción 2')),
-      DataCell(Text('Manicure')),
-    ]),
-    // Agrega más filas según sea necesario
-  ];
+class Promotions extends StatelessWidget {
+  const Promotions({Key key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +17,7 @@ class _PromotionsState extends State<Promotions> {
           icon: Icons.arrow_back,
           iconColor: Colors.black,
           onPressed: () {
-            context.go('/Details');
+            context.go('/SideMenu');
           },
         ),
       ),
@@ -89,10 +74,38 @@ class _PromotionsState extends State<Promotions> {
                     SizedBox(height: 13),
                     DataTable(
                       columns: [
-                        DataColumn(label: Text('Promoción')),
+                        DataColumn(label: Text('Tipo de Servicio')),
                         DataColumn(label: Text('Descripción')),
                       ],
-                      rows: _rows,
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(InkWell(
+                            onTap: () {
+                              context.go('/details');
+                            },
+                            child: Text('Manicure'),
+                          )),
+                          DataCell(Text('Descripción del Servicio 1')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/servicio2');
+                            },
+                            child: Text('Corte'),
+                          )),
+                          DataCell(Text('Descripción del Servicio 2')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/servicio3');
+                            },
+                            child: Text('Pedicure'),
+                          )),
+                          DataCell(Text('Descripción del Servicio 3')),
+                        ]),
+                      ],
                     ),
                   ],
                 ),
@@ -104,3 +117,22 @@ class _PromotionsState extends State<Promotions> {
     );
   }
 }
+
+
+// class _PromotionsState extends State<Promotions> {
+//   List<DataRow> _rows = [
+//    DataRow(cells: [
+//       DataCell(InkWell(
+//         onTap: () {
+//           context.go('/succeed_reservation'); // Reemplaza '/succeed_reservation' con la ruta de la pantalla a la que deseas redirigir
+//         },
+//         child: Text('Promoción 1'),
+//       )),
+//       DataCell(Text('Corte de pelo')),
+//     ]),
+//     DataRow(cells: [
+//       DataCell(Text('Promoción 2')),
+//       DataCell(Text('Manicure')),
+//     ]),
+//     // Agrega más filas según sea necesario
+//   ];
