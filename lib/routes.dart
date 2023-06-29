@@ -150,12 +150,12 @@ GoRouter getApplicationRoutes() {
         },
       ),
 
-      GoRoute(
-        path: '/AddService',
-        builder: (BuildContext context, GoRouterState state) {
-          return AddService();
-        },
-      ),
+      // GoRoute(
+      //   path: '/AddService',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return AddService();
+      //   },
+      // ),
 
       GoRoute(
         path: '/AddPromotion',

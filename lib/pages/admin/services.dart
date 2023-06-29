@@ -5,8 +5,6 @@ import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
 import '../../widgets/button2.dart';
-import '../../widgets/icon_service.dart';
-import '../../widgets/modal.dart';
 
 class ServicesData extends StatelessWidget {
   const ServicesData({Key key});
