@@ -45,7 +45,7 @@ class AddService extends StatelessWidget {
                 SizedBox(height: 30),
                 Container(
                   width: 310,
-                  height: 50,
+                  height: 55,
                   child: InputDecorator(
                     decoration: InputDecoration(
                       labelText: 'Subir imagen',
