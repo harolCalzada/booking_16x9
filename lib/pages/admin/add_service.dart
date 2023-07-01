@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:salon_app/constants/colors.dart';
@@ -12,11 +10,12 @@ class AddService extends StatelessWidget {
 
   File selectedImage;
 
-  Future<void> selectImage() async {
+  Future<void> selectImage(BuildContext context) async {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage == null) return;
     selectedImage = File(pickedImage.path);
+    // Puedes agregar aquí la lógica adicional para procesar la imagen seleccionada
   }
 
   @override
@@ -41,7 +40,17 @@ class AddService extends StatelessWidget {
         child: Center(
           child: Form(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    'assets/images/logo-jaus-dorado.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
                 SizedBox(height: 30),
                 Container(
                   width: 310,
@@ -49,11 +58,21 @@ class AddService extends StatelessWidget {
                   child: InputDecorator(
                     decoration: InputDecoration(
                       labelText: 'Subir imagen',
-                      border: OutlineInputBorder(),
+                      labelStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(gradientColor)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.camera_alt, color: Colors.grey[400]),
+                        InkWell(
+                          onTap: () => selectImage(context),
+                          child:
+                              Icon(Icons.camera_alt, color: Colors.grey[400]),
+                        ),
                         SizedBox(width: 10),
                         Text(
                           selectedImage != null
@@ -75,6 +94,23 @@ class AddService extends StatelessWidget {
                   labelText: "Precio",
                   colorLabelText: gradientColor,
                 ),
+                SizedBox(height: 13),
+                Container(
+                  width: 310,
+                  height: 55,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: 'Número',
+                      labelStyle: TextStyle(
+                          color: Color(gradientColor),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 25),
                 SizedBox(
                   width: 220,
@@ -92,7 +128,6 @@ class AddService extends StatelessWidget {
     );
   }
 }
-
   // class AddService extends StatefulWidget {
 //   AddService({Key key}) : super(key: key);
 

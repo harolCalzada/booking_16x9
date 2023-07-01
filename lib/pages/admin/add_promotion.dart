@@ -1,83 +1,121 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddPromotion extends StatelessWidget {
-  const AddPromotion({key});
+  AddPromotion({Key key});
+
+  File selectedImage;
+
+  Future<void> selectImage(BuildContext context) async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedImage == null) return;
+    selectedImage = File(pickedImage.path);
+    // Puedes agregar aquí la lógica adicional para procesar la imagen seleccionada
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              context.go('/ReservationService');
-            },
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
-          elevation: 0,
-          backgroundColor: Colors.white,
+          onPressed: () {
+            context.go('/ServicesData');
+          },
         ),
-        body: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.white, // Color de inicio del gradiente
-                    Colors.white, // Color de fin del gradiente
-                  ],
-                  begin: Alignment.topRight, // Punto de inicio del gradiente
-                  end: Alignment.bottomRight, // Punto de fin del gradiente
-                  // Opcional: puedes ajustar los stops y tileMode según tus necesidades
-                  stops: [0.0, 1.0],
-                  tileMode: TileMode.mirror),
-            ), // Color de fondo del Container
-
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Form(
-                child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        'assets/images/logo-jaus-dorado.png',
-                        width: 100,
-                        height: 100,
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Center(
+          child: Form(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 30),
+                Container(
+                  width: 310,
+                  height: 55,
+                  child: InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Subir imagen',
+                      labelStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(gradientColor)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    CustomTextFormField(
-                      labelText: "Nombre del Servicio",
-                      colorLabelText: gradientColor,
+                    child: Row(
+                      children: [
+                        InkWell(
+                          onTap: () => selectImage(context),
+                          child:
+                              Icon(Icons.camera_alt, color: Colors.grey[400]),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          selectedImage != null
+                              ? 'Imagen seleccionada'
+                              : 'Seleccionar imagen',
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Fecha",
-                      colorLabelText: gradientColor,
-                    ),
-                    SizedBox(
-                      height: 29,
-                    ),
-                    SizedBox(
-                        width: 220,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: () => context.go('/home'),
-                          child: Text("Guardar"),
-                        )),
-                  ],
+                  ),
                 ),
-              ),
+                SizedBox(height: 16),
+                CustomTextFormField(
+                  labelText: "Nombre del Servicio",
+                  colorLabelText: gradientColor,
+                ),
+                SizedBox(height: 16),
+                CustomTextFormField(
+                  labelText: "Fecha",
+                  colorLabelText: gradientColor,
+                ),
+                SizedBox(height: 16),
+                Container(
+                  width: 310,
+                  height: 55,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: 'Número',
+                      labelStyle: TextStyle(
+                          color: Color(gradientColor),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+                SizedBox(
+                  width: 220,
+                  height: 50,
+                  child: TextButton(
+                    onPressed: () => context.go('/home'),
+                    child: Text("Guardar"),
+                  ),
+                ),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
