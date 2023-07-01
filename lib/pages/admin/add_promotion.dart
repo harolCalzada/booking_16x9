@@ -6,16 +6,24 @@ import 'package:image_picker/image_picker.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button.dart';
 
-class AddPromotion extends StatelessWidget {
-  AddPromotion({Key key});
+class AddPromotion extends StatefulWidget {
+  AddPromotion({Key key}) : super(key: key);
 
+  @override
+  _AddPromotionState createState() => _AddPromotionState();
+}
+
+class _AddPromotionState extends State<AddPromotion> {
   File selectedImage;
+  bool isChecked = false;
 
   Future<void> selectImage(BuildContext context) async {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage == null) return;
-    selectedImage = File(pickedImage.path);
+    setState(() {
+      selectedImage = File(pickedImage.path);
+    });
     // Puedes agregar aquí la lógica adicional para procesar la imagen seleccionada
   }
 
@@ -42,6 +50,14 @@ class AddPromotion extends StatelessWidget {
           child: Form(
             child: Column(
               children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    'assets/images/logo-jaus-dorado.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
                 SizedBox(height: 30),
                 Container(
                   width: 310,
@@ -50,9 +66,10 @@ class AddPromotion extends StatelessWidget {
                     decoration: InputDecoration(
                       labelText: 'Subir imagen',
                       labelStyle: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(gradientColor)),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(gradientColor),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -94,15 +111,29 @@ class AddPromotion extends StatelessWidget {
                     decoration: InputDecoration(
                       labelText: 'Número',
                       labelStyle: TextStyle(
-                          color: Color(gradientColor),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                        color: Color(gradientColor),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 25),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CheckboxListTile(
+                    title: Text("Activo/Inactivo"),
+                    value: isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value ?? false;
+                      });
+                    },
+                  ),
+                ),
                 SizedBox(
                   width: 220,
                   height: 50,
