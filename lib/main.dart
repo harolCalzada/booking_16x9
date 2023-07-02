@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:salon_app/constants/theme.dart';
-import 'package:salon_app/pages/book.dart';
-import 'package:salon_app/pages/home.dart';
-import 'package:salon_app/pages/register.dart';
 import 'package:salon_app/routes.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
