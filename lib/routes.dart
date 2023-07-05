@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/pages/admin/add_promotion.dart';
 import 'package:salon_app/pages/admin/add_reservation.dart';
 import 'package:salon_app/pages/admin/add_service.dart';
-import 'package:salon_app/pages/admin/detail_promotions.dart';
+// import 'package:salon_app/pages/admin/detail_promotions.dart';
 import 'package:salon_app/pages/admin/promotions.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/pages/admin/services.dart';
@@ -122,12 +122,12 @@ GoRouter getApplicationRoutes() {
         },
       ),
 
-      GoRoute(
-        path: '/Details',
-        builder: (BuildContext context, GoRouterState state) {
-          return Details();
-        },
-      ),
+      // GoRoute(
+      //   path: '/Details',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return Details();
+      //   },
+      // ),
 
       GoRoute(
         path: '/Users',
