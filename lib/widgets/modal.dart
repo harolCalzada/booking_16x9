@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/widgets/button.dart';
 
 import '../constants/colors.dart';
@@ -88,7 +89,7 @@ class ModalServices extends StatelessWidget {
                 colorText: gradientColor,
                 width: 40,
                 height: 20,
-                onpressed: () => Navigator.of(context).pushNamed('/book'),
+                onpressed: () => context.go('/book'),
               ),
             ),
             SizedBox(
@@ -189,7 +190,7 @@ class PasswordForgotModal extends StatelessWidget {
                 colorText: gradientColor,
                 width: 40,
                 height: 20,
-                onpressed: () => Navigator.of(context).pushNamed('/book'),
+                onpressed: () => context.go('/book'),
               ),
             ),
             SizedBox(
@@ -204,7 +205,7 @@ class PasswordForgotModal extends StatelessWidget {
                 colorText: gradientColor,
                 // width: 40,
                 // height: 20,
-                onpressed: () => Navigator.of(context).pushNamed('/home'),
+                onpressed: () => context.go('/home'),
               ),
             ),
           ],

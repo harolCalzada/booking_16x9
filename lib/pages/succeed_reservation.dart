@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/widgets/button2.dart';
 
 class SucceedReservation extends StatelessWidget {
   const SucceedReservation({key});
@@ -12,26 +14,12 @@ class SucceedReservation extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/home');
-          },
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Text(
-                  "Atrás",
-                  style: TextStyle(
-                    color: Color(secondaryColor),
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        leading: ReturnButton(
+            icon: Icons.arrow_back,
+            iconColor: Colors.black,
+            onPressed: () {
+              context.go('/Home');
+            }),
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
@@ -218,7 +206,7 @@ class SucceedReservation extends StatelessWidget {
             ),
             Center(
               child: TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/home'),
+                onPressed: () => context.go('/home'),
                 child: Text("Ir a Home"),
               ),
             ),

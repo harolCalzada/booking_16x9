@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1092401962932",
+    "project_id": "jaus-1ebdf",
+    "storage_bucket": "jaus-1ebdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092401962932:android:af7ed26aebc74ad53e1ce1",
+        "android_client_info": {
+          "package_name": "com.firebaseapp.jaus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092401962932-7kv5lc74jrecc2f5l9ndk7mknq6v5tr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMylBLIH28vsYwuYvTt3-8zHzQqLdSqEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092401962932-7kv5lc74jrecc2f5l9ndk7mknq6v5tr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -44,18 +44,20 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-class CustomSelectButton extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final String hintText;
   final int colorHintText;
   final int colorLabelText;
+  final colorTextStyle;
 
-  CustomSelectButton({
+  CustomTextFormField({
     key,
     this.labelText,
     this.hintText,
     this.colorHintText,
     this.colorLabelText,
+    this.colorTextStyle,
   });
 
   final _emailController = TextEditingController();
@@ -66,7 +68,7 @@ class CustomSelectButton extends StatelessWidget {
       width: 310,
       height: 50,
       child: TextFormField(
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: colorTextStyle),
         controller: _emailController,
         decoration: InputDecoration(
           hintText: hintText,

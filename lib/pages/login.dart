@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    CustomSelectButton(
+                    CustomTextFormField(
                       labelText: "Correo electrónico",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electronico",
@@ -154,10 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ForgotPassword()),
+                        context.go(
+                          '/password',
                         );
                       },
                     ),
@@ -168,8 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                         width: 220,
                         height: 50,
                         child: TextButton(
-                          onPressed: () =>
-                              Navigator.of(context).pushNamed('/home'),
+                          onPressed: () => context.go('/home'),
                           child: Text("Ingresar"),
                         )),
                     SizedBox(height: 20.0),
@@ -177,8 +174,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: 220,
                         height: 50,
                         child: TextButton(
-                          onPressed: () =>
-                              GoRouter.of(context).go('/side_menu'),
+                          onPressed: () => context.go(
+                            '/menu_administrator',
+                          ),
                           child: Text("Ir a administrador"),
                         )),
                     SizedBox(height: 20.0),
@@ -202,10 +200,8 @@ class _LoginPageState extends State<LoginPage> {
                             color: Color(gradientColor)),
                       ),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()),
+                        context.go(
+                          '/register',
                         );
                       },
                     )
