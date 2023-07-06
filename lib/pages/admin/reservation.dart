@@ -34,8 +34,8 @@ class ReservationService extends StatelessWidget {
               height: 100,
             ),
           ),
-          SizedBox(height: 50),
-          NavigationBar(),
+          SizedBox(height: 20),
+          CustomNavigationBar(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -118,13 +118,13 @@ class ReservationService extends StatelessWidget {
   }
 }
 
-class NavigationBar extends StatelessWidget {
+class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 350,
       height: 60,
-      color: Color(gradientColor),
+      // color: Color(gradientColor),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

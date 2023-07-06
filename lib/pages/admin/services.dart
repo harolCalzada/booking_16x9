@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 import '../../widgets/button2.dart';
@@ -41,7 +42,7 @@ class ServicesData extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
@@ -51,17 +52,8 @@ class ServicesData extends StatelessWidget {
                   height: 100,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: CustomButton(
-                  btnText: 'Agregar',
-                  height: 30,
-                  width: 140,
-                  colorBackground: Colors.black.value,
-                  colorText: gradientColor,
-                  onpressed: () => context.go('/AddService'),
-                ),
-              ),
+              SizedBox(height: 20),
+              CustomNavigationBar(),
               Center(
                 child: DataTable(
                   columns: [

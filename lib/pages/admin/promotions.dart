@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
@@ -49,19 +50,8 @@ class Promotions extends StatelessWidget {
                   height: 100,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomButton(
-                  btnText: ' Nueva promoción',
-                  height: 38,
-                  width: 180,
-                  colorBackground: Colors.black.value,
-                  colorText: gradientColor,
-                  onpressed: () => context.go(
-                    '/AddPromotion',
-                  ),
-                ),
-              ),
+              SizedBox(height: 20),
+              CustomNavigationBar(),
               Center(
                 child: DataTable(
                   columns: [
