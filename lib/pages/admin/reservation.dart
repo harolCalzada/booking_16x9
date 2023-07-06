@@ -132,20 +132,22 @@ class NavigationBar extends StatelessWidget {
           NavigatorBarItem(
             contentText: "Home",
             icon: Icons.home,
+            route: ('/menu_administrator'),
           ),
           SizedBox(
             width: 47,
           ),
           NavigatorBarItem(
-            contentText: "Reserva",
-            icon: Icons.calendar_today,
-          ),
+              contentText: "Reserva",
+              icon: Icons.calendar_today,
+              route: '/ReservationService'),
           SizedBox(
             width: 47,
           ),
           NavigatorBarItem(
             contentText: "Agregar",
             icon: Icons.add,
+            route: '/AddReservation',
           ),
         ],
       ),
@@ -156,14 +158,18 @@ class NavigationBar extends StatelessWidget {
 class NavigatorBarItem extends StatelessWidget {
   final String contentText;
   final IconData icon;
+  final String route;
 
-  const NavigatorBarItem({Key key, this.contentText, this.icon})
+  const NavigatorBarItem({Key key, this.contentText, this.icon, this.route})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton<String>(
-      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[],
+    return GestureDetector(
+      onTap: () {
+        context.go(
+            route); // Reemplaza '/logout' con la ruta de la página a la que deseas redirigir
+      },
       child: Row(
         children: [
           Icon(icon),

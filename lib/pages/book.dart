@@ -245,7 +245,9 @@ class _BookPageState extends State<BookPage> {
                   )),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () => context.go('/reservation'),
+                onPressed: () => context.go(
+                  '/confirm_reservation',
+                ),
                 child: Text("Reservar"),
               ),
               SizedBox(height: 20)

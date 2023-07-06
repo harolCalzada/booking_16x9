@@ -66,6 +66,13 @@ GoRouter getApplicationRoutes() {
         },
       ),
 
+      GoRoute(
+        path: '/menu_administrator',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
+
       // Agrega más rutas según tus necesidades
       GoRoute(
         path: '/confirm_reservation',
@@ -79,67 +86,10 @@ GoRouter getApplicationRoutes() {
           return SucceedReservation();
         },
       ),
-
-      GoRoute(
-        path: '/menu_administrator',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
-
-      GoRoute(
-        path: '/QR',
-        builder: (BuildContext context, GoRouterState state) {
-          // return ScanQRScreen();
-        },
-      ),
-
       GoRoute(
         path: '/ReservationService',
         builder: (BuildContext context, GoRouterState state) {
           return ReservationService();
-        },
-      ),
-
-      GoRoute(
-        path: '/ServicesData',
-        builder: (BuildContext context, GoRouterState state) {
-          return ServicesData();
-        },
-      ),
-
-      GoRoute(
-        path: '/Promotions',
-        builder: (BuildContext context, GoRouterState state) {
-          return Promotions();
-        },
-      ),
-
-      GoRoute(
-        path: '/SideMenu',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
-
-      // GoRoute(
-      //   path: '/Details',
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return Details();
-      //   },
-      // ),
-
-      GoRoute(
-        path: '/Users',
-        builder: (BuildContext context, GoRouterState state) {
-          return UsersPage();
-        },
-      ),
-
-      GoRoute(
-        path: '/DetailReservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return DetailReservation();
         },
       ),
 
@@ -151,16 +101,16 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
-        path: '/AddService',
+        path: '/DetailReservation',
         builder: (BuildContext context, GoRouterState state) {
-          return AddService();
+          return DetailReservation();
         },
       ),
 
       GoRoute(
-        path: '/AddPromotion',
+        path: '/QR',
         builder: (BuildContext context, GoRouterState state) {
-          return AddPromotion();
+          // return ScanQRScreen();
         },
       ),
 
@@ -168,6 +118,38 @@ GoRouter getApplicationRoutes() {
         path: '/ServicesData',
         builder: (BuildContext context, GoRouterState state) {
           return ServicesData();
+        },
+      ),
+      GoRoute(
+        path: '/AddService',
+        builder: (BuildContext context, GoRouterState state) {
+          return AddService();
+        },
+      ),
+
+      GoRoute(
+        path: '/Promotions',
+        builder: (BuildContext context, GoRouterState state) {
+          return Promotions();
+        },
+      ),
+      GoRoute(
+        path: '/AddPromotion',
+        builder: (BuildContext context, GoRouterState state) {
+          return AddPromotion();
+        },
+      ),
+      GoRoute(
+        path: '/SideMenu',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
+
+      GoRoute(
+        path: '/Users',
+        builder: (BuildContext context, GoRouterState state) {
+          return UsersPage();
         },
       ),
     ],
