@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/pages/admin/add_promotion.dart';
 import 'package:salon_app/pages/admin/add_reservation.dart';
 import 'package:salon_app/pages/admin/add_service.dart';
+import 'package:salon_app/pages/admin/detail_users.dart';
 // import 'package:salon_app/pages/admin/detail_promotions.dart';
 import 'package:salon_app/pages/admin/promotions.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
@@ -150,6 +151,13 @@ GoRouter getApplicationRoutes() {
         path: '/Users',
         builder: (BuildContext context, GoRouterState state) {
           return UsersPage();
+        },
+      ),
+
+      GoRoute(
+        path: '/DetailUsers',
+        builder: (BuildContext context, GoRouterState state) {
+          return DetailUsers();
         },
       ),
     ],
