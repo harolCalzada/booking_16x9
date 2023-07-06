@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/button2.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 
@@ -34,7 +35,7 @@ class ReservationService extends StatelessWidget {
             ),
           ),
           SizedBox(height: 50),
-          NavigationBarItem(),
+          NavigationBar(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -117,145 +118,102 @@ class ReservationService extends StatelessWidget {
   }
 }
 
-class NavigationBarItem extends StatelessWidget {
-  const NavigationBarItem({key});
-
+class NavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.only(right: 18),
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          PopupMenuButton<String>(
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'opcion1',
-                child: Row(
-                  children: [
-                    Icon(Icons.home),
-                    const SizedBox(width: 5),
-                    Text('Inicio'),
-                  ],
-                ),
-              ),
-              PopupMenuItem<String>(
-                value: 'opcion2',
-                child: Row(
-                  children: [
-                    Icon(Icons.assignment),
-                    const SizedBox(width: 5),
-                    Text('Opción 2'),
-                  ],
-                ),
-              ),
+      width: 350,
+      height: 60,
+      color: Color(gradientColor),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            NavigatorBarItem(
+              contentText: "Home",
+              icon: Icons.home,
+            ),
+            SizedBox(
+              width: 47,
+            ),
+            NavigatorBarItem(
+              contentText: "Reserva",
+              icon: Icons.calendar_today,
+            ),
+            SizedBox(
+              width: 47,
+            ),
+            NavigatorBarItem(
+              contentText: "Agregar",
+              icon: Icons.add,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NavigatorBarItem extends StatelessWidget {
+  final String contentText;
+  final IconData icon;
+
+  const NavigatorBarItem({Key key, this.contentText, this.icon})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton<String>(
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        PopupMenuItem<String>(
+          value: 'home',
+          child: Row(
+            children: [
+              Icon(icon),
+              const SizedBox(width: 4),
+              Text(contentText),
             ],
-            onSelected: (String value) {
-              if (value == 'opcion1') {
-                // Acción de la opción 1
-              } else if (value == 'opcion2') {
-                // Acción de la opción 2
-              }
-            },
-            child: Row(
-              children: [
-                Icon(Icons.home),
-                const SizedBox(width: 5),
-                Text('Inicio'),
-              ],
-            ),
           ),
-          const SizedBox(width: 5),
-          Container(
-            height: 1,
-            width: 30,
-            child: Divider(
-              color: Colors.black,
-              thickness: 2,
-            ),
-          ),
-          const SizedBox(width: 5),
-          PopupMenuButton<String>(
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'opcion1',
-                child: Row(
-                  children: [
-                    Icon(Icons.calendar_today),
-                    const SizedBox(width: 5),
-                    Text('Reserva'),
-                  ],
-                ),
-              ),
-              PopupMenuItem<String>(
-                value: 'opcion2',
-                child: Row(
-                  children: [
-                    Icon(Icons.assignment),
-                    const SizedBox(width: 5),
-                    Text('Opción 2'),
-                  ],
-                ),
-              ),
+        ),
+        PopupMenuItem<String>(
+          value: 'reserva',
+          child: Row(
+            children: [
+              Icon(icon),
+              const SizedBox(width: 4),
+              Text(contentText),
             ],
-            onSelected: (String value) {
-              if (value == 'opcion1') {
-                // Acción de la opción 1
-              } else if (value == 'opcion2') {
-                // Acción de la opción 2
-              }
-            },
-            child: Row(
-              children: [
-                Icon(Icons.calendar_today),
-                const SizedBox(width: 5),
-                Text('Reserva'),
-              ],
-            ),
           ),
-          Container(
-            height: 1,
-            width: 30,
-            child: Divider(
-              color: Colors.black,
-              thickness: 2,
-            ),
-          ),
-          const SizedBox(width: 5),
-          PopupMenuButton<String>(
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'opcion1',
-                child: Row(
-                  children: [
-                    Icon(Icons.add),
-                    const SizedBox(width: 5),
-                    Text('Agregar'),
-                  ],
-                ),
-              ),
-              PopupMenuItem<String>(
-                value: 'opcion2',
-                child: Row(
-                  children: [
-                    Icon(Icons.assignment),
-                    const SizedBox(width: 5),
-                    Text('Opción 2'),
-                  ],
-                ),
-              ),
-            ],
-            onSelected: (String value) {
-              if (value == 'opcion1') {
-                // Acción de la opción 1
-              } else if (value == 'opcion2') {
-                // Acción de la opción 2
-              }
-            },
-            child: Row(children: [
+        ),
+        PopupMenuItem<String>(
+          value: 'agregar',
+          child: Row(
+            children: [
               Icon(Icons.add),
-              const SizedBox(width: 5),
-              Text("Agregar"),
-            ]),
+              const SizedBox(width: 4),
+              Text('Agregar'),
+            ],
           ),
-        ]));
+        ),
+      ],
+      onSelected: (String value) {
+        if (value == 'home') {
+          // Acción de la opción Home
+        } else if (value == 'reserva') {
+          // Acción de la opción Reserva
+        } else if (value == 'agregar') {
+          // Acción de la opción Agregar
+        }
+      },
+      child: Row(
+        children: [
+          Icon(icon),
+          const SizedBox(width: 4),
+          Text(contentText),
+        ],
+      ),
+    );
   }
 }
