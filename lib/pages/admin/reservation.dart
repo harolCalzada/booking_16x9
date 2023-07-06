@@ -35,7 +35,32 @@ class ReservationService extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          CustomNavigationBar(),
+          CustomNavigationBar(items: [
+            SizedBox(
+              width: 40,
+            ),
+            NavigatorBarItem(
+              contentText: "Home",
+              icon: Icons.home,
+              route: '/menu_administrator',
+            ),
+            SizedBox(
+              width: 40,
+            ),
+            NavigatorBarItem(
+              contentText: "Reserva",
+              icon: Icons.calendar_today,
+              route: '/ReservationService',
+            ),
+            SizedBox(
+              width: 40,
+            ),
+            NavigatorBarItem(
+              contentText: "Agregar",
+              icon: Icons.add,
+              route: '/AddReservation',
+            ),
+          ]),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -119,37 +144,19 @@ class ReservationService extends StatelessWidget {
 }
 
 class CustomNavigationBar extends StatelessWidget {
+  final List<Widget> items;
+
+  const CustomNavigationBar({Key key, this.items}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
-      height: 60,
-      // color: Color(gradientColor),
+      // width: 350,
+      // height: 60,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          NavigatorBarItem(
-            contentText: "Home",
-            icon: Icons.home,
-            route: ('/menu_administrator'),
-          ),
-          SizedBox(
-            width: 47,
-          ),
-          NavigatorBarItem(
-              contentText: "Reserva",
-              icon: Icons.calendar_today,
-              route: '/ReservationService'),
-          SizedBox(
-            width: 47,
-          ),
-          NavigatorBarItem(
-            contentText: "Agregar",
-            icon: Icons.add,
-            route: '/AddReservation',
-          ),
-        ],
+        children: items,
       ),
     );
   }

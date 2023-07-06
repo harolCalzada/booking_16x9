@@ -51,7 +51,32 @@ class Promotions extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              CustomNavigationBar(),
+              CustomNavigationBar(items: [
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Home",
+                  icon: Icons.home,
+                  route: '/menu_administrator',
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Promoción",
+                  icon: Icons.calendar_today,
+                  route: '/Promotions',
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Agregar",
+                  icon: Icons.add,
+                  route: '/AddPromotion',
+                ),
+              ]),
               Center(
                 child: DataTable(
                   columns: [

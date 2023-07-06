@@ -53,7 +53,32 @@ class ServicesData extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              CustomNavigationBar(),
+              CustomNavigationBar(items: [
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Home",
+                  icon: Icons.home,
+                  route: '/menu_administrator',
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Servicios",
+                  icon: Icons.calendar_today,
+                  route: '/ServicesData',
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                NavigatorBarItem(
+                  contentText: "Agregar",
+                  icon: Icons.add,
+                  route: '/AddService',
+                ),
+              ]),
               Center(
                 child: DataTable(
                   columns: [
