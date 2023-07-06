@@ -44,8 +44,7 @@ class _AddReservationState extends State<AddReservation> {
                   ),
                 ),
                 CustomTextFormField(
-                  labelText: "Nombres",
-                  colorTextStyle: Colors.black,
+                  labelText: "Nombre",
                   colorLabelText: gradientColor,
                 ),
                 SizedBox(
