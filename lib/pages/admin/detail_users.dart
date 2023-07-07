@@ -34,6 +34,17 @@ class DetailUsers extends StatelessWidget {
               height: 100,
             ),
           ),
+          SizedBox(height: 20),
+          CustomNavigationBar(items: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: NavigatorBarItem(
+                contentText: "Home",
+                icon: Icons.home,
+                route: '/menu_administrator',
+              ),
+            ),
+          ]),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: DataTable(

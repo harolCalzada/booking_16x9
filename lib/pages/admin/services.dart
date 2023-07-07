@@ -53,32 +53,22 @@ class ServicesData extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              CustomNavigationBar(items: [
-                SizedBox(
-                  width: 40,
-                ),
-                NavigatorBarItem(
-                  contentText: "Home",
-                  icon: Icons.home,
-                  route: '/menu_administrator',
-                ),
-                SizedBox(
-                  width: 40,
-                ),
-                NavigatorBarItem(
-                  contentText: "Servicios",
-                  icon: Icons.calendar_today,
-                  route: '/ServicesData',
-                ),
-                SizedBox(
-                  width: 40,
-                ),
-                NavigatorBarItem(
-                  contentText: "Agregar",
-                  icon: Icons.add,
-                  route: '/AddService',
-                ),
-              ]),
+              Padding(
+                padding: const EdgeInsets.only(right: 25, left: 25),
+                child: CustomNavigationBar(items: [
+                  NavigatorBarItem(
+                    contentText: "Home",
+                    icon: Icons.home,
+                    route: '/menu_administrator',
+                  ),
+                  Spacer(),
+                  NavigatorBarItem(
+                    contentText: "Agregar",
+                    icon: Icons.add,
+                    route: '/AddService',
+                  ),
+                ]),
+              ),
               Center(
                 child: DataTable(
                   columns: [
@@ -116,11 +106,13 @@ class ServicesData extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomTextButton(
-                    text: "Anterior",
-                    onPressed: () {
-                      context.go('/'); // Agrega la navegación deseada
-                    },
+                  Flexible(
+                    child: CustomTextButton(
+                      text: "Anterior",
+                      onPressed: () {
+                        context.go('/'); // Agrega la navegación deseada
+                      },
+                    ),
                   ),
                   CustomTextButton(
                     text: "Siguiente",

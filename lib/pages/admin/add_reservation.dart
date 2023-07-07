@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddReservation extends StatefulWidget {
@@ -17,6 +18,7 @@ class _AddReservationState extends State<AddReservation> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back,
@@ -27,8 +29,8 @@ class _AddReservationState extends State<AddReservation> {
             },
           ),
           elevation: 0,
-          backgroundColor: Colors.white,
         ),
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -42,6 +44,26 @@ class _AddReservationState extends State<AddReservation> {
                     width: 100,
                     height: 100,
                   ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25, left: 25),
+                  child: CustomNavigationBar(items: [
+                    NavigatorBarItem(
+                      contentText: "Home",
+                      icon: Icons.home,
+                      route: '/menu_administrator',
+                    ),
+                    Spacer(),
+                    NavigatorBarItem(
+                      contentText: "Reservar",
+                      icon: Icons.add,
+                      route: '/ReservationService',
+                    ),
+                  ]),
+                ),
+                SizedBox(
+                  height: 15,
                 ),
                 CustomTextFormField(
                   labelText: "Nombre",

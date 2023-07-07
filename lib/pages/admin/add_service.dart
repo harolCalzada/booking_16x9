@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddService extends StatelessWidget {
@@ -51,7 +52,26 @@ class AddService extends StatelessWidget {
                     height: 100,
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25, left: 25),
+                  child: CustomNavigationBar(items: [
+                    NavigatorBarItem(
+                      contentText: "Home",
+                      icon: Icons.home,
+                      route: '/menu_administrator',
+                    ),
+                    Spacer(),
+                    NavigatorBarItem(
+                      contentText: "Servicios",
+                      icon: Icons.add,
+                      route: '/ServicesData',
+                    ),
+                  ]),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
                   width: 310,
                   height: 55,

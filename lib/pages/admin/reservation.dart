@@ -113,11 +113,13 @@ class ReservationService extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomTextButton(
-                text: "Anterior",
-                onPressed: () {
-                  context.go('/'); // Agrega la navegación deseada
-                },
+              Flexible(
+                child: CustomTextButton(
+                  text: "Anterior",
+                  onPressed: () {
+                    context.go('/'); // Agrega la navegación deseada
+                  },
+                ),
               ),
               CustomTextButton(
                 text: "Siguiente",
