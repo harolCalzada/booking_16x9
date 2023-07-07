@@ -49,27 +49,34 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final int colorHintText;
   final int colorLabelText;
-  final colorTextStyle;
+  final dynamic colorTextStyle;
+  final bool enabled;
+  final String value;
 
   CustomTextFormField({
-    key,
+    Key key,
     this.labelText,
     this.hintText,
     this.colorHintText,
     this.colorLabelText,
     this.colorTextStyle,
-  });
+    this.enabled = true,
+    this.value,
+  }) : super(key: key);
 
-  final _emailController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    _textEditingController.text = value ?? '';
+
     return SizedBox(
       width: 310,
       height: 50,
       child: TextFormField(
         style: TextStyle(color: colorTextStyle),
-        controller: _emailController,
+        controller: _textEditingController,
+        enabled: enabled,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.white),

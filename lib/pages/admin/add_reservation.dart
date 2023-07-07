@@ -54,10 +54,12 @@ class _AddReservationState extends State<AddReservation> {
                       icon: Icons.home,
                       route: '/menu_administrator',
                     ),
-                    Spacer(),
+                    SizedBox(
+                      width: 10,
+                    ),
                     NavigatorBarItem(
-                      contentText: "Reservar",
-                      icon: Icons.add,
+                      contentText: "Reservas",
+                      icon: Icons.calendar_today,
                       route: '/ReservationService',
                     ),
                   ]),

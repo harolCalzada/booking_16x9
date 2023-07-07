@@ -61,10 +61,12 @@ class AddService extends StatelessWidget {
                       icon: Icons.home,
                       route: '/menu_administrator',
                     ),
-                    Spacer(),
+                    SizedBox(
+                      width: 10,
+                    ),
                     NavigatorBarItem(
                       contentText: "Servicios",
-                      icon: Icons.add,
+                      icon: Icons.business,
                       route: '/ServicesData',
                     ),
                   ]),
