@@ -68,10 +68,12 @@ class _AddPromotionState extends State<AddPromotion> {
                       icon: Icons.home,
                       route: '/menu_administrator',
                     ),
-                    Spacer(),
+                    SizedBox(
+                      width: 10,
+                    ),
                     NavigatorBarItem(
                       contentText: "Promoción",
-                      icon: Icons.add,
+                      icon: Icons.local_offer,
                       route: '/AddService',
                     ),
                   ]),
