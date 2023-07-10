@@ -27,10 +27,8 @@ dependencies:
   go_router: ^9.0.0
   image_picker: ^0.8.6+2
   pluto_menu_bar: ^3.0.1
-
-
-
-
+  qr_code_scanner: ^0.5.1
+  hooks_riverpod: ^2.3.2
 
 
   # The following adds the Cupertino Icons font to your application.

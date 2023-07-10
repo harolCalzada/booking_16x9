@@ -1,67 +1,69 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-// // import 'package:mobile_scanner/mobile_scanner.dart';
-// import 'package:salon_app/pages/home.dart';
+import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-// class ScanQRScreen extends StatefulWidget {
-//   @override
-//   _ScanQRScreenState createState() => _ScanQRScreenState();
-// }
+class QRScanScreen extends StatefulWidget {
+  @override
+  _QRScanScreenState createState() => _QRScanScreenState();
+}
 
-// class _ScanQRScreenState extends State<ScanQRScreen> {
-//   MobileScannerController cameraController = MobileScannerController();
+class _QRScanScreenState extends State<QRScanScreen> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Mobile Scanner'),
-//         actions: [
-//           IconButton(
-//             color: Colors.white,
-//             icon: ValueListenableBuilder(
-//               valueListenable: cameraController.torchState,
-//               builder: (context, state, child) {
-//                 switch (state as TorchState) {
-//                   case TorchState.off:
-//                     return const Icon(Icons.flash_off, color: Colors.grey);
-//                   case TorchState.on:
-//                     return const Icon(Icons.flash_on, color: Colors.yellow);
-//                 }
-//               },
-//             ),
-//             iconSize: 32.0,
-//             onPressed: () => cameraController.toggleTorch(),
-//           ),
-//           IconButton(
-//             color: Colors.white,
-//             icon: ValueListenableBuilder(
-//               valueListenable: cameraController.cameraFacingState,
-//               builder: (context, state, child) {
-//                 switch (state as CameraFacing) {
-//                   case CameraFacing.front:
-//                     return const Icon(Icons.camera_front);
-//                   case CameraFacing.back:
-//                     return const Icon(Icons.camera_rear);
-//                 }
-//               },
-//             ),
-//             iconSize: 32.0,
-//             onPressed: () => cameraController.switchCamera(),
-//           ),
-//         ],
-//       ),
-//       body: MobileScanner(
-//         // fit: BoxFit.contain,
-//         controller: cameraController,
-//         onDetect: (capture) {
-//           final List<Barcode> barcodes = capture.barcodes;
-//           final Uint8List image = capture.image;
-//           for (final barcode in barcodes) {
-//             debugPrint('Barcode found! ${barcode.rawValue}');
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
+  QRViewController controller;
+  bool scanComplete = false;
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  void onQRViewCreated(QRViewController controller) {
+    setState(() {
+      this.controller = controller;
+    });
+    controller.scannedDataStream.listen((scanData) {
+      if (!scanComplete) {
+        setState(() {
+          scanComplete = true;
+          // Aquí puedes manejar la información obtenida del escaneo del código QR
+          print(scanData.code);
+        });
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Escaneo de QR'),
+      ),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          QRView(
+            key: qrKey,
+            onQRViewCreated: onQRViewCreated,
+          ),
+          if (scanComplete)
+            Container(
+              color: Colors.black54,
+              child: Center(
+                child: Text(
+                  'Escaneo completo',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: QRScanScreen(),
+  ));
+}

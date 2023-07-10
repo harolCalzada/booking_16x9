@@ -70,24 +70,6 @@ class _DetailUsersState extends State<DetailUsers> {
                   height: 15,
                 ),
                 CustomTextFormField(
-                  labelText: "Fecha",
-                  colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "10-07-23",
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
-                  labelText: "Hora",
-                  colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "10:30",
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
                   labelText: "Nombres",
                   colorLabelText: gradientColor,
                   enabled: false,
@@ -106,7 +88,7 @@ class _DetailUsersState extends State<DetailUsers> {
                   height: 20,
                 ),
                 CustomTextFormField(
-                  labelText: "Correo electrónico",
+                  labelText: "Correo",
                   colorLabelText: gradientColor,
                   enabled: false,
                   value: "ingrid_1995_10@gmail.com",
@@ -115,10 +97,19 @@ class _DetailUsersState extends State<DetailUsers> {
                   height: 20,
                 ),
                 CustomTextFormField(
-                  labelText: "Tipo de Servicio",
+                  labelText: "DNI",
                   colorLabelText: gradientColor,
                   enabled: false,
-                  value: "Corte",
+                  value: "75723117",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Dirección",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "Calle los Eucaliptos 145.Urb.",
                 ),
                 SizedBox(
                   height: 20,

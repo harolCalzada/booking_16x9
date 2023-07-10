@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salon_app/constants/theme.dart';
 import 'package:salon_app/pages/book.dart';
 import 'package:salon_app/pages/home.dart';
@@ -7,7 +8,11 @@ import 'package:salon_app/pages/register.dart';
 import 'package:salon_app/routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

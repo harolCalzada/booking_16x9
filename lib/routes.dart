@@ -109,9 +109,9 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
-        path: '/QR',
+        path: '/QRScan',
         builder: (BuildContext context, GoRouterState state) {
-          // return ScanQRScreen();
+          return QRScanScreen();
         },
       ),
 
