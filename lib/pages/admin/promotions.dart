@@ -40,7 +40,7 @@ class Promotions extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
@@ -51,6 +51,18 @@ class Promotions extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 18),
+                child: Text(
+                  "Promociones",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 25, left: 25),
                 child: CustomNavigationBar(items: [

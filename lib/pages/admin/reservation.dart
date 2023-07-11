@@ -24,7 +24,7 @@ class ReservationService extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             alignment: Alignment.center,
@@ -35,6 +35,18 @@ class ReservationService extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 18),
+            child: Text(
+              "Reservas",
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                  color: Colors.black),
+            ),
+          ),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(right: 18, left: 18),
             child: CustomNavigationBar(items: [

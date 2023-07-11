@@ -108,12 +108,12 @@ GoRouter getApplicationRoutes() {
         },
       ),
 
-      GoRoute(
-        path: '/QRScan',
-        builder: (BuildContext context, GoRouterState state) {
-          return QRScanScreen();
-        },
-      ),
+      // GoRoute(
+      //   path: '/QRScanScreen',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return QRScanScreen();
+      //   },
+      // ),
 
       GoRoute(
         path: '/ServicesData',

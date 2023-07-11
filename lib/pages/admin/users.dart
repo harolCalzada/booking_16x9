@@ -32,7 +32,7 @@ class _UsersPageState extends State<UsersPage> {
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             alignment: Alignment.center,
@@ -43,6 +43,18 @@ class _UsersPageState extends State<UsersPage> {
             ),
           ),
           SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 18),
+            child: Text(
+              "Usuarios",
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                  color: Colors.black),
+            ),
+          ),
+          SizedBox(height: 10),
           CustomNavigationBar(items: [
             Padding(
               padding: const EdgeInsets.only(left: 20),

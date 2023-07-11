@@ -48,7 +48,7 @@ class _SideMenuState extends ConsumerState<SideMenu> {
             case 0:
               ref.read(selectedMenuProvider.notifier).state = 0;
 
-              context.go('/QRScan');
+              context.go('/QRScanScreen');
 
               break;
             case 1:
