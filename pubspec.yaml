@@ -26,7 +26,13 @@ dependencies:
   google_fonts: ^4.0.4
   go_router: ^9.0.0
   image_picker: ^0.8.6+2
-  cloud_firestore: ^4.8.1
+  pluto_menu_bar: ^3.0.1
+  qr_code_scanner: ^0.5.1
+  hooks_riverpod: ^2.3.2
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
 
 

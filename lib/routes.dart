@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/pages/admin/add_promotion.dart';
 import 'package:salon_app/pages/admin/add_reservation.dart';
 import 'package:salon_app/pages/admin/add_service.dart';
+import 'package:salon_app/pages/admin/detail_users.dart';
 // import 'package:salon_app/pages/admin/detail_promotions.dart';
 import 'package:salon_app/pages/admin/promotions.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
@@ -66,6 +67,13 @@ GoRouter getApplicationRoutes() {
         },
       ),
 
+      GoRoute(
+        path: '/menu_administrator',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
+
       // Agrega más rutas según tus necesidades
       GoRoute(
         path: '/confirm_reservation',
@@ -79,67 +87,10 @@ GoRouter getApplicationRoutes() {
           return SucceedReservation();
         },
       ),
-
-      GoRoute(
-        path: '/menu_administrator',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
-
-      GoRoute(
-        path: '/QR',
-        builder: (BuildContext context, GoRouterState state) {
-          // return ScanQRScreen();
-        },
-      ),
-
       GoRoute(
         path: '/ReservationService',
         builder: (BuildContext context, GoRouterState state) {
           return ReservationService();
-        },
-      ),
-
-      GoRoute(
-        path: '/ServicesData',
-        builder: (BuildContext context, GoRouterState state) {
-          return ServicesData();
-        },
-      ),
-
-      GoRoute(
-        path: '/Promotions',
-        builder: (BuildContext context, GoRouterState state) {
-          return Promotions();
-        },
-      ),
-
-      GoRoute(
-        path: '/SideMenu',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
-
-      // GoRoute(
-      //   path: '/Details',
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return Details();
-      //   },
-      // ),
-
-      GoRoute(
-        path: '/Users',
-        builder: (BuildContext context, GoRouterState state) {
-          return UsersPage();
-        },
-      ),
-
-      GoRoute(
-        path: '/DetailReservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return DetailReservation();
         },
       ),
 
@@ -151,6 +102,26 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
+        path: '/DetailReservation',
+        builder: (BuildContext context, GoRouterState state) {
+          return DetailReservation();
+        },
+      ),
+
+      // GoRoute(
+      //   path: '/QRScanScreen',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return QRScanScreen();
+      //   },
+      // ),
+
+      // GoRoute(
+      //   path: '/ServicesData',
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return ServicesData();
+      //   },
+      // ),
+      GoRoute(
         path: '/AddService',
         builder: (BuildContext context, GoRouterState state) {
           return AddService();
@@ -158,16 +129,47 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
+        path: '/Promotions',
+        builder: (BuildContext context, GoRouterState state) {
+          return Promotions();
+        },
+      ),
+      GoRoute(
         path: '/AddPromotion',
         builder: (BuildContext context, GoRouterState state) {
           return AddPromotion();
         },
       ),
+      GoRoute(
+        path: '/SideMenu',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
 
       GoRoute(
-        path: '/ServicesData',
+        path: '/Promotions',
         builder: (BuildContext context, GoRouterState state) {
-          return ServicesData();
+          return Promotions();
+        },
+      ),
+      GoRoute(
+        path: '/Users',
+        builder: (BuildContext context, GoRouterState state) {
+          return UsersPage();
+        },
+      ),
+      GoRoute(
+        path: '/SideMenu',
+        builder: (BuildContext context, GoRouterState state) {
+          return SideMenu();
+        },
+      ),
+
+      GoRoute(
+        path: '/DetailUsers',
+        builder: (BuildContext context, GoRouterState state) {
+          return DetailUsers();
         },
       ),
     ],

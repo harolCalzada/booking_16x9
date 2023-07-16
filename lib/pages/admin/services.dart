@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 import '../../widgets/button2.dart';
@@ -39,89 +40,101 @@ class ServicesData extends StatelessWidget {
               tileMode: TileMode.mirror,
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    'assets/images/logo-jaus-dorado.png',
-                    width: 100,
-                    height: 100,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'assets/images/logo-jaus-dorado.png',
+                  width: 100,
+                  height: 100,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: CustomButton(
-                    btnText: 'Agregar nuevo servicio',
-                    height: 30,
-                    width: 200,
-                    colorBackground: Colors.black.value,
-                    colorText: gradientColor,
-                    onpressed: () => context.go('/AddService'),
-                  ),
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 18),
+                child: Text(
+                  "Servicios",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      color: Colors.black),
                 ),
-                Center(
-                  child: DataTable(
-                    columns: [
-                      DataColumn(
-                        label: Text('Nombre del Servicio'),
-                      ),
-                      DataColumn(
-                        label: Text('Fecha '),
-                      ),
-                    ],
-                    rows: [
-                      DataRow(cells: [
-                        DataCell(Text("Corte")),
-                        DataCell(Text("10-07-23")),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text("Manicure")),
-                        DataCell(Text("10-08-23")),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text("Tinte")),
-                        DataCell(Text("28-08-23")),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text("Pedicure")),
-                        DataCell(Text("29-08-23")),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text("Makeup")),
-                        DataCell(Text("30-08-23")),
-                      ])
-                    ],
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 25, left: 25),
+                child: CustomNavigationBar(items: [
+                  NavigatorBarItem(
+                    contentText: "Home",
+                    icon: Icons.home,
+                    route: '/menu_administrator',
                   ),
+                  Spacer(),
+                  NavigatorBarItem(
+                    contentText: "Agregar",
+                    icon: Icons.add,
+                    route: '/AddService',
+                  ),
+                ]),
+              ),
+              Center(
+                child: DataTable(
+                  columns: [
+                    DataColumn(
+                      label: Text('Nombre del Servicio'),
+                    ),
+                    DataColumn(
+                      label: Text('Fecha '),
+                    ),
+                  ],
+                  rows: [
+                    DataRow(cells: [
+                      DataCell(Text("Corte")),
+                      DataCell(Text("10-07-23")),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Text("Manicure")),
+                      DataCell(Text("10-08-23")),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Text("Tinte")),
+                      DataCell(Text("28-08-23")),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Text("Pedicure")),
+                      DataCell(Text("29-08-23")),
+                    ]),
+                    DataRow(cells: [
+                      DataCell(Text("Makeup")),
+                      DataCell(Text("30-08-23")),
+                    ])
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        CustomTextButton(
-                          text: "Anterior",
-                          onPressed: () {
-                            context.go('/'); // Agrega la navegación deseada
-                          },
-                        ),
-                        CustomTextButton(
-                          text: "Siguiente",
-                          onPressed: () {
-                            context.go('/'); // Agrega la navegación deseada
-                          },
-                        ),
-                      ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: CustomTextButton(
+                      text: "Anterior",
+                      onPressed: () {
+                        context.go('/'); // Agrega la navegación deseada
+                      },
                     ),
                   ),
-                )
-              ],
-            ),
+                  CustomTextButton(
+                    text: "Siguiente",
+                    onPressed: () {
+                      context.go('/'); // Agrega la navegación deseada
+                    },
+                  ),
+                ],
+              )
+            ],
           ),
         )));
   }

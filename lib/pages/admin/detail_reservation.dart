@@ -1,83 +1,130 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class DetailReservation extends StatelessWidget {
-  const DetailReservation({key});
+class DetailReservation extends StatefulWidget {
+  @override
+  _DetailReservationState createState() => _DetailReservationState();
+}
+
+class _DetailReservationState extends State<DetailReservation> {
+  bool _obscureText = true;
+  final _formKey = GlobalKey<FormState>();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: ReturnButton(
-          icon: Icons.arrow_back,
-          iconColor: Colors.black,
-          onPressed: () {
-            context.go('/SideMenu');
-          },
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              context.go('/ReservationService');
+            },
+          ),
+          elevation: 0,
         ),
-      ),
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/images/logo-jaus-dorado.png',
-              width: 80,
-              height: 80,
-            ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: DataTable(
-              columns: [
-                DataColumn(
-                  label: Text('Fecha'),
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    'assets/images/logo-jaus-dorado.png',
+                    width: 100,
+                    height: 100,
+                  ),
                 ),
-                DataColumn(
-                  label: Text('Hora'),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25, left: 25),
+                  child: CustomNavigationBar(items: [
+                    NavigatorBarItem(
+                      contentText: "Home",
+                      icon: Icons.home,
+                      route: '/menu_administrator',
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    NavigatorBarItem(
+                      contentText: "Reservas",
+                      icon: Icons.calendar_today,
+                      route: '/ReservationService',
+                    ),
+                  ]),
                 ),
-                DataColumn(
-                  label: Text('Nombre'),
+                SizedBox(
+                  height: 15,
                 ),
-                DataColumn(
-                  label: Text('Apellidos'),
+                CustomTextFormField(
+                  labelText: "Fecha",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "10-07-23",
                 ),
-                DataColumn(
-                  label: Text('Telėfono'),
+                SizedBox(
+                  height: 20,
                 ),
-                DataColumn(
-                  label: Text('Correo'),
+                CustomTextFormField(
+                  labelText: "Hora",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "10:30",
                 ),
-                DataColumn(
-                  label: Text('Servicio'),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Nombres",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "Ingrid Calzada Villajuan",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Teléfono",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "957290391",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Correo electrónico",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "ingrid_1995_10@gmail.com",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Tipo de Servicio",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "Corte",
+                ),
+                SizedBox(
+                  height: 20,
                 ),
               ],
-              rows: [
-                DataRow(cells: [
-                  DataCell(Text("10-06-2023")),
-                  DataCell(Text("10:00")),
-                  DataCell(GestureDetector(
-                      onTap: () {
-                        context.go(
-                            '/login'); // Reemplaza '/otra_pantalla' con la ruta de tu otra pantalla
-                      },
-                      child: Text("Ingrid"))),
-                  DataCell(Text("Calzada Villajuan")),
-                  DataCell(Text("952290391")),
-                  DataCell(Text("ingrid_1995_19@gmail.com")),
-                  DataCell(Text("Manicure")),
-                ]),
-              ],
             ),
           ),
-        ],
-      ),
-    );
+        ));
   }
 }

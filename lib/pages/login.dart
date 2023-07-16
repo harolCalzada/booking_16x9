@@ -78,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     CustomTextFormField(
                       labelText: "Correo electrónico",
+                      colorTextStyle: Colors.white,
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electronico",
                       colorHintText: primaryColor,
@@ -93,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: "Escribe tu contraseña",
+
                           hintStyle: TextStyle(color: Colors.white),
                           labelText: 'Contraseña',
                           labelStyle: TextStyle(

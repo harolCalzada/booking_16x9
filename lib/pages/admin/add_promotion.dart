@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddPromotion extends StatefulWidget {
@@ -58,7 +59,28 @@ class _AddPromotionState extends State<AddPromotion> {
                     height: 100,
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25, left: 25),
+                  child: CustomNavigationBar(items: [
+                    NavigatorBarItem(
+                      contentText: "Home",
+                      icon: Icons.home,
+                      route: '/menu_administrator',
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    NavigatorBarItem(
+                      contentText: "Promoción",
+                      icon: Icons.local_offer,
+                      route: '/AddService',
+                    ),
+                  ]),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
                   width: 310,
                   height: 55,
@@ -121,7 +143,7 @@ class _AddPromotionState extends State<AddPromotion> {
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: CheckboxListTile(

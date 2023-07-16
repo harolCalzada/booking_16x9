@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
@@ -39,7 +40,7 @@ class Promotions extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
@@ -49,18 +50,34 @@ class Promotions extends StatelessWidget {
                   height: 100,
                 ),
               ),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomButton(
-                  btnText: ' Nueva promoción',
-                  height: 38,
-                  width: 180,
-                  colorBackground: Colors.black.value,
-                  colorText: gradientColor,
-                  onpressed: () => context.go(
-                    '/AddPromotion',
-                  ),
+                padding: const EdgeInsets.only(left: 18),
+                child: Text(
+                  "Promociones",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      color: Colors.black),
                 ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 25, left: 25),
+                child: CustomNavigationBar(items: [
+                  NavigatorBarItem(
+                    contentText: "Home",
+                    icon: Icons.home,
+                    route: '/menu_administrator',
+                  ),
+                  Spacer(),
+                  NavigatorBarItem(
+                    contentText: "Agregar",
+                    icon: Icons.add,
+                    route: '/AddPromotion',
+                  ),
+                ]),
               ),
               Center(
                 child: DataTable(
