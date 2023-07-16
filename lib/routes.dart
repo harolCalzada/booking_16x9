@@ -115,12 +115,12 @@ GoRouter getApplicationRoutes() {
       //   },
       // ),
 
-      // GoRoute(
-      //   path: '/ServicesData',
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return ServicesData();
-      //   },
-      // ),
+      GoRoute(
+        path: '/ServicesData',
+        builder: (BuildContext context, GoRouterState state) {
+          return ServicesData();
+        },
+      ),
       GoRoute(
         path: '/AddService',
         builder: (BuildContext context, GoRouterState state) {
@@ -148,21 +148,9 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
-        path: '/Promotions',
-        builder: (BuildContext context, GoRouterState state) {
-          return Promotions();
-        },
-      ),
-      GoRoute(
         path: '/Users',
         builder: (BuildContext context, GoRouterState state) {
           return UsersPage();
-        },
-      ),
-      GoRoute(
-        path: '/SideMenu',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
         },
       ),
 
