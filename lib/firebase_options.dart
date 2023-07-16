@@ -61,9 +61,10 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyAzJX_FC0Geoy7CxaBWiZBhEnrEOICXqCE',
     appId: '1:1092401962932:ios:e11d63ddf9f9d7d13e1ce1',
     messagingSenderId: '1092401962932',
-    projectId: 'jaus-1ebdf',
+    projectId: 'jaus1ebdf',
     storageBucket: 'jaus-1ebdf.appspot.com',
-    iosClientId: '1092401962932-7l59j0m3r76qraiuekedpp2d3gvc0aao.apps.googleusercontent.com',
-    iosBundleId: 'com.firebaseapp.jaus',
+    iosClientId:
+        '1092401962932-7l59j0m3r76qraiuekedpp2d3gvc0aao.apps.googleusercontent.com',
+    iosBundleId: 'com.firebaseapp.jaus1ebdf',
   );
 }
