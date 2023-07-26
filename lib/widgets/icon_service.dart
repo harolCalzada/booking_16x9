@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
 
 class IconServices extends StatelessWidget {
-  final String columnImg, columnTxt;
+  final String iconUrl;
+  final String serviceName;
   final Color columnBg;
   final Color textColor;
   final Color colorImg;
 
   const IconServices(
       {Key key,
-      this.columnImg,
-      this.columnTxt,
+      this.iconUrl,
+      this.serviceName,
       this.columnBg,
       this.textColor,
       this.colorImg})
@@ -29,13 +30,14 @@ class IconServices extends StatelessWidget {
             color: Color(backgroundImage),
             border: Border.all(color: Color(secondaryColor)),
           ),
-          child: Image(
-              // color: Colors.black,
-              image: AssetImage(columnImg),
-              fit: BoxFit.cover),
+          child: Image.network(iconUrl),
+          // child: Image(
+          //     // color: Colors.black,
+          //     image: AssetImage(imageUrl),
+          //     fit: BoxFit.cover),
         ),
         SizedBox(height: 10),
-        Text(columnTxt, style: TextStyle(color: (textColor), fontSize: 10)),
+        Text(serviceName, style: TextStyle(color: (textColor), fontSize: 10)),
         SizedBox(height: 10)
       ],
     );
