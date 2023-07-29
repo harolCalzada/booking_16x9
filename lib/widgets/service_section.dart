@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/models/services_entity.dart';
 import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/modal.dart';
 import 'package:salon_app/repositories/services_repository.dart'; // Replace this import with the actual path to your ServicesRepository file
@@ -12,9 +13,8 @@ class ServicesSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: ServicesRepository()
-          .getServices(), // Create an instance of ServicesRepository and call getServices()
+    return StreamBuilder<List<ServiceEntity>>(
+      stream: ServicesRepository().getServices(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
@@ -24,8 +24,7 @@ class ServicesSectionWidget extends StatelessWidget {
           return CircularProgressIndicator();
         }
 
-        // Extract the data from the snapshot and create a list of documents
-        final List<DocumentSnapshot> documents = snapshot.data.docs;
+        final List<ServiceEntity> documents = snapshot.data;
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,15 +34,17 @@ class ServicesSectionWidget extends StatelessWidget {
               Expanded(
                 child: InkWell(
                   onTap: () {
-                    servicesModal(context);
+                    servicesModal(
+                      context,
+                      UniqueKey(),
+                      doc.imageUrl,
+                      doc.name,
+                      doc.price.toDouble(),
+                    );
                   },
                   child: IconServices(
-                    // colorImg: Color(secondarycolor),
-                    iconUrl: doc[
-                        'icon_url'], // Use the image field from the document
-                    serviceName:
-                        doc['name'], // Use the name field from the document
-                    // columnBg: Color(gradientcolor),
+                    iconUrl: doc.iconUrl,
+                    serviceName: doc.name,
                     textColor: Color(gradientColor),
                   ),
                 ),
