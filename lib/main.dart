@@ -4,8 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salon_app/constants/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:salon_app/routes.dart';
 
 import 'firebase_options.dart';
