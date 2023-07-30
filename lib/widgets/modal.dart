@@ -6,6 +6,10 @@ import '../constants/colors.dart';
 
 void servicesModal(
   BuildContext ctx,
+  Key key,
+  String imageUrl,
+  String nameServices,
+  double price,
 ) {
   showModalBottomSheet(
     clipBehavior: Clip.antiAlias,
@@ -18,12 +22,25 @@ void servicesModal(
     elevation: 11,
     backgroundColor: Color(gradientColor),
     context: ctx,
-    builder: (ctx) => ModalServices(),
+    builder: (ctx) => ModalServices(
+      imageUrl: imageUrl,
+      nameServices: nameServices,
+      price: price,
+    ),
   );
 }
 
 class ModalServices extends StatelessWidget {
-  const ModalServices({key});
+  const ModalServices({
+    Key key,
+    this.imageUrl,
+    this.nameServices,
+    this.price,
+  }) : super(key: key);
+
+  final String imageUrl;
+  final String nameServices;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +64,8 @@ class ModalServices extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipOval(
-              child: Image.asset(
-                'assets/images/braid4.jpg',
+              child: Image.network(
+                imageUrl,
                 width: 220,
                 height: 220,
                 fit: BoxFit.cover,
@@ -58,7 +75,7 @@ class ModalServices extends StatelessWidget {
               height: 5,
             ),
             Text(
-              'Corte de Mujer',
+              nameServices,
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
@@ -69,7 +86,7 @@ class ModalServices extends StatelessWidget {
               height: 15,
             ),
             Text(
-              'S/165 ',
+              price.toString(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
