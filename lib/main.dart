@@ -8,8 +8,8 @@ import 'package:salon_app/routes.dart';
 
 import 'firebase_options.dart';
 
-FirebaseApp app;
-FirebaseAuth auth;
+late FirebaseApp app;
+late FirebaseAuth auth;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

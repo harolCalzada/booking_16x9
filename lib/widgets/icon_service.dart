@@ -4,18 +4,13 @@ import 'package:salon_app/constants/colors.dart';
 class IconServices extends StatelessWidget {
   final String iconUrl;
   final String serviceName;
-  final Color columnBg;
   final Color textColor;
-  final Color colorImg;
 
-  const IconServices(
-      {Key key,
-      this.iconUrl,
-      this.serviceName,
-      this.columnBg,
-      this.textColor,
-      this.colorImg})
-      : super(key: key);
+  const IconServices({
+    required this.iconUrl,
+    required this.serviceName,
+    required this.textColor,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(

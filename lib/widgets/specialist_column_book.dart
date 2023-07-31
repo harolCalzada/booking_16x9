@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class SpecialistColumnBook extends StatelessWidget {
-  final String specImg, specName; final TextStyle specNameStyle;
+  final String specImg, specName;
+  final TextStyle specNameStyle;
 
-  const SpecialistColumnBook({Key key, this.specImg, this.specName,this.specNameStyle}) : super(key: key);
+  const SpecialistColumnBook(
+      {required this.specImg,
+      required this.specName,
+      required this.specNameStyle});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,12 +26,13 @@ class SpecialistColumnBook extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: 10),
-              Text(specName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: specNameStyle,),
-                  SizedBox(height: 4),
-              
+              Text(
+                specName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: specNameStyle,
+              ),
+              SizedBox(height: 4),
             ],
           ),
         )

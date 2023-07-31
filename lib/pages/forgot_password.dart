@@ -135,7 +135,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     labelText: "Correo electrónico",
                     colorLabelText: gradientColor,
                     hintText: "Escriba su correo electronico",
-                    colorHintText: primaryColor,
+                    // colorHintText: primaryColor,
                   ),
                   SizedBox(
                     height: 30,

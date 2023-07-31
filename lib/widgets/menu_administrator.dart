@@ -6,8 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salon_app/providers/menu_provider.dart';
 
 class SideMenu extends ConsumerStatefulWidget {
-  const SideMenu({Key key}) : super(key: key);
-
   @override
   _SideMenuState createState() => _SideMenuState();
 }

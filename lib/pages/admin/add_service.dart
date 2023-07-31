@@ -7,9 +7,7 @@ import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddService extends StatelessWidget {
-  AddService({Key key});
-
-  File selectedImage;
+  late File selectedImage;
 
   Future<void> selectImage(BuildContext context) async {
     final pickedImage =

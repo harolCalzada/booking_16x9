@@ -8,14 +8,12 @@ import 'package:salon_app/pages/admin/reservation.dart';
 import 'package:salon_app/widgets/button.dart';
 
 class AddPromotion extends StatefulWidget {
-  AddPromotion({Key key}) : super(key: key);
-
   @override
   _AddPromotionState createState() => _AddPromotionState();
 }
 
 class _AddPromotionState extends State<AddPromotion> {
-  File selectedImage;
+  late File selectedImage;
   bool isChecked = false;
 
   Future<void> selectImage(BuildContext context) async {

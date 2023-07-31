@@ -5,8 +5,7 @@ import 'package:salon_app/uidata.dart';
 class SpecialistColumn extends StatelessWidget {
   final String specImg, specName;
 
-  const SpecialistColumn({Key key, this.specImg, this.specName})
-      : super(key: key);
+  const SpecialistColumn({required this.specImg, required this.specName});
   @override
   Widget build(BuildContext context) {
     return Column(

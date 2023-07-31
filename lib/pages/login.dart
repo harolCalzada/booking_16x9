@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                       colorTextStyle: Colors.white,
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electronico",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 40,
@@ -131,13 +131,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         obscureText: _obscureText,
                         validator: (value) {
-                          if (value.isEmpty) {
-                            return 'Por favor ingrese su contraseña';
-                          }
-                          if (value.length < 6) {
-                            return 'La contraseña debe tener al menos 6 caracteres';
-                          }
-                          return null;
+                          // if (value.isEmpty) {
+                          //   return 'Por favor ingrese su contraseña';
+                          // }
+                          // if (value.length < 6) {
+                          //   return 'La contraseña debe tener al menos 6 caracteres';
+                          // }
+                          // return null;
                         },
                       ),
                     ),

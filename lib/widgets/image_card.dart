@@ -5,7 +5,7 @@ import 'package:salon_app/widgets/button2.dart';
 class ImageCard extends StatefulWidget {
   final String cardImg;
 
-  const ImageCard({Key key, this.cardImg}) : super(key: key);
+  const ImageCard({required this.cardImg});
 
   @override
   _ImageCardState createState() => _ImageCardState();

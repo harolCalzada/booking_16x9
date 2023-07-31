@@ -8,8 +8,6 @@ import 'package:salon_app/widgets/button.dart';
 import '../../widgets/button2.dart';
 
 class ServicesData extends StatelessWidget {
-  const ServicesData({Key key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

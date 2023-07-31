@@ -6,8 +6,10 @@ class DateColumn extends StatelessWidget {
   final Color dateBg, dateTextColor;
 
   const DateColumn(
-      {Key key, this.weekDay, this.date, this.dateBg, this.dateTextColor})
-      : super(key: key);
+      {required this.weekDay,
+      required this.date,
+      required this.dateBg,
+      required this.dateTextColor});
   @override
   Widget build(BuildContext context) {
     return Column(

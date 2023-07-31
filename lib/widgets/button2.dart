@@ -7,8 +7,8 @@ class CustomElevatedButtonRounded extends StatelessWidget {
   final String btnText;
   final VoidCallback onPressed;
 
-  const CustomElevatedButtonRounded({Key key, this.btnText, this.onPressed})
-      : super(key: key);
+  const CustomElevatedButtonRounded(
+      {required this.btnText, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,11 +40,10 @@ class ReturnButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ReturnButton({
-    Key key,
-    this.icon,
-    this.iconColor,
-    this.onPressed,
-  }) : super(key: key);
+    required this.icon,
+    required this.iconColor,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +62,8 @@ class CustomTextButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const CustomTextButton({
-    this.text,
-    this.onPressed,
+    required this.text,
+    required this.onPressed,
   });
 
   @override

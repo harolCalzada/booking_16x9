@@ -56,7 +56,7 @@ class _RegistroPageState extends State<RegisterPage> {
                       labelText: "Nombre",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su nombre",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 13,
@@ -65,7 +65,7 @@ class _RegistroPageState extends State<RegisterPage> {
                       labelText: "Apellido",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su apellido",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 13,
@@ -74,7 +74,7 @@ class _RegistroPageState extends State<RegisterPage> {
                       labelText: "Teléfono",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su teléfono",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 13,
@@ -83,7 +83,7 @@ class _RegistroPageState extends State<RegisterPage> {
                       labelText: "Correo electrónico",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su correo electrónico",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 13,
@@ -92,7 +92,7 @@ class _RegistroPageState extends State<RegisterPage> {
                       labelText: "Distrito",
                       colorLabelText: gradientColor,
                       hintText: "Escriba su distrito",
-                      colorHintText: primaryColor,
+                      // colorHintText: primaryColor,
                     ),
                     SizedBox(
                       height: 13,
@@ -140,13 +140,13 @@ class _RegistroPageState extends State<RegisterPage> {
                         ),
                         obscureText: _obscureText,
                         validator: (value) {
-                          if (value.isEmpty) {
-                            return 'Por favor ingrese su contraseña';
-                          }
-                          if (value.length < 6) {
-                            return 'La contraseña debe tener al menos 6 caracteres';
-                          }
-                          return null;
+                          // if (value.isEmpty) {
+                          //   return 'Por favor ingrese su contraseña';
+                          // }
+                          // if (value.length < 6) {
+                          //   return 'La contraseña debe tener al menos 6 caracteres';
+                          // }
+                          // return null;
                         },
                       ),
                     ),

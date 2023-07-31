@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 class ServiceEntity {
   final String imageUrl;
-
   final double price;
   final String iconUrl;
   final String name;
 
   ServiceEntity({
-    this.imageUrl,
-    this.price,
-    this.iconUrl,
-    this.name,
+    required this.imageUrl,
+    required this.price,
+    required this.iconUrl,
+    required this.name,
   });
 }
 

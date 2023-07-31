@@ -11,14 +11,13 @@ class CustomButton extends StatelessWidget {
   final int colorBackground;
 
   const CustomButton({
-    Key key,
-    this.btnText,
-    this.onpressed,
-    this.colorBackground,
-    this.colorText,
-    this.width,
-    this.height,
-  }) : super(key: key);
+    required this.btnText,
+    required this.onpressed,
+    required this.colorBackground,
+    required this.colorText,
+    required this.width,
+    required this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,23 +45,20 @@ class CustomButton extends StatelessWidget {
 
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
-  final String hintText;
-  final int colorHintText;
+  String? hintText;
   final int colorLabelText;
-  final dynamic colorTextStyle;
-  final bool enabled;
-  final String value;
+  dynamic? colorTextStyle;
+  final bool? enabled;
+  String? value;
 
   CustomTextFormField({
-    Key key,
-    this.labelText,
+    required this.labelText,
     this.hintText,
-    this.colorHintText,
-    this.colorLabelText,
+    required this.colorLabelText,
     this.colorTextStyle,
     this.enabled = true,
     this.value,
-  }) : super(key: key);
+  });
 
   final TextEditingController _textEditingController = TextEditingController();
 
@@ -99,12 +95,12 @@ class CustomTextFormField extends StatelessWidget {
         ),
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
-          if (value.isEmpty) {
-            return 'Por favor ingrese su correo electrónico';
-          }
-          if (!value.contains('@')) {
-            return 'Por favor ingrese un correo electrónico válido';
-          }
+          // if (value?.isNotEmpty) {
+          //   return 'Por favor ingrese su correo electrónico';
+          // }
+          // if (!value.contains('@')) {
+          //   return 'Por favor ingrese un correo electrónico válido';
+          // }
           return null;
         },
       ),

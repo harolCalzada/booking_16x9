@@ -3,13 +3,13 @@ import 'package:salon_app/models/services_entity.dart';
 import 'package:salon_app/repositories/config.dart';
 
 class ServicesRepository extends RepositoryConfig {
-  String CollectionName = 'services';
+  String collectionName = 'services';
 
   // ServicesRepository(getServices);
 
   Stream<List<ServiceEntity>> getServices() {
     return FirebaseFirestore.instance
-        .collection(CollectionName)
+        .collection(collectionName)
         .snapshots()
         .map(
       (snapshot) {

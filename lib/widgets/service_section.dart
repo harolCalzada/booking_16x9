@@ -7,10 +7,6 @@ import 'package:salon_app/widgets/modal.dart';
 import 'package:salon_app/repositories/services_repository.dart'; // Replace this import with the actual path to your ServicesRepository file
 
 class ServicesSectionWidget extends StatelessWidget {
-  const ServicesSectionWidget({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ServiceEntity>>(
@@ -24,7 +20,7 @@ class ServicesSectionWidget extends StatelessWidget {
           return CircularProgressIndicator();
         }
 
-        final List<ServiceEntity> documents = snapshot.data;
+        final List<ServiceEntity> documents = snapshot.data ?? [];
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,

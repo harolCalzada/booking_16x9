@@ -6,8 +6,6 @@ import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 
 class Promotions extends StatelessWidget {
-  const Promotions({Key key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

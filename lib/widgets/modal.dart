@@ -32,11 +32,10 @@ void servicesModal(
 
 class ModalServices extends StatelessWidget {
   const ModalServices({
-    Key key,
-    this.imageUrl,
-    this.nameServices,
-    this.price,
-  }) : super(key: key);
+    required this.imageUrl,
+    required this.nameServices,
+    required this.price,
+  });
 
   final String imageUrl;
   final String nameServices;
@@ -119,8 +118,8 @@ class ModalServices extends StatelessWidget {
                 btnText: "Cancelar",
                 colorBackground: (secondaryColor),
                 colorText: gradientColor,
-                // width: 40,
-                // height: 20,
+                width: 40,
+                height: 20,
                 onpressed: () => Navigator.pop(context),
               ),
             ),
@@ -131,23 +130,23 @@ class ModalServices extends StatelessWidget {
   }
 }
 
-void passwordModal(
-  BuildContext ctx,
-) {
-  showModalBottomSheet(
-    clipBehavior: Clip.antiAlias,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(50),
-        topLeft: Radius.circular(50),
-      ),
-    ),
-    elevation: 11,
-    backgroundColor: Color(gradientColor),
-    context: ctx,
-    builder: (ctx) => ModalServices(),
-  );
-}
+// void passwordModal(
+//   BuildContext ctx,
+// ) {
+//   showModalBottomSheet(
+//     clipBehavior: Clip.antiAlias,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.only(
+//         topRight: Radius.circular(50),
+//         topLeft: Radius.circular(50),
+//       ),
+//     ),
+//     elevation: 11,
+//     backgroundColor: Color(gradientColor),
+//     context: ctx,
+//     builder: (ctx) => ModalServices(),
+//   );
+// }
 
 class PasswordForgotModal extends StatelessWidget {
   const PasswordForgotModal({key});
@@ -220,8 +219,8 @@ class PasswordForgotModal extends StatelessWidget {
                 btnText: "Cancelar",
                 colorBackground: (secondaryColor),
                 colorText: gradientColor,
-                // width: 40,
-                // height: 20,
+                width: 40,
+                height: 20,
                 onpressed: () => context.go('/home'),
               ),
             ),

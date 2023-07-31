@@ -5,8 +5,6 @@ import 'package:salon_app/widgets/button2.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 
 class ReservationService extends StatelessWidget {
-  const ReservationService({Key key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +148,7 @@ class ReservationService extends StatelessWidget {
 class CustomNavigationBar extends StatelessWidget {
   final List<Widget> items;
 
-  const CustomNavigationBar({Key key, this.items}) : super(key: key);
+  const CustomNavigationBar({required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -171,8 +169,8 @@ class NavigatorBarItem extends StatelessWidget {
   final IconData icon;
   final String route;
 
-  const NavigatorBarItem({Key key, this.contentText, this.icon, this.route})
-      : super(key: key);
+  const NavigatorBarItem(
+      {required this.contentText, required this.icon, required this.route});
 
   @override
   Widget build(BuildContext context) {

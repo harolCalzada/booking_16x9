@@ -257,10 +257,6 @@ class _HomePageState extends State<HomePage> {
 }
 
 class NextReservationSectionWidget extends StatelessWidget {
-  const NextReservationSectionWidget({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -372,6 +368,7 @@ class NextReservationSectionWidget extends StatelessWidget {
                   CustomButton(
                     btnText: 'Ver QR',
                     height: 30,
+                    width: 90,
                     colorBackground: Colors.black.value,
                     colorText: gradientColor,
                     onpressed: () => context.go('/succeed_reservation'),
