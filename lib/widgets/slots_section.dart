@@ -1,45 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/models/slots_entity.dart';
+import 'package:salon_app/repositories/slots_repository.dart';
 import 'package:salon_app/widgets/slots.dart';
 
 class SlotsSection extends StatelessWidget {
-  const SlotsSection({key});
+  const SlotsSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Wrap(
-        runSpacing: 22,
-        spacing: 8,
-        children: <Widget>[
-          Slots(startTime: DateTime.now(), endTime: DateTime.now()),
-          Slots(startTime: DateTime.now(), endTime: DateTime.now()),
-          Slots(startTime: DateTime.now(), endTime: DateTime.now()),
-          Slots(startTime: DateTime.now(), endTime: DateTime.now()),
-        ],
-      ),
+    return StreamBuilder<List<SlotsEntity>>(
+      stream: SlotsRepository().getSlots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
+
+        final slotsData = snapshot.data;
+
+        if (slotsData == null || slotsData.isEmpty) {
+          return Center(child: Text('No hay datos disponibles'));
+        }
+
+        return Container(
+          alignment: Alignment.center,
+          child: Wrap(
+            runSpacing: 22,
+            spacing: 8,
+            children: slotsData.map((slotsEntity) {
+              return Slots(
+                startTime: slotsEntity.startTime,
+                endTime: slotsEntity.endTime,
+              );
+            }).toList(),
+          ),
+        );
+      },
     );
   }
-}
-
-Widget buttonTime(timeText, btnBg, timeBtnColor) {
-  return Container(
-    height: 40,
-    padding: EdgeInsets.symmetric(horizontal: 8),
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: btnBg,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: BorderSide(width: 2, color: Color(secondaryColor))),
-      ),
-      onPressed: () {},
-      child: Text(
-        timeText,
-        style: TextStyle(
-            color: timeBtnColor, fontSize: 15.5, fontWeight: FontWeight.w400),
-      ),
-    ),
-  );
 }

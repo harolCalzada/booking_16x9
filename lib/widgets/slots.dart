@@ -12,6 +12,7 @@ class Slots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        alignment: Alignment.center,
         height: 40,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
