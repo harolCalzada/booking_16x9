@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/widgets/date_column.dart';
 import 'package:salon_app/widgets/icon_service.dart';
+import 'package:salon_app/widgets/slots_section.dart';
 
 class BookPage extends StatefulWidget {
   @override
@@ -192,35 +193,7 @@ class _BookPageState extends State<BookPage> {
                               fontWeight: FontWeight.bold,
                               color: Color(secondaryColor))),
                       SizedBox(height: 35),
-                      Container(
-                        alignment: Alignment.center,
-                        child: Wrap(
-                          runSpacing: 22,
-                          spacing: 2,
-                          children: <Widget>[
-                            SizedBox(
-                              width: 165,
-                              child: buttonTime("9:00- 10:00 AM",
-                                  Color(gradientColor), Colors.black54),
-                            ),
-                            SizedBox(
-                              width: 165,
-                              child: buttonTime("10:00-11:00 AM",
-                                  Color(secondaryColor), Colors.white),
-                            ),
-                            SizedBox(
-                              width: 165,
-                              child: buttonTime("11:00-12:00 PM",
-                                  Color(gradientColor), Colors.black54),
-                            ),
-                            SizedBox(
-                              width: 165,
-                              child: buttonTime("12:00-1:00 PM",
-                                  Color(gradientColor), Colors.black54),
-                            ),
-                          ],
-                        ),
-                      ),
+                      SlotsSection(),
                       SizedBox(
                         height: 25,
                       ),
