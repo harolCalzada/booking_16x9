@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/repositories/reservation_repository.dart';
 import 'package:salon_app/widgets/date_column.dart';
 import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/slots_section.dart';
@@ -205,22 +206,21 @@ class _BookPageState extends State<BookPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      // Text("HAIR",
-                      //     style: TextStyle(
-                      //         fontSize: 18,
-                      //         fontWeight: FontWeight.bold,
-                      //         color: Color(secondaryColor))),
-                      // SizedBox(
-                      //   height: 12,
-                      // ),
                       Services(),
                     ],
                   )),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () => context.go(
-                  '/confirm_reservation',
-                ),
+                onPressed: () async {
+                  await ReservationRepository().addReservation(
+                    date: DateTime.now(),
+                    idSlots: 'slot123',
+                    services: ['service1', 'service2'],
+                    totalAmount: 150.00,
+                  );
+                  print("Datos de reservación guardados correctamente");
+                  context.go('/confirm_reservation');
+                },
                 child: Text("Reservar"),
               ),
               SizedBox(height: 20)

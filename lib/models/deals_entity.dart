@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class DealsEntity {
   final String imageUrl;
   final String textButton;
