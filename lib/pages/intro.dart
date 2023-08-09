@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/register.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -16,12 +15,11 @@ class _IntroPageState extends State<IntroPage> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [
-                Color(primaryGray), // Color de inicio del gradiente
-                Color(secondaryGray), // Color de fin del gradiente
+                Color(primaryGray),
+                Color(secondaryGray),
               ],
-              begin: Alignment.topRight, // Punto de inicio del gradiente
-              end: Alignment.bottomRight, // Punto de fin del gradiente
-              // Opcional: puedes ajustar los stops y tileMode según tus necesidades
+              begin: Alignment.topRight,
+              end: Alignment.bottomRight,
               stops: [0.0, 1.0],
               tileMode: TileMode.mirror),
         ),

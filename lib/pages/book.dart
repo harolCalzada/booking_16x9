@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/repositories/reservation_repository.dart';
 import 'package:salon_app/widgets/date_column.dart';
-import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/service_section.dart';
 import 'package:salon_app/widgets/slots_section.dart';
 
@@ -205,9 +204,9 @@ class _BookPageState extends State<BookPage> {
                               fontWeight: FontWeight.bold,
                               color: Color(secondaryColor))),
                       SizedBox(
-                        height: 10,
+                        height: 25,
                       ),
-                      ServicesSectionWidget(),
+                      ServicesSectionWidget(add: false)
                     ],
                   )),
               SizedBox(height: 40),

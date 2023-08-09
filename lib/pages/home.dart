@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                     child: DealSection(),
                   ),
                   SizedBox(height: 50),
-                  ServicesSectionWidget(),
+                  ServicesSectionWidget(add: true),
                   SizedBox(height: 15),
                   NextReservationSectionWidget()
                 ]),
