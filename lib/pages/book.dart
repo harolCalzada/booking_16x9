@@ -4,6 +4,7 @@ import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/repositories/reservation_repository.dart';
 import 'package:salon_app/widgets/date_column.dart';
 import 'package:salon_app/widgets/icon_service.dart';
+import 'package:salon_app/widgets/service_section.dart';
 import 'package:salon_app/widgets/slots_section.dart';
 
 class BookPage extends StatefulWidget {
@@ -206,7 +207,7 @@ class _BookPageState extends State<BookPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Services(),
+                      ServicesSectionWidget(),
                     ],
                   )),
               SizedBox(height: 40),
@@ -226,100 +227,6 @@ class _BookPageState extends State<BookPage> {
               SizedBox(height: 20)
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class Services extends StatefulWidget {
-  const Services({key});
-
-  @override
-  State<Services> createState() => _ServicesState();
-}
-
-class _ServicesState extends State<Services> {
-  bool isCheckedMakeup = false;
-  bool isCheckedCorteHombre = false;
-  bool isCheckedManicure = false;
-  bool isCheckedTinte = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        ServiceIconAddWidget(
-          name: "makeup",
-          iconUrl:
-              "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-cortehombre.png?alt=media&token=ca7587e6-fca2-45f4-b35a-10e3ef795bfe",
-        ),
-        ServiceIconAddWidget(
-            name: "tinte",
-            iconUrl:
-                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
-        ServiceIconAddWidget(
-            name: "corte",
-            iconUrl:
-                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
-        ServiceIconAddWidget(
-            name: "corte",
-            iconUrl:
-                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
-      ],
-    );
-  }
-}
-
-class ServiceIconAddWidget extends StatefulWidget {
-  final String name;
-  final String iconUrl;
-
-  ServiceIconAddWidget({required this.name, required this.iconUrl});
-
-  @override
-  State<ServiceIconAddWidget> createState() => _ServiceIconAddWidgetState();
-}
-
-class _ServiceIconAddWidgetState extends State<ServiceIconAddWidget> {
-  bool isCheckedMakeup = false;
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            isCheckedMakeup = !isCheckedMakeup;
-          });
-        },
-        child: Stack(
-          children: [
-            IconServices(
-              // colorImg: isCheckedMakeup ? Colors.red : Color(gradientColor),
-              iconUrl: widget.iconUrl,
-              serviceName: widget.name,
-              // columnBg: makeupColor,
-              textColor: Color(secondaryColor),
-            ),
-            Positioned(
-              bottom: 15,
-              right: 18,
-              child: Checkbox(
-                value: isCheckedMakeup,
-                checkColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                onChanged: (value) {
-                  setState(() {
-                    isCheckedMakeup = value ?? false;
-                  });
-                },
-                activeColor: Colors.green,
-              ),
-            ),
-          ],
         ),
       ),
     );
