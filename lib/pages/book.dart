@@ -298,8 +298,8 @@ class _ServiceIconAddWidgetState extends State<ServiceIconAddWidget> {
           children: [
             IconServices(
               // colorImg: isCheckedMakeup ? Colors.red : Color(gradientColor),
-              iconUrl: "images/icon-makeup.png",
-              serviceName: "Makeup",
+              iconUrl: widget.iconUrl,
+              serviceName: widget.name,
               // columnBg: makeupColor,
               textColor: Color(secondaryColor),
             ),
