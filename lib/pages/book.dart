@@ -251,17 +251,33 @@ class _ServicesState extends State<Services> {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget()
+        ServiceIconAddWidget(
+          name: "makeup",
+          iconUrl:
+              "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-cortehombre.png?alt=media&token=ca7587e6-fca2-45f4-b35a-10e3ef795bfe",
+        ),
+        ServiceIconAddWidget(
+            name: "tinte",
+            iconUrl:
+                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
+        ServiceIconAddWidget(
+            name: "corte",
+            iconUrl:
+                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
+        ServiceIconAddWidget(
+            name: "corte",
+            iconUrl:
+                "https://firebasestorage.googleapis.com/v0/b/jaus-1ebdf.appspot.com/o/icon-manicure.png?alt=media&token=f4074dd0-4f2e-4df1-b5ca-eab04bd265cb"),
       ],
     );
   }
 }
 
 class ServiceIconAddWidget extends StatefulWidget {
-  const ServiceIconAddWidget();
+  final String name;
+  final String iconUrl;
+
+  ServiceIconAddWidget({required this.name, required this.iconUrl});
 
   @override
   State<ServiceIconAddWidget> createState() => _ServiceIconAddWidgetState();
