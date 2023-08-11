@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/models/services_entity.dart';
 import 'package:salon_app/repositories/services_repository.dart';
@@ -171,12 +172,11 @@ class _ServicesSectionState extends State<ServicesSection> {
       stream: _servicesRepository.getServices(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator(); // Muestra un indicador de carga mientras se obtienen los datos.
+          return CircularProgressIndicator();
         }
 
         if (!snapshot.hasData || snapshot.data == null) {
-          return Text(
-              'No hay datos disponibles.'); // Maneja el caso de que no haya datos.
+          return Text('No hay datos disponibles.');
         }
 
         final List<ServiceEntity> services = snapshot.data!;
@@ -188,20 +188,24 @@ class _ServicesSectionState extends State<ServicesSection> {
                 label: Text('Nombre del Servicio'),
               ),
               DataColumn(
-                label: Text('Activar'),
+                label: Text('Estado'),
               ),
             ],
             rows: services.map((service) {
               return DataRow(cells: [
-                DataCell(Text(service.name)),
                 DataCell(
-                  Checkbox(
-                    value: service.active ?? false,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        service.active = value ?? false;
-                      });
+                  InkWell(
+                    onTap: () {
+                      context.go('/ServicesDetail');
                     },
+                    child: Text(service.name),
+                  ),
+                ),
+                DataCell(
+                  Text(
+                    service.active != null
+                        ? (service.active! ? 'Activo' : 'Inactivo')
+                        : '',
                   ),
                 ),
               ]);

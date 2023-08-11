@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/pages/admin/add_promotion.dart';
@@ -20,6 +22,7 @@ import 'package:salon_app/pages/succeed_reservation.dart';
 import 'package:salon_app/widgets/menu_administrator.dart';
 import 'pages/admin/detail_reservation.dart';
 import 'pages/admin/scaner.dart';
+import 'pages/admin/services_detail.dart';
 
 // import 'package:salon_app/widgets/administrator.dart';
 // import 'package:salon_app/widgets/administrator.dart';
@@ -160,6 +163,13 @@ GoRouter getApplicationRoutes() {
         path: '/DetailUsers',
         builder: (BuildContext context, GoRouterState state) {
           return DetailUsers();
+        },
+      ),
+
+      GoRoute(
+        path: '/ServicesDetail',
+        builder: (BuildContext context, GoRouterState state) {
+          return ServicesDetail();
         },
       ),
     ],
