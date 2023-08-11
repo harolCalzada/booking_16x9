@@ -154,3 +154,61 @@ class _ServiceIconAddWidgetState extends State<ServiceIconAddWidget> {
     );
   }
 }
+
+class ServicesSection extends StatefulWidget {
+  const ServicesSection({Key? key});
+
+  @override
+  State<ServicesSection> createState() => _ServicesSectionState();
+}
+
+class _ServicesSectionState extends State<ServicesSection> {
+  final ServicesRepository _servicesRepository = ServicesRepository();
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<List<ServiceEntity>>(
+      stream: _servicesRepository.getServices(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Muestra un indicador de carga mientras se obtienen los datos.
+        }
+
+        if (!snapshot.hasData || snapshot.data == null) {
+          return Text(
+              'No hay datos disponibles.'); // Maneja el caso de que no haya datos.
+        }
+
+        final List<ServiceEntity> services = snapshot.data!;
+
+        return Center(
+          child: DataTable(
+            columns: [
+              DataColumn(
+                label: Text('Nombre del Servicio'),
+              ),
+              DataColumn(
+                label: Text('Activar'),
+              ),
+            ],
+            rows: services.map((service) {
+              return DataRow(cells: [
+                DataCell(Text(service.name)),
+                DataCell(
+                  Checkbox(
+                    value: service.active ?? false,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        service.active = value ?? false;
+                      });
+                    },
+                  ),
+                ),
+              ]);
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+}

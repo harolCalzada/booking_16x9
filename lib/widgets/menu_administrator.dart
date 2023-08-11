@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/admin/scaner.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:salon_app/providers/menu_provider.dart';
 

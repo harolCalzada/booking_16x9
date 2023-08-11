@@ -5,12 +5,14 @@ class ServiceEntity {
   final double price;
   final String iconUrl;
   final String name;
+  bool? active;
 
   ServiceEntity({
     required this.imageUrl,
     required this.price,
     required this.iconUrl,
     required this.name,
+    this.active,
   });
 }
 
@@ -24,5 +26,6 @@ ServiceEntity convertDynamicToServiceEntity(dynamic data) {
     price: data['price'].toDouble(),
     iconUrl: data['icon_url'],
     name: data['name'],
+    active: data['active'],
   );
 }

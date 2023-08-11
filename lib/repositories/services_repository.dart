@@ -18,4 +18,6 @@ class ServicesRepository extends RepositoryConfig {
       },
     );
   }
+
+  void updateService(ServiceEntity service) {}
 }

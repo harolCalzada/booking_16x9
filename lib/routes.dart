@@ -118,7 +118,9 @@ GoRouter getApplicationRoutes() {
       GoRoute(
         path: '/ServicesData',
         builder: (BuildContext context, GoRouterState state) {
-          return ServicesData();
+          return ServicesData(
+            name: "hola",
+          );
         },
       ),
       GoRoute(
