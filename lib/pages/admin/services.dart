@@ -84,38 +84,7 @@ class ServicesData extends StatelessWidget {
                   ),
                 ]),
               ),
-
               ServicesSection(),
-
-              // Center(
-              //   child: DataTable(
-              //     columns: [
-              //       DataColumn(
-              //         label: Text('Nombre del Servicio'),
-              //       ),
-              //     ],
-              //     rows: [
-              //       DataRow(cells: [
-              //         DataCell(Text(name)),
-              //       ]),
-              //       DataRow(cells: [
-              //         DataCell(Text(name)),
-              //       ]),
-              //       // DataRow(cells: [
-              //       //   DataCell(Text("Tinte")),
-              //       //   DataCell(Text("28-08-23")),
-              //       // ]),
-              //       // DataRow(cells: [
-              //       //   DataCell(Text("Pedicure")),
-              //       //   DataCell(Text("29-08-23")),
-              //       // ]),
-              //       // DataRow(cells: [
-              //       //   DataCell(Text("Makeup")),
-              //       //   DataCell(Text("30-08-23")),
-              //       // ]),
-              //     ],
-              //   ),
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

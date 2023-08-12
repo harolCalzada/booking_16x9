@@ -18,7 +18,7 @@ class _ServicesSectionWidgetState extends State<ServicesSectionWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ServiceEntity>>(
-      stream: ServicesRepository().getServices(),
+      stream: ServiceRepository().getServices(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
@@ -164,7 +164,7 @@ class ServicesSection extends StatefulWidget {
 }
 
 class _ServicesSectionState extends State<ServicesSection> {
-  final ServicesRepository _servicesRepository = ServicesRepository();
+  final ServiceRepository _servicesRepository = ServiceRepository();
 
   @override
   Widget build(BuildContext context) {

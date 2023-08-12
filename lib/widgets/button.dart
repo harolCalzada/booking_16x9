@@ -50,6 +50,7 @@ class CustomTextFormField extends StatelessWidget {
   dynamic? colorTextStyle;
   final bool? enabled;
   String? value;
+  final Widget? suffixIcon;
 
   CustomTextFormField({
     required this.labelText,
@@ -58,6 +59,7 @@ class CustomTextFormField extends StatelessWidget {
     this.colorTextStyle,
     this.enabled = true,
     this.value,
+    this.suffixIcon,
   });
 
   final TextEditingController _textEditingController = TextEditingController();
@@ -92,6 +94,7 @@ class CustomTextFormField extends StatelessWidget {
             borderSide: BorderSide(color: Color(gradientColor)),
             borderRadius: BorderRadius.circular(10.0),
           ),
+          suffixIcon: suffixIcon,
         ),
         keyboardType: TextInputType.emailAddress,
         validator: (value) {

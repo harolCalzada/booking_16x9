@@ -2,10 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:salon_app/models/services_entity.dart';
 import 'package:salon_app/repositories/config.dart';
 
-class ServicesRepository extends RepositoryConfig {
+class ServiceRepository extends RepositoryConfig {
   String collectionName = 'services';
-
-  // ServicesRepository(getServices);
 
   Stream<List<ServiceEntity>> getServices() {
     return FirebaseFirestore.instance
@@ -18,6 +16,4 @@ class ServicesRepository extends RepositoryConfig {
       },
     );
   }
-
-  void updateService(ServiceEntity service) {}
 }

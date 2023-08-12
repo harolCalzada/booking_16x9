@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/repositories/services_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
 class ServicesDetail extends StatefulWidget {
@@ -72,58 +73,80 @@ class _ServicesDetailState extends State<ServicesDetail> {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          imageUrl = value;
-                        });
-                      },
-                      decoration: InputDecoration(labelText: 'Imagen URL'),
-                    ),
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          price = double.tryParse(value) ?? 0.0;
-                        });
-                      },
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: 'Precio'),
-                    ),
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          iconUrl = value;
-                        });
-                      },
-                      decoration: InputDecoration(labelText: 'Icono URL'),
-                    ),
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          serviceName = value;
-                        });
-                      },
-                      decoration:
-                          InputDecoration(labelText: 'Nombre del Servicio'),
-                    ),
-                    CheckboxListTile(
-                      title: Text('Activo'),
-                      value: isActive,
-                      onChanged: (value) {
-                        setState(() {
-                          isActive = value;
-                        });
-                      },
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Guardar'),
-                    ),
-                  ],
-                ),
-              ),
+                child: Column(children: [
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        imageUrl = value;
+                      });
+                    },
+                    decoration: InputDecoration(labelText: 'Imagen URL'),
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        price = double.tryParse(value) ?? 0.0;
+                      });
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(labelText: 'Precio'),
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        iconUrl = value;
+                      });
+                    },
+                    decoration: InputDecoration(labelText: 'Icono URL'),
+                  ),
+                  TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        serviceName = value;
+                      });
+                    },
+                    decoration:
+                        InputDecoration(labelText: 'Nombre del Servicio'),
+                  ),
+                  CheckboxListTile(
+                    title: Text('Activo'),
+                    value: isActive,
+                    onChanged: (value) {
+                      setState(() {
+                        isActive = value;
+                      });
+                    },
+                  ),
+                  // ElevatedButton(
+                  //   onPressed: () async {
+                  //     if (imageUrl.isNotEmpty &&
+                  //         price > 0.0 &&
+                  //         iconUrl.isNotEmpty &&
+                  //         serviceName.isNotEmpty) {
+                  //       await ServiceRepository().addService(
+                  //         imageUrl: imageUrl,
+                  //         price: price,
+                  //         iconUrl: iconUrl,
+                  //         name: serviceName,
+                  //         active: isActive ?? false,
+                  //       );
+
+                  //       ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(
+                  //             content: Text('Servicio guardado en Firebase')),
+                  //       );
+                  //     } else {
+                  //       ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(
+                  //             content:
+                  //                 Text('Por favor complete todos los campos')),
+                  //       );
+                  //     }
+                  //   },
+                  //   child: Text('Guardar'),
+                  // ),
+                ]),
+              )
             ],
           ),
         ),
