@@ -15,6 +15,17 @@ class _ServicesDetailState extends State<ServicesDetail> {
   String serviceName = '';
   bool? isActive = false;
 
+  Future<void> saveService() async {
+    // Agregar aquí la lógica para guardar el servicio en el repositorio
+    await ServiceRepository().addService(
+      imageUrl: imageUrl,
+      price: price,
+      iconUrl: iconUrl,
+      name: serviceName,
+      active: isActive ?? false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,80 +84,83 @@ class _ServicesDetailState extends State<ServicesDetail> {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(children: [
-                  TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        imageUrl = value;
-                      });
-                    },
-                    decoration: InputDecoration(labelText: 'Imagen URL'),
-                  ),
-                  TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        price = double.tryParse(value) ?? 0.0;
-                      });
-                    },
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(labelText: 'Precio'),
-                  ),
-                  TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        iconUrl = value;
-                      });
-                    },
-                    decoration: InputDecoration(labelText: 'Icono URL'),
-                  ),
-                  TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        serviceName = value;
-                      });
-                    },
-                    decoration:
-                        InputDecoration(labelText: 'Nombre del Servicio'),
-                  ),
-                  CheckboxListTile(
-                    title: Text('Activo'),
-                    value: isActive,
-                    onChanged: (value) {
-                      setState(() {
-                        isActive = value;
-                      });
-                    },
-                  ),
-                  // ElevatedButton(
-                  //   onPressed: () async {
-                  //     if (imageUrl.isNotEmpty &&
-                  //         price > 0.0 &&
-                  //         iconUrl.isNotEmpty &&
-                  //         serviceName.isNotEmpty) {
-                  //       await ServiceRepository().addService(
-                  //         imageUrl: imageUrl,
-                  //         price: price,
-                  //         iconUrl: iconUrl,
-                  //         name: serviceName,
-                  //         active: isActive ?? false,
-                  //       );
-
-                  //       ScaffoldMessenger.of(context).showSnackBar(
-                  //         SnackBar(
-                  //             content: Text('Servicio guardado en Firebase')),
-                  //       );
-                  //     } else {
-                  //       ScaffoldMessenger.of(context).showSnackBar(
-                  //         SnackBar(
-                  //             content:
-                  //                 Text('Por favor complete todos los campos')),
-                  //       );
-                  //     }
-                  //   },
-                  //   child: Text('Guardar'),
-                  // ),
-                ]),
-              )
+                child: Column(
+                  children: [
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          imageUrl = value;
+                        });
+                      },
+                      decoration: InputDecoration(labelText: 'Imagen URL'),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          price = double.tryParse(value) ?? 0.0;
+                        });
+                      },
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(labelText: 'Precio'),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          iconUrl = value;
+                        });
+                      },
+                      decoration: InputDecoration(labelText: 'Icono URL'),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          serviceName = value;
+                        });
+                      },
+                      decoration:
+                          InputDecoration(labelText: 'Nombre del Servicio'),
+                    ),
+                    CheckboxListTile(
+                      title: Text('Activo'),
+                      value: isActive,
+                      onChanged: (value) {
+                        setState(() {
+                          isActive = value;
+                        });
+                      },
+                    ),
+                    Center(
+                      child: SizedBox(
+                        width: 220,
+                        height: 50,
+                        child: TextButton(
+                          onPressed: () async {
+                            if (imageUrl.isNotEmpty &&
+                                price > 0.0 &&
+                                iconUrl.isNotEmpty &&
+                                serviceName.isNotEmpty) {
+                              await saveService();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content:
+                                        Text('Servicio guardado en Firebase')),
+                              );
+                              // Navegar aquí, si es necesario
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text(
+                                        'Por favor complete todos los campos')),
+                              );
+                            }
+                          },
+                          child: Text("Guardar"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
