@@ -16,7 +16,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
   bool? isActive = false;
 
   Future<void> saveService() async {
-    // Agregar aquí la lógica para guardar el servicio en el repositorio
     await ServiceRepository().addService(
       imageUrl: imageUrl,
       price: price,
@@ -117,8 +116,9 @@ class _ServicesDetailState extends State<ServicesDetail> {
                           serviceName = value;
                         });
                       },
-                      decoration:
-                          InputDecoration(labelText: 'Nombre del Servicio'),
+                      decoration: InputDecoration(
+                        labelText: 'Nombre del Servicio',
+                      ),
                     ),
                     CheckboxListTile(
                       title: Text('Activo'),
@@ -145,7 +145,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                                     content:
                                         Text('Servicio guardado en Firebase')),
                               );
-                              // Navegar aquí, si es necesario
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

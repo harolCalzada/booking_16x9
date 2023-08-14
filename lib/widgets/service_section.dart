@@ -30,33 +30,32 @@ class _ServicesSectionWidgetState extends State<ServicesSectionWidget> {
 
         final List<ServiceEntity> documents = snapshot.data ?? [];
 
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
+        return Wrap(
+          alignment: WrapAlignment.start,
+          spacing: 26.0,
+          runSpacing: 16.0,
           children: <Widget>[
             for (var doc in documents)
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    servicesModal(
-                      context,
-                      UniqueKey(),
-                      doc.imageUrl,
-                      doc.name,
-                      doc.price.toDouble(),
-                    );
-                  },
-                  child: widget.add
-                      ? ServicesIcon(
-                          iconUrl: doc.iconUrl,
-                          serviceName: doc.name,
-                          textColor: Color(gradientColor),
-                        )
-                      : ServiceIconAddWidget(
-                          name: doc.name,
-                          iconUrl: doc.iconUrl,
-                        ),
-                ),
+              InkWell(
+                onTap: () {
+                  servicesModal(
+                    context,
+                    UniqueKey(),
+                    doc.imageUrl,
+                    doc.name,
+                    doc.price.toDouble(),
+                  );
+                },
+                child: widget.add
+                    ? ServicesIcon(
+                        iconUrl: doc.iconUrl,
+                        serviceName: doc.name,
+                        textColor: Color(gradientColor),
+                      )
+                    : ServiceIconAddWidget(
+                        name: doc.name,
+                        iconUrl: doc.iconUrl,
+                      ),
               ),
           ],
         );
