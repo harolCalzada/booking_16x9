@@ -93,6 +93,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       },
                       decoration: InputDecoration(labelText: 'Imagen URL'),
                     ),
+                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -102,6 +103,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(labelText: 'Precio'),
                     ),
+                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -110,6 +112,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       },
                       decoration: InputDecoration(labelText: 'Icono URL'),
                     ),
+                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -120,6 +123,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
                         labelText: 'Nombre del Servicio',
                       ),
                     ),
+                    SizedBox(height: 10),
                     CheckboxListTile(
                       title: Text('Activo'),
                       value: isActive,
@@ -128,6 +132,9 @@ class _ServicesDetailState extends State<ServicesDetail> {
                           isActive = value;
                         });
                       },
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Center(
                       child: SizedBox(
