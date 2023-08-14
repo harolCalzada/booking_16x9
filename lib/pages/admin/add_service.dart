@@ -94,12 +94,12 @@ class AddService extends StatelessWidget {
                               Icon(Icons.camera_alt, color: Colors.grey[400]),
                         ),
                         SizedBox(width: 10),
-                        Text(
-                          selectedImage != null
-                              ? 'Imagen seleccionada'
-                              : 'Seleccionar imagen',
-                          style: TextStyle(color: Colors.grey[700]),
-                        ),
+                        // Text(
+                        //   selectedImage != null
+                        //       ? 'Imagen seleccionada'
+                        //       : 'Seleccionar imagen',
+                        //   style: TextStyle(color: Colors.grey[700]),
+                        // ),
                       ],
                     ),
                   ),

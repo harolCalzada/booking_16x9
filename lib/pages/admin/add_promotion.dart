@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -102,12 +101,12 @@ class _AddPromotionState extends State<AddPromotion> {
                               Icon(Icons.camera_alt, color: Colors.grey[400]),
                         ),
                         SizedBox(width: 10),
-                        Text(
-                          selectedImage != null
-                              ? 'Imagen seleccionada'
-                              : 'Seleccionar imagen',
-                          style: TextStyle(color: Colors.grey[700]),
-                        ),
+                        // Text(
+                        //   selectedImage != null
+                        //       ? 'Imagen seleccionada'
+                        //       : 'Seleccionar imagen',
+                        //   style: TextStyle(color: Colors.grey[700]),
+                        // ),
                       ],
                     ),
                   ),
