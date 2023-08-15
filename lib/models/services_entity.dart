@@ -6,6 +6,7 @@ class ServiceEntity {
   final String iconUrl;
   final String name;
   bool? active;
+  final String? id;
 
   ServiceEntity({
     required this.imageUrl,
@@ -13,6 +14,7 @@ class ServiceEntity {
     required this.iconUrl,
     required this.name,
     this.active,
+    this.id,
   });
 }
 
@@ -20,12 +22,18 @@ List<ServiceEntity> convertDynamicListToServicesList(List<dynamic> dataList) {
   return dataList.map((data) => convertDynamicToServiceEntity(data)).toList();
 }
 
-ServiceEntity convertDynamicToServiceEntity(dynamic data) {
-  return ServiceEntity(
-    imageUrl: data['image_url'],
-    price: data['price'].toDouble(),
-    iconUrl: data['icon_url'],
-    name: data['name'],
-    active: data['active'],
+ServiceEntity convertDynamicToServiceEntity(dynamic doc) {
+  final id = doc.id;
+  final serviceEntity = ServiceEntity(
+    imageUrl: doc.data()['image_url'],
+    price: doc.data()['price'].toDouble(),
+    iconUrl: doc.data()['icon_url'],
+    name: doc.data()['name'],
+    active: doc.data()['active'],
+    id: doc.data()['id'],
   );
+
+  print('id: ${serviceEntity.id}');
+
+  return serviceEntity;
 }

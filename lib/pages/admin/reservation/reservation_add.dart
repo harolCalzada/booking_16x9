@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/widgets/button.dart';
 
-import '../../widgets/button2.dart';
-
-class DetailUsers extends StatefulWidget {
+class AddReservation extends StatefulWidget {
   @override
-  _DetailUsersState createState() => _DetailUsersState();
+  _AddReservationState createState() => _AddReservationState();
 }
 
-class _DetailUsersState extends State<DetailUsers> {
+class _AddReservationState extends State<AddReservation> {
   bool _obscureText = true;
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
@@ -60,9 +58,9 @@ class _DetailUsersState extends State<DetailUsers> {
                       width: 10,
                     ),
                     NavigatorBarItem(
-                      contentText: "Usuario",
-                      icon: Icons.person,
-                      route: '/Users',
+                      contentText: "Reservas",
+                      icon: Icons.calendar_today,
+                      route: '/ReservationService',
                     ),
                   ]),
                 ),
@@ -70,50 +68,61 @@ class _DetailUsersState extends State<DetailUsers> {
                   height: 15,
                 ),
                 CustomTextFormField(
-                  labelText: "Nombres",
+                  labelText: "Nombre",
                   colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "Ingrid Calzada Villajuan",
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 13,
+                ),
+                CustomTextFormField(
+                  labelText: "Apellido",
+                  colorLabelText: gradientColor,
+                ),
+                SizedBox(
+                  height: 13,
+                ),
+                CustomTextFormField(
+                  labelText: "Distrito",
+                  colorLabelText: gradientColor,
+                ),
+                SizedBox(
+                  height: 13,
                 ),
                 CustomTextFormField(
                   labelText: "Teléfono",
                   colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "957290391",
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 13,
                 ),
                 CustomTextFormField(
-                  labelText: "Correo",
+                  labelText: "Correo electrónico",
                   colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "ingrid_1995_10@gmail.com",
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 13,
                 ),
                 CustomTextFormField(
-                  labelText: "DNI",
+                  labelText: "Hora",
                   colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "75723117",
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 13,
                 ),
                 CustomTextFormField(
-                  labelText: "Dirección",
+                  labelText: "Tipo de Servicio",
                   colorLabelText: gradientColor,
-                  enabled: false,
-                  value: "Calle los Eucaliptos 145.Urb.",
                 ),
                 SizedBox(
                   height: 20,
                 ),
+                SizedBox(
+                    width: 220,
+                    height: 50,
+                    child: TextButton(
+                      onPressed: () => context.go('/home'),
+                      child: Text("Registrar"),
+                    )),
               ],
             ),
           ),

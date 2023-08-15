@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/repositories/services_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class ServicesDetail extends StatefulWidget {
+class ServicesAdd extends StatefulWidget {
   @override
-  _ServicesDetailState createState() => _ServicesDetailState();
+  _ServicesAddState createState() => _ServicesAddState();
 }
 
-class _ServicesDetailState extends State<ServicesDetail> {
+class _ServicesAddState extends State<ServicesAdd> {
   String imageUrl = '';
   double price = 0.0;
   String iconUrl = '';
@@ -93,7 +93,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       },
                       decoration: InputDecoration(labelText: 'Imagen URL'),
                     ),
-                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -103,7 +102,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(labelText: 'Precio'),
                     ),
-                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -112,7 +110,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                       },
                       decoration: InputDecoration(labelText: 'Icono URL'),
                     ),
-                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
@@ -123,7 +120,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                         labelText: 'Nombre del Servicio',
                       ),
                     ),
-                    SizedBox(height: 10),
                     CheckboxListTile(
                       title: Text('Activo'),
                       value: isActive,
@@ -132,9 +128,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                           isActive = value;
                         });
                       },
-                    ),
-                    SizedBox(
-                      height: 10,
                     ),
                     Center(
                       child: SizedBox(

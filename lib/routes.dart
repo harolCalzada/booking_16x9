@@ -1,16 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:salon_app/pages/admin/add_promotion.dart';
-import 'package:salon_app/pages/admin/add_reservation.dart';
-import 'package:salon_app/pages/admin/add_service.dart';
-import 'package:salon_app/pages/admin/detail_users.dart';
-// import 'package:salon_app/pages/admin/detail_promotions.dart';
-import 'package:salon_app/pages/admin/promotions.dart';
-import 'package:salon_app/pages/admin/reservation.dart';
-import 'package:salon_app/pages/admin/services.dart';
-import 'package:salon_app/pages/admin/users.dart';
+import 'package:salon_app/pages/admin/promotion/promotion_add.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_add.dart';
+import 'package:salon_app/pages/admin/user/detail_users.dart';
+import 'package:salon_app/pages/admin/promotion/promotions_list.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
+import 'package:salon_app/pages/admin/services/services_list.dart';
+import 'package:salon_app/pages/admin/services/services_add.dart';
+import 'package:salon_app/pages/admin/user/users.dart';
 import 'package:salon_app/pages/book.dart';
 import 'package:salon_app/pages/forgot_password.dart';
 import 'package:salon_app/pages/home.dart';
@@ -20,9 +17,7 @@ import 'package:salon_app/pages/register.dart';
 import 'package:salon_app/pages/confirm_reservation.dart';
 import 'package:salon_app/pages/succeed_reservation.dart';
 import 'package:salon_app/widgets/menu_administrator.dart';
-import 'pages/admin/detail_reservation.dart';
-import 'pages/admin/scaner.dart';
-import 'pages/admin/services_detail.dart';
+import 'pages/admin/reservation/reservation_detail.dart';
 
 // import 'package:salon_app/widgets/administrator.dart';
 // import 'package:salon_app/widgets/administrator.dart';
@@ -129,7 +124,7 @@ GoRouter getApplicationRoutes() {
       GoRoute(
         path: '/AddService',
         builder: (BuildContext context, GoRouterState state) {
-          return AddService();
+          return ServicesAdd();
         },
       ),
 
@@ -163,13 +158,6 @@ GoRouter getApplicationRoutes() {
         path: '/DetailUsers',
         builder: (BuildContext context, GoRouterState state) {
           return DetailUsers();
-        },
-      ),
-
-      GoRoute(
-        path: '/ServicesDetail',
-        builder: (BuildContext context, GoRouterState state) {
-          return ServicesDetail();
         },
       ),
     ],

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/widgets/button.dart';
 
-class AddReservation extends StatefulWidget {
+import '../../../widgets/button2.dart';
+
+class DetailUsers extends StatefulWidget {
   @override
-  _AddReservationState createState() => _AddReservationState();
+  _DetailUsersState createState() => _DetailUsersState();
 }
 
-class _AddReservationState extends State<AddReservation> {
+class _DetailUsersState extends State<DetailUsers> {
   bool _obscureText = true;
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
@@ -58,9 +60,9 @@ class _AddReservationState extends State<AddReservation> {
                       width: 10,
                     ),
                     NavigatorBarItem(
-                      contentText: "Reservas",
-                      icon: Icons.calendar_today,
-                      route: '/ReservationService',
+                      contentText: "Usuario",
+                      icon: Icons.person,
+                      route: '/Users',
                     ),
                   ]),
                 ),
@@ -68,61 +70,50 @@ class _AddReservationState extends State<AddReservation> {
                   height: 15,
                 ),
                 CustomTextFormField(
-                  labelText: "Nombre",
+                  labelText: "Nombres",
                   colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Apellido",
-                  colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Distrito",
-                  colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Teléfono",
-                  colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Correo electrónico",
-                  colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Hora",
-                  colorLabelText: gradientColor,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-                CustomTextFormField(
-                  labelText: "Tipo de Servicio",
-                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "Ingrid Calzada Villajuan",
                 ),
                 SizedBox(
                   height: 20,
                 ),
+                CustomTextFormField(
+                  labelText: "Teléfono",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "957290391",
+                ),
                 SizedBox(
-                    width: 220,
-                    height: 50,
-                    child: TextButton(
-                      onPressed: () => context.go('/home'),
-                      child: Text("Registrar"),
-                    )),
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Correo",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "ingrid_1995_10@gmail.com",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "DNI",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "75723117",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  labelText: "Dirección",
+                  colorLabelText: gradientColor,
+                  enabled: false,
+                  value: "Calle los Eucaliptos 145.Urb.",
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),

@@ -184,25 +184,6 @@ class ConfirmReservation extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            // Center(
-            //   child: Image.asset(
-            //     "images/codigo-qr1.png",
-            //     height: 160,
-            //     width: 160,
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 20,
-            // ),
-            // Center(
-            //   child: Text(
-            //     "Paga y confirma el código QR",
-            //     style: TextStyle(
-            //       color: Color(secondaryColor),
-            //       fontSize: 14,
-            //     ),
-            //   ),
-            // ),
             SizedBox(
               height: 75,
             ),
