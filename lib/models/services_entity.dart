@@ -30,7 +30,7 @@ ServiceEntity convertDynamicToServiceEntity(dynamic doc) {
     iconUrl: doc.data()['icon_url'],
     name: doc.data()['name'],
     active: doc.data()['active'],
-    id: doc.data()['id'],
+    id: id,
   );
 
   print('id: ${serviceEntity.id}');

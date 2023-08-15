@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/pages/admin/promotion/promotion_add.dart';
 import 'package:salon_app/pages/admin/reservation/reservation_add.dart';
-import 'package:salon_app/pages/admin/user/detail_users.dart';
+import 'package:salon_app/pages/admin/services/services_detail.dart';
+import 'package:salon_app/pages/admin/user/user_detail.dart';
 import 'package:salon_app/pages/admin/promotion/promotions_list.dart';
 import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/pages/admin/services/services_list.dart';
@@ -160,6 +161,15 @@ GoRouter getApplicationRoutes() {
           return DetailUsers();
         },
       ),
+
+      GoRoute(
+        name: "serviceDetail",
+        path: '/service-detail',
+        builder: (context, state) {
+          final id = state.pathParameters['id'];
+          return ServicesDetail(id: id);
+        },
+      )
     ],
   );
 
