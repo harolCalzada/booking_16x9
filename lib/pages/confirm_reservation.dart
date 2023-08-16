@@ -116,7 +116,6 @@ class ConfirmReservation extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 TableRow(
                   children: [
                     TableCell(
@@ -136,29 +135,6 @@ class ConfirmReservation extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                // TableRow(children: [
-                //   TableCell(
-                //     child: Container(
-                //       width: double.infinity,
-                //       padding: EdgeInsets.all(10.0),
-                //     ),
-                //   ),
-                //   TableCell(
-                //     child: Container(
-                //       width: double.infinity,
-                //       padding: EdgeInsets.all(10.0),
-                //       child: Column(
-                //         children: [
-                //           Divider(
-                //             color: Colors.black, // Color de la línea
-                //             thickness: 1.0, // Grosor de la línea
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ]),
                 TableRow(
                   children: [
                     TableCell(
