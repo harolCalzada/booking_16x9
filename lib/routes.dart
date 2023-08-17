@@ -167,7 +167,7 @@ GoRouter getApplicationRoutes() {
         path: '/service-detail',
         builder: (context, state) {
           final id = state.pathParameters['id'];
-          return ServicesDetail(id: id);
+          return ServicesDetail(id: id!);
         },
       )
     ],

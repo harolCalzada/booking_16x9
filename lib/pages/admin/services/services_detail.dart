@@ -5,8 +5,8 @@ import 'package:salon_app/repositories/services_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
 class ServicesDetail extends StatefulWidget {
-  final String? id;
-  ServicesDetail({Key? key, this.id}) : super(key: key);
+  final String id;
+  ServicesDetail({Key? key, required this.id}) : super(key: key);
 
   @override
   _ServicesDetailState createState() => _ServicesDetailState();
@@ -19,27 +19,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
   TextEditingController serviceNameController = TextEditingController();
 
   bool? isActive = false;
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.id != null) {
-      _loadServiceDetails(widget.id!);
-    }
-  }
-
-  void _loadServiceDetails(String id) {
-    final serviceStream = ServiceRepository().getServiceStream(id);
-    serviceStream.listen((service) {
-      setState(() {
-        imageUrlController.text = service.imageUrl;
-        priceController.text = service.price.toString();
-        iconUrlController.text = service.iconUrl;
-        serviceNameController.text = service.name;
-        isActive = service.active;
-      });
-    });
-  }
 
   Future<void> saveService(
     String imageUrl,
@@ -56,20 +35,9 @@ class _ServicesDetailState extends State<ServicesDetail> {
   }
 
   @override
-  void dispose() {
-    imageUrlController.dispose();
-    priceController.dispose();
-    iconUrlController.dispose();
-    serviceNameController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return StreamBuilder<ServiceEntity>(
-      stream: widget.id != null
-          ? ServiceRepository().getServiceStream(widget.id!)
-          : null,
+      stream: ServiceRepository().getServiceStream(widget.id),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
