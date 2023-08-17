@@ -79,8 +79,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
           return CircularProgressIndicator();
         }
 
-        final ServiceEntity service = snapshot.data!;
-
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
