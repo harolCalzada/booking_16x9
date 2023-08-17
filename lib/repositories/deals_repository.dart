@@ -12,7 +12,7 @@ class DealsRepository extends RepositoryConfig {
         .map(
       (snapshot) {
         return convertDynamicListToDealsList(
-            snapshot.docs.map((doc) => doc.data()).toList());
+            snapshot.docs.map((doc) => doc.data()).toList()); // Cambio aquí
       },
     );
   }

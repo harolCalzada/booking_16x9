@@ -5,9 +5,9 @@ import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
 import 'package:salon_app/widgets/deal.dart';
-import 'package:salon_app/widgets/deals_section.dart';
 import 'package:salon_app/widgets/icon_service.dart';
 import 'package:salon_app/widgets/modal.dart';
+import 'package:salon_app/widgets/promotion_section.dart';
 import 'package:salon_app/widgets/service_section.dart';
 import 'package:salon_app/widgets/specialist_column.dart';
 
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: screen_size_height * .2,
                     width: screen_size_width,
-                    child: DealSection(),
+                    child: DealsSection(),
                   ),
                   SizedBox(height: 50),
                   ServicesSectionWidget(add: true),
