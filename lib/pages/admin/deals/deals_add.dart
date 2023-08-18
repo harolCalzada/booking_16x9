@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:salon_app/repositories/deals_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class AddPromotion extends StatefulWidget {
+class AddDeals extends StatefulWidget {
   @override
-  _AddPromotionState createState() => _AddPromotionState();
+  _AddDealsState createState() => _AddDealsState();
 }
 
-class _AddPromotionState extends State<AddPromotion> {
+class _AddDealsState extends State<AddDeals> {
   String imageUrl = '';
   String textButton = '';
   String promotionName = '';

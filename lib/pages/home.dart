@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: screen_size_height * .2,
                     width: screen_size_width,
-                    child: DealSection(),
+                    child: PromotionSection(),
                   ),
                   SizedBox(height: 50),
                   ServicesSectionWidget(add: true),

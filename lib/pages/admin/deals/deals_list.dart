@@ -5,7 +5,7 @@ import 'package:salon_app/widgets/button2.dart';
 import 'package:salon_app/widgets/deals_section.dart';
 import 'package:salon_app/widgets/promotion_section.dart';
 
-class Promotions extends StatelessWidget {
+class ListDeals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +73,7 @@ class Promotions extends StatelessWidget {
                   NavigatorBarItem(
                     contentText: "Agregar",
                     icon: Icons.add,
-                    route: '/AddPromotion',
+                    route: '/AddDeals',
                   ),
                 ]),
               ),

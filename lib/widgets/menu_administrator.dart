@@ -58,7 +58,9 @@ class _SideMenuState extends ConsumerState<SideMenu> {
               break;
             case 3:
               ref.read(selectedMenuProvider.notifier).state = 3;
-              context.go('/Promotions');
+              context.go(
+                '/ListDeals',
+              );
               break;
             case 4:
               ref.read(selectedMenuProvider.notifier).state = 4;

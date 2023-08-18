@@ -4,14 +4,14 @@ import 'package:salon_app/models/deals_entity.dart';
 import 'package:salon_app/repositories/deals_repository.dart';
 import 'package:salon_app/widgets/deal.dart';
 
-class DealSection extends StatefulWidget {
-  const DealSection({Key? key}) : super(key: key);
+class PromotionSection extends StatefulWidget {
+  const PromotionSection({Key? key}) : super(key: key);
 
   @override
-  State<DealSection> createState() => _DealSectionState();
+  State<PromotionSection> createState() => _PromotionSectionState();
 }
 
-class _DealSectionState extends State<DealSection> {
+class _PromotionSectionState extends State<PromotionSection> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<DealsEntity>>(

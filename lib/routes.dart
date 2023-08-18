@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:salon_app/pages/admin/promotion/promotion_add.dart';
+import 'package:salon_app/pages/admin/deals/deals_add.dart';
 import 'package:salon_app/pages/admin/reservation/reservation_add.dart';
 import 'package:salon_app/pages/admin/services/services_detail.dart';
 import 'package:salon_app/pages/admin/user/user_detail.dart';
-import 'package:salon_app/pages/admin/promotion/promotions_list.dart';
+import 'package:salon_app/pages/admin/deals/deals_list.dart';
 import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/pages/admin/services/services_list.dart';
 import 'package:salon_app/pages/admin/services/services_add.dart';
@@ -123,15 +123,15 @@ GoRouter getApplicationRoutes() {
       ),
 
       GoRoute(
-        path: '/Promotions',
+        path: '/ListDeals',
         builder: (BuildContext context, GoRouterState state) {
-          return Promotions();
+          return ListDeals();
         },
       ),
       GoRoute(
-        path: '/AddPromotion',
+        path: '/AddDeals',
         builder: (BuildContext context, GoRouterState state) {
-          return AddPromotion();
+          return AddDeals();
         },
       ),
       GoRoute(
