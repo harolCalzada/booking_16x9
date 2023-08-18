@@ -2,66 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/models/deals_entity.dart';
 import 'package:salon_app/repositories/deals_repository.dart';
+import 'package:salon_app/widgets/deal.dart';
 
-class DealsSection extends StatefulWidget {
-  const DealsSection({Key? key});
+class DealSection extends StatefulWidget {
+  const DealSection({Key? key}) : super(key: key);
 
   @override
-  State<DealsSection> createState() => _DealsSectionState();
+  State<DealSection> createState() => _DealSectionState();
 }
 
-class _DealsSectionState extends State<DealsSection> {
-  final DealsRepository _dealsRepository = DealsRepository();
-
+class _DealSectionState extends State<DealSection> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<DealsEntity>>(
-      stream: _dealsRepository.getDeals(),
+      stream: DealsRepository().getDeals(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+
+        if (!snapshot.hasData) {
           return CircularProgressIndicator();
         }
 
-        if (!snapshot.hasData || snapshot.data == null) {
-          return Text('No hay datos disponibles.');
+        final dealsData = snapshot.data;
+
+        if (dealsData == null || dealsData.isEmpty) {
+          return ListView();
         }
 
-        final List<DealsEntity> services = snapshot.data!;
-
-        return Center(
-          child: DataTable(
-            columns: [
-              DataColumn(
-                label: Text('Nombre de la Promoción'),
+        return ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: dealsData.length,
+          itemBuilder: (context, index) {
+            final deal = dealsData[index];
+            return Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Deals(
+                imageUrl: deal.imageUrl,
+                textButton: deal.textButton,
+                title: deal.title,
+                urlButton: deal.urlButton,
               ),
-              DataColumn(
-                label: Text('Estado '),
-              ),
-            ],
-            rows: services.map((service) {
-              return DataRow(cells: [
-                DataCell(
-                  InkWell(
-                    onTap: () {
-                      final id = service.id;
-                      print("id exitoso");
-                      print(id); // Obtén el ID del servicio
-                      context.goNamed('serviceDetail',
-                          queryParameters: {'id': id});
-                    },
-                    child: Text(service.title),
-                  ),
-                ),
-                DataCell(
-                  Text(
-                    service.active != null
-                        ? (service.active! ? 'Activo' : 'Inactivo')
-                        : '',
-                  ),
-                ),
-              ]);
-            }).toList(),
-          ),
+            );
+          },
         );
       },
     );
