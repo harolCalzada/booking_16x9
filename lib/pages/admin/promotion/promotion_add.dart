@@ -117,7 +117,8 @@ class _AddPromotionState extends State<AddPromotion> {
                           textButton = value;
                         });
                       },
-                      decoration: InputDecoration(labelText: 'Texto '),
+                      decoration:
+                          InputDecoration(labelText: 'Texto del Botónh '),
                     ),
                     CheckboxListTile(
                       title: Text('Activo'),
