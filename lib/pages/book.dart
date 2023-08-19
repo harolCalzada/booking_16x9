@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
@@ -213,7 +214,10 @@ class _BookPageState extends State<BookPage> {
               TextButton(
                 onPressed: () async {
                   await ReservationRepository().addReservation(
-                    date: DateTime.now(),
+                    active: true,
+                    idUser: "156788",
+                    name: "Ingrid",
+                    date: Timestamp.fromDate(DateTime(2023, 9, 10)),
                     idSlots: 'slot123',
                     services: ['service1', 'service2'],
                     totalAmount: 150.00,

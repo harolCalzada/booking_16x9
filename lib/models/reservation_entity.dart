@@ -1,11 +1,14 @@
-import 'dart:ffi';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ReservationEntity {
-  final DateTime date;
+  final Timestamp date;
   final String idSlot;
   final Map prices;
-  final Array services;
+  final List services;
   final int totalAmount;
+  final String name;
+  final String id;
+  bool? active;
 
   ReservationEntity({
     required this.date,
@@ -13,6 +16,9 @@ class ReservationEntity {
     required this.prices,
     required this.services,
     required this.totalAmount,
+    required this.name,
+    required this.id,
+    this.active,
   });
 }
 
@@ -30,5 +36,8 @@ ReservationEntity convertDynamicToReservationEntity(dynamic data) {
     prices: data['prices'],
     services: data['services'],
     totalAmount: data['total_amount'],
+    name: data['name'],
+    id: data['id'],
+    active: data['active'],
   );
 }

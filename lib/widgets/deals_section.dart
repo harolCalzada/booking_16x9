@@ -38,24 +38,24 @@ class _DealsSectionState extends State<DealsSection> {
                 label: Text('Estado '),
               ),
             ],
-            rows: services.map((service) {
+            rows: services.map((deals) {
               return DataRow(cells: [
                 DataCell(
                   InkWell(
                     onTap: () {
-                      final id = service.id;
+                      final id = deals.id;
                       print("id exitoso");
                       print(id); // Obtén el ID del servicio
                       context.goNamed('serviceDetail',
                           queryParameters: {'id': id});
                     },
-                    child: Text(service.title),
+                    child: Text(deals.title),
                   ),
                 ),
                 DataCell(
                   Text(
-                    service.active != null
-                        ? (service.active! ? 'Activo' : 'Inactivo')
+                    deals.active != null
+                        ? (deals.active! ? 'Activo' : 'Inactivo')
                         : '',
                   ),
                 ),

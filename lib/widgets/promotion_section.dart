@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:salon_app/models/deals_entity.dart';
 import 'package:salon_app/repositories/deals_repository.dart';
 import 'package:salon_app/widgets/deal.dart';

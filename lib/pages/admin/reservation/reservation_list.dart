@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/widgets/button2.dart';
+import 'package:salon_app/widgets/reservation_section.dart';
 
 class ReservationService extends StatelessWidget {
   @override
@@ -59,65 +60,67 @@ class ReservationService extends StatelessWidget {
               ),
             ]),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    // scrollDirection: Axis.vertical,
+          ReservationSection(),
 
-                    child: DataTable(
-                      columns: [
-                        DataColumn(
-                          label: Text('Fecha'),
-                        ),
-                        DataColumn(
-                          label: Text('Hora'),
-                        ),
-                        DataColumn(
-                          label: Text('Nombre'),
-                        ),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          DataCell(Text("10-06-2023")),
-                          DataCell(Text("10:00")),
-                          DataCell(GestureDetector(
-                            onTap: () {
-                              context.go(
-                                  '/DetailReservation'); // Reemplaza '/otra_pantalla' con la ruta de tu otra pantalla
-                            },
-                            child: Text("Ingrid"),
-                          )),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text("05-06-2023")),
-                          DataCell(Text("1:00")),
-                          DataCell(Text("Anderson")),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text("07-06-2023")),
-                          DataCell(Text("12:00")),
-                          DataCell(Text("Harol")),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text("09-06-2023")),
-                          DataCell(Text("2:00")),
-                          DataCell(Text("Luis")),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text("18-06-2023")),
-                          DataCell(Text("3:00")),
-                          DataCell(Text("America")),
-                        ]),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Row(
+          //     children: [
+          //       Expanded(
+          //         child: SingleChildScrollView(
+          //           // scrollDirection: Axis.vertical,
+
+          //           child: DataTable(
+          //             columns: [
+          //               DataColumn(
+          //                 label: Text('Fecha'),
+          //               ),
+          //               DataColumn(
+          //                 label: Text('Hora'),
+          //               ),
+          //               DataColumn(
+          //                 label: Text('Nombre'),
+          //               ),
+          //             ],
+          //             rows: [
+          //               DataRow(cells: [
+          //                 DataCell(Text("10-06-2023")),
+          //                 DataCell(Text("10:00")),
+          //                 DataCell(GestureDetector(
+          //                   onTap: () {
+          //                     context.go(
+          //                         '/DetailReservation'); // Reemplaza '/otra_pantalla' con la ruta de tu otra pantalla
+          //                   },
+          //                   child: Text("Ingrid"),
+          //                 )),
+          //               ]),
+          //               DataRow(cells: [
+          //                 DataCell(Text("05-06-2023")),
+          //                 DataCell(Text("1:00")),
+          //                 DataCell(Text("Anderson")),
+          //               ]),
+          //               DataRow(cells: [
+          //                 DataCell(Text("07-06-2023")),
+          //                 DataCell(Text("12:00")),
+          //                 DataCell(Text("Harol")),
+          //               ]),
+          //               DataRow(cells: [
+          //                 DataCell(Text("09-06-2023")),
+          //                 DataCell(Text("2:00")),
+          //                 DataCell(Text("Luis")),
+          //               ]),
+          //               DataRow(cells: [
+          //                 DataCell(Text("18-06-2023")),
+          //                 DataCell(Text("3:00")),
+          //                 DataCell(Text("America")),
+          //               ]),
+          //             ],
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
