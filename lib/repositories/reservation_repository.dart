@@ -4,14 +4,14 @@ import 'package:salon_app/repositories/config.dart';
 
 class ReservationRepository extends RepositoryConfig {
   String collectionName = 'reservation';
-  Stream<List<ReservationEntity>> getReservation() {
+  Stream<List<ReservationEntity>> getAllReservations() {
     return FirebaseFirestore.instance
         .collection(collectionName)
         .snapshots()
         .map(
       (snapshot) {
         return convertDynamicListToReservationList(
-            snapshot.docs.map((doc) => doc.data()).toList());
+            snapshot.docs.map((doc) => doc).toList());
       },
     );
   }

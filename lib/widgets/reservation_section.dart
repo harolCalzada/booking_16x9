@@ -16,15 +16,15 @@ class _ReservationSectionState extends State<ReservationSection> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ReservationEntity>>(
-      stream: _reservationRepository.getReservation(),
+      stream: _reservationRepository.getAllReservations(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         }
 
-        if (!snapshot.hasData || snapshot.data == null) {
-          return Text('No hay datos disponibles.');
-        }
+        // if (!snapshot.hasData || snapshot.data == null) {
+        //   return Text('No hay datos disponibles.');
+        // }
         final List<ReservationEntity> reservation = snapshot.data!;
 
         return Center(

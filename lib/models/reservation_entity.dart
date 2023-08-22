@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ReservationEntity {
   final Timestamp date;
-  final String idSlot;
+  final String idSlots;
   final Map prices;
   final List services;
   final int totalAmount;
@@ -12,7 +12,7 @@ class ReservationEntity {
 
   ReservationEntity({
     required this.date,
-    required this.idSlot,
+    required this.idSlots,
     required this.prices,
     required this.services,
     required this.totalAmount,
@@ -29,15 +29,20 @@ List<ReservationEntity> convertDynamicListToReservationList(
       .toList();
 }
 
-ReservationEntity convertDynamicToReservationEntity(dynamic data) {
-  return ReservationEntity(
-    date: data['date'],
-    idSlot: data['id_slot'],
-    prices: data['prices'],
-    services: data['services'],
-    totalAmount: data['total_amount'],
-    name: data['name'],
-    id: data['id'],
-    active: data['active'],
+ReservationEntity convertDynamicToReservationEntity(dynamic doc) {
+  final id = doc['id'];
+  final reservationEntity = ReservationEntity(
+    date: doc['date'],
+    idSlots: doc['id_slots'],
+    prices: doc['prices'],
+    services: doc['services'],
+    totalAmount: doc['total_amount'],
+    name: doc['name'],
+    id: id,
+    active: doc['active'],
   );
+
+  print('id: ${reservationEntity.id}');
+
+  return reservationEntity;
 }
