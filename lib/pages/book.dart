@@ -214,6 +214,7 @@ class _BookPageState extends State<BookPage> {
               TextButton(
                 onPressed: () async {
                   await ReservationRepository().addReservation(
+                    email: "calzada.ingrid10@gmail.com",
                     active: true,
                     idUser: "156788",
                     name: "Ingrid",

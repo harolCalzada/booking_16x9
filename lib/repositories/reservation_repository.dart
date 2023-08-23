@@ -17,21 +17,27 @@ class ReservationRepository extends RepositoryConfig {
   }
 
   Future<void> addReservation({
-    required Timestamp date,
-    required String idSlots,
-    required List<String> services,
-    required double totalAmount,
     required String name,
     required String idUser,
+    required String idSlots,
+    String? district,
+    required double totalAmount,
+    required Timestamp date,
+    int? telephoneNumber,
+    required String email,
+    required List<String> services,
     required bool active,
   }) async {
     await FirebaseFirestore.instance.collection(collectionName).add({
-      'date': date,
-      'id_slots': idSlots,
-      'services': services,
-      'total_amount': totalAmount,
       'name': name,
-      'id_user': idUser,
+      'iduser': idUser,
+      'id_slots': idSlots,
+      'district': district,
+      'total_amount': totalAmount,
+      'date': date,
+      'telephone_number': telephoneNumber,
+      'e_mail': email,
+      'services': services,
       'active': active,
     });
   }

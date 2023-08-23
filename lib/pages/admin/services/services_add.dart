@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/repositories/services_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
@@ -68,6 +69,25 @@ class _ServicesAddState extends State<ServicesAdd> {
                 ),
               ),
               SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(right: 25, left: 18),
+                child: CustomNavigationBar(items: [
+                  NavigatorBarItem(
+                    contentText: "Home",
+                    icon: Icons.home,
+                    route: '/menu_administrator',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  NavigatorBarItem(
+                    contentText: "Servicios",
+                    icon: Icons.design_services_sharp,
+                    route: '/ReservationService',
+                  ),
+                ]),
+              ),
+              SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 18),
                 child: Text(

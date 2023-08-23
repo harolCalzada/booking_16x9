@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/repositories/deals_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
@@ -69,6 +70,25 @@ class _AddDealsState extends State<AddDeals> {
               ),
               SizedBox(height: 20),
               Padding(
+                padding: const EdgeInsets.only(right: 25, left: 18),
+                child: CustomNavigationBar(items: [
+                  NavigatorBarItem(
+                    contentText: "Home",
+                    icon: Icons.home,
+                    route: '/menu_administrator',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  NavigatorBarItem(
+                    contentText: "Promociones",
+                    icon: Icons.local_offer_rounded,
+                    route: '/ReservationService',
+                  ),
+                ]),
+              ),
+              SizedBox(height: 15),
+              Padding(
                 padding: const EdgeInsets.only(left: 18),
                 child: Text(
                   "Promociones",
@@ -118,7 +138,7 @@ class _AddDealsState extends State<AddDeals> {
                         });
                       },
                       decoration:
-                          InputDecoration(labelText: 'Texto del Botónh '),
+                          InputDecoration(labelText: 'Texto del Botón '),
                     ),
                     CheckboxListTile(
                       title: Text('Activo'),
