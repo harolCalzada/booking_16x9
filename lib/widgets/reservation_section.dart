@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:salon_app/models/reservation_entity.dart';
 import 'package:salon_app/repositories/reservation_repository.dart';
 
@@ -11,21 +10,27 @@ class ReservationSection extends StatefulWidget {
 }
 
 class _ReservationSectionState extends State<ReservationSection> {
-  final ReservationRepository _reservationRepository = ReservationRepository();
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ReservationEntity>>(
-      stream: _reservationRepository.getAllReservations(),
+      stream: ReservationRepository().getAllReservations(),
       builder: (context, snapshot) {
+        print("Connection State: ${snapshot.connectionState}");
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         }
 
-        // if (!snapshot.hasData || snapshot.data == null) {
-        //   return Text('No hay datos disponibles.');
-        // }
-        final List<ReservationEntity> reservation = snapshot.data!;
+        final reservationData = snapshot.data;
+
+        if (reservationData == null || reservationData.isEmpty) {
+          return Center(
+            child: Text('No hay datos disponibles.'),
+          );
+        }
 
         return Center(
           child: DataTable(
@@ -40,26 +45,25 @@ class _ReservationSectionState extends State<ReservationSection> {
                 label: Text('Estado'),
               ),
             ],
-            rows: reservation.map((reservation) {
+            rows: reservationData.map((reservationEntity) {
               return DataRow(cells: [
                 DataCell(
                   InkWell(
                     onTap: () {
-                      final id = reservation.id;
+                      final id = reservationEntity.id;
                       print("id exitoso");
                       print(id);
-                      context.goNamed('', queryParameters: {'id': id});
                     },
-                    child: Text(reservation.name),
+                    child: Text(reservationEntity.name),
                   ),
                 ),
                 DataCell(
-                  Text(reservation.date.toDate().toString()),
+                  Text(reservationEntity.date.toDate().toString()),
                 ),
                 DataCell(
                   Text(
-                    reservation.active != null
-                        ? (reservation.active! ? 'Activo' : 'Inactivo')
+                    reservationEntity.active != null
+                        ? (reservationEntity.active! ? 'Activo' : 'Inactivo')
                         : '',
                   ),
                 ),

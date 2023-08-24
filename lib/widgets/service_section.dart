@@ -198,7 +198,7 @@ class _ServicesSectionState extends State<ServicesSection> {
                       final id = service.id;
                       print("id exitoso");
                       print(id); // Obtén el ID del servicio
-                      context.goNamed('serviceDetail',
+                      context.goNamed("serviceDetail",
                           queryParameters: {'id': id});
                     },
                     child: Text(service.name),

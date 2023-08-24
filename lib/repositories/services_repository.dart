@@ -5,6 +5,18 @@ import 'package:salon_app/repositories/config.dart';
 class ServiceRepository extends RepositoryConfig {
   String collectionName = 'services';
 
+  Stream<List<ServiceEntity>> getServices() {
+    return FirebaseFirestore.instance
+        .collection(collectionName)
+        .snapshots()
+        .map(
+      (snapshot) {
+        return convertDynamicListToServicesList(
+            snapshot.docs.map((doc) => doc).toList());
+      },
+    );
+  }
+
   Future<void> addService({
     required String imageUrl,
     required double price,
@@ -19,18 +31,6 @@ class ServiceRepository extends RepositoryConfig {
       'name': name,
       'active': active,
     });
-  }
-
-  Stream<List<ServiceEntity>> getServices() {
-    return FirebaseFirestore.instance
-        .collection(collectionName)
-        .snapshots()
-        .map(
-      (snapshot) {
-        return convertDynamicListToServicesList(
-            snapshot.docs.map((doc) => doc).toList());
-      },
-    );
   }
 
   Stream<ServiceEntity> getServiceStream(String id) {
