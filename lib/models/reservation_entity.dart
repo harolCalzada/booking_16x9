@@ -4,7 +4,7 @@ class ReservationEntity {
   final Timestamp date;
   final String idSlots;
   final List services;
-  final int totalAmount;
+  final double totalAmount;
   final String name;
   final String id;
   bool? active;
@@ -36,7 +36,7 @@ ReservationEntity convertDynamicToReservationEntity(dynamic doc) {
     date: doc.data()['date'],
     idSlots: doc.data()['id_slots'],
     services: doc.data()['services'],
-    totalAmount: doc.data()['total_amount'],
+    totalAmount: doc.data()['total_amount'].toDouble(),
     name: doc.data()['name'],
     id: id,
     active: doc.data()['active'],
