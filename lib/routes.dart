@@ -24,147 +24,145 @@ import 'pages/admin/reservation/reservation_detail.dart';
 // import 'package:salon_app/widgets/administrator.dart';
 
 GoRouter getApplicationRoutes() {
-  final goRouter = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return IntroPage();
-        },
-      ),
+  final goRouter = GoRouter(routes: [
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return IntroPage();
+      },
+    ),
 
-      GoRoute(
-        path: '/register',
-        builder: (BuildContext context, GoRouterState state) {
-          return RegisterPage();
-        },
-      ),
+    GoRoute(
+      path: '/register',
+      builder: (BuildContext context, GoRouterState state) {
+        return RegisterPage();
+      },
+    ),
 
-      GoRoute(
-        path: '/login',
-        builder: (BuildContext context, GoRouterState state) {
-          return LoginPage();
-        },
-      ),
-      GoRoute(
-        path: '/password',
-        builder: (BuildContext context, GoRouterState state) {
-          return ForgotPassword();
-        },
-      ),
+    GoRoute(
+      path: '/login',
+      builder: (BuildContext context, GoRouterState state) {
+        return LoginPage();
+      },
+    ),
+    GoRoute(
+      path: '/password',
+      builder: (BuildContext context, GoRouterState state) {
+        return ForgotPassword();
+      },
+    ),
 
-      GoRoute(
-        path: '/home',
-        builder: (BuildContext context, GoRouterState state) {
-          return HomePage(context);
-        },
-      ),
-      GoRoute(
-        path: '/book',
-        builder: (BuildContext context, GoRouterState state) {
-          return BookPage();
-        },
-      ),
+    GoRoute(
+      path: '/home',
+      builder: (BuildContext context, GoRouterState state) {
+        return HomePage(context);
+      },
+    ),
+    GoRoute(
+      path: '/book',
+      builder: (BuildContext context, GoRouterState state) {
+        return BookPage();
+      },
+    ),
 
-      GoRoute(
-        path: '/menu_administrator',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
+    GoRoute(
+      path: '/menu_administrator',
+      builder: (BuildContext context, GoRouterState state) {
+        return SideMenu();
+      },
+    ),
 
-      // Agrega más rutas según tus necesidades
-      GoRoute(
-        path: '/confirm_reservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return ConfirmReservation();
-        },
-      ),
-      GoRoute(
-        path: '/succeed_reservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return SucceedReservation();
-        },
-      ),
-      GoRoute(
-        path: '/ReservationService',
-        builder: (BuildContext context, GoRouterState state) {
-          return ReservationService();
-        },
-      ),
+    // Agrega más rutas según tus necesidades
+    GoRoute(
+      path: '/confirm_reservation',
+      builder: (BuildContext context, GoRouterState state) {
+        return ConfirmReservation();
+      },
+    ),
+    GoRoute(
+      path: '/succeed_reservation',
+      builder: (BuildContext context, GoRouterState state) {
+        return SucceedReservation();
+      },
+    ),
+    GoRoute(
+      path: '/ReservationService',
+      builder: (BuildContext context, GoRouterState state) {
+        return ReservationService();
+      },
+    ),
 
-      GoRoute(
-        path: '/AddReservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return AddReservation();
-        },
-      ),
+    GoRoute(
+      path: '/AddReservation',
+      builder: (BuildContext context, GoRouterState state) {
+        return AddReservation();
+      },
+    ),
 
-      GoRoute(
-        path: '/DetailReservation',
-        builder: (BuildContext context, GoRouterState state) {
-          return DetailReservation();
-        },
-      ),
+    GoRoute(
+      path: '/DetailReservation',
+      builder: (BuildContext context, GoRouterState state) {
+        return DetailReservation();
+      },
+    ),
 
-      GoRoute(
-        path: '/ServicesData',
-        builder: (BuildContext context, GoRouterState state) {
-          return ServicesData(
-            name: "hola",
-          );
-        },
-      ),
-      GoRoute(
-        path: '/AddService',
-        builder: (BuildContext context, GoRouterState state) {
-          return ServicesAdd();
-        },
-      ),
+    GoRoute(
+      path: '/ServicesData',
+      builder: (BuildContext context, GoRouterState state) {
+        return ServicesData(
+          name: "hola",
+        );
+      },
+    ),
+    GoRoute(
+      path: '/AddService',
+      builder: (BuildContext context, GoRouterState state) {
+        return ServicesAdd();
+      },
+    ),
 
-      GoRoute(
-        path: '/ListDeals',
-        builder: (BuildContext context, GoRouterState state) {
-          return ListDeals();
-        },
-      ),
-      GoRoute(
-        path: '/AddDeals',
-        builder: (BuildContext context, GoRouterState state) {
-          return AddDeals();
-        },
-      ),
-      GoRoute(
-        path: '/SideMenu',
-        builder: (BuildContext context, GoRouterState state) {
-          return SideMenu();
-        },
-      ),
+    GoRoute(
+      path: '/ListDeals',
+      builder: (BuildContext context, GoRouterState state) {
+        return ListDeals();
+      },
+    ),
+    GoRoute(
+      path: '/AddDeals',
+      builder: (BuildContext context, GoRouterState state) {
+        return AddDeals();
+      },
+    ),
+    GoRoute(
+      path: '/SideMenu',
+      builder: (BuildContext context, GoRouterState state) {
+        return SideMenu();
+      },
+    ),
 
-      GoRoute(
-        path: '/Users',
-        builder: (BuildContext context, GoRouterState state) {
-          return UsersPage();
-        },
-      ),
+    GoRoute(
+      path: '/Users',
+      builder: (BuildContext context, GoRouterState state) {
+        return UsersPage();
+      },
+    ),
 
-      GoRoute(
-        path: '/DetailUsers',
-        builder: (BuildContext context, GoRouterState state) {
-          return DetailUsers();
-        },
-      ),
+    GoRoute(
+      path: '/DetailUsers',
+      builder: (BuildContext context, GoRouterState state) {
+        return DetailUsers();
+      },
+    ),
 
-      GoRoute(
-        name: "serviceDetail",
-        path: '/service-detail',
-        builder: (context, state) {
-          final id = state.pathParameters['id'];
-          return ServicesDetail(id: id!);
-        },
-      )
-    ],
-  );
+    GoRoute(
+      name: "serviceDetailRoute",
+      path: '/service-detail/:id',
+      builder: (context, state) {
+        final id = state.pathParameters['id'];
+        return ServicesDetail(id: id!);
+      },
+    ),
+  ]);
 
   return goRouter;
 }

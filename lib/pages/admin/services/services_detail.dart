@@ -37,7 +37,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<ServiceEntity>(
-      stream: ServiceRepository().getServiceStream(widget.id),
+      stream: ServiceRepository().getService(widget.id),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');

@@ -33,7 +33,7 @@ class ServiceRepository extends RepositoryConfig {
     });
   }
 
-  Stream<ServiceEntity> getServiceStream(String id) {
+  Stream<ServiceEntity> getService(String id) {
     final String collectionName = 'service';
     return FirebaseFirestore.instance
         .collection(collectionName)

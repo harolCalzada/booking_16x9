@@ -197,9 +197,9 @@ class _ServicesSectionState extends State<ServicesSection> {
                     onTap: () {
                       final id = service.id;
                       print("id exitoso");
-                      print(id); // Obtén el ID del servicio
-                      context.goNamed("serviceDetail",
-                          queryParameters: {'id': id});
+                      print(id);
+                      context.goNamed("serviceDetailRoute",
+                          pathParameters: {'id': id!});
                     },
                     child: Text(service.name),
                   ),
