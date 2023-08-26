@@ -37,7 +37,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
   Widget build(BuildContext context) {
     print("Service ID: ${widget.id}");
     return StreamBuilder<ServiceEntity>(
-        stream: ServiceRepository().getService(widget.id),
+        stream: ServiceRepository().getServiceStream(widget.id),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
@@ -46,6 +46,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
           }
+          print('ServiceEntity: ${snapshot.data}');
 
           return Scaffold(
             appBar: AppBar(
@@ -60,14 +61,17 @@ class _ServicesDetailState extends State<ServicesDetail> {
               ),
             ),
             backgroundColor: Colors.white,
-            body: ServiceDetailBody(),
+            body: ServiceDetailBody(serviceEntity: snapshot.data!),
           );
         });
   }
 }
 
 class ServiceDetailBody extends StatefulWidget {
-  const ServiceDetailBody({Key? key}) : super(key: key);
+  final ServiceEntity serviceEntity;
+
+  const ServiceDetailBody({Key? key, required this.serviceEntity})
+      : super(key: key);
 
   @override
   _ServiceDetailBodyState createState() => _ServiceDetailBodyState();
@@ -150,6 +154,7 @@ class _ServiceDetailBodyState extends State<ServiceDetailBody> {
                   ),
                   TextField(
                     onChanged: (value) {
+                      print(widget.serviceEntity.price);
                       setState(() {
                         priceController.text = value;
                       });
@@ -160,6 +165,7 @@ class _ServiceDetailBodyState extends State<ServiceDetailBody> {
                   ),
                   TextField(
                     onChanged: (value) {
+                      print(widget.serviceEntity.iconUrl);
                       setState(() {
                         iconUrlController.text = value;
                       });
