@@ -12,7 +12,7 @@ class DealsRepository extends RepositoryConfig {
         .map(
       (snapshot) {
         return convertDynamicListToDealsList(
-            snapshot.docs.map((doc) => doc.data()).toList());
+            snapshot.docs.map((doc) => doc).toList());
       },
     );
   }
@@ -30,6 +30,29 @@ class DealsRepository extends RepositoryConfig {
       'title': title,
       'url_button': urlButton,
       'active': active,
+    });
+  }
+
+  Stream<DealsEntity> getDeal(String id) {
+    final String collectionName = 'deal';
+    return FirebaseFirestore.instance
+        .collection(collectionName)
+        .doc(id)
+        .snapshots()
+        .map((snapshot) {
+      final dealData = snapshot.data();
+      if (dealData != null) {
+        final DealsEntity deal = convertDynamicToDealsEntity(dealData);
+        return deal;
+      } else {
+        return DealsEntity(
+          imageUrl: " ",
+          textButton: " ",
+          title: " ",
+          urlButton: " ",
+          active: false,
+        );
+      }
     });
   }
 }

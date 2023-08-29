@@ -21,13 +21,13 @@ List<DealsEntity> convertDynamicListToDealsList(List<dynamic> dataList) {
 }
 
 DealsEntity convertDynamicToDealsEntity(dynamic doc) {
-  final id = doc['id'];
+  final id = doc.id;
   final dealsEntity = DealsEntity(
-    imageUrl: doc['image_url'],
-    textButton: doc['text_button'],
-    title: doc['title'],
-    urlButton: doc['url_button'],
-    active: doc['active'],
+    imageUrl: doc.data()['image_url'],
+    textButton: doc.data()['text_button'],
+    title: doc.data()['title'],
+    urlButton: doc.data()['url_button'],
+    active: doc.data()['active'],
     id: id,
   );
   print('id: ${dealsEntity.id}');

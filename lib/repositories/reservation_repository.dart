@@ -49,10 +49,10 @@ class ReservationRepository extends RepositoryConfig {
         .doc(id)
         .snapshots()
         .map((snapshot) {
-      final serviceData = snapshot.data();
-      if (serviceData != null) {
+      final reservationData = snapshot.data();
+      if (reservationData != null) {
         final ReservationEntity reservation =
-            convertDynamicToReservationEntity(serviceData);
+            convertDynamicToReservationEntity(reservationData);
         return reservation;
       } else {
         return ReservationEntity(

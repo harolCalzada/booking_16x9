@@ -46,8 +46,8 @@ class _DealsSectionState extends State<DealsSection> {
                       final id = deals.id;
                       print("id exitoso");
                       print(id); // Obtén el ID del servicio
-                      context.goNamed('serviceDetail',
-                          queryParameters: {'id': id});
+                      context.goNamed('dealsDetailRoute',
+                          pathParameters: {'id': id!});
                     },
                     child: Text(deals.title),
                   ),
