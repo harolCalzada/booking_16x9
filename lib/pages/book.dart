@@ -218,6 +218,8 @@ class _BookPageState extends State<BookPage> {
                     active: true,
                     idUser: "156788",
                     name: "Ingrid",
+                    district: "Comas",
+                    telephoneNumber: 987656745,
                     date: Timestamp.fromDate(DateTime(2023, 9, 10)),
                     idSlots: 'slot123',
                     services: ['service1', 'service2'],

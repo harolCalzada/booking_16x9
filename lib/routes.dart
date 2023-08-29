@@ -100,13 +100,6 @@ GoRouter getApplicationRoutes() {
     ),
 
     GoRoute(
-      path: '/DetailReservation',
-      builder: (BuildContext context, GoRouterState state) {
-        return DetailReservation();
-      },
-    ),
-
-    GoRoute(
       path: '/ServicesData',
       builder: (BuildContext context, GoRouterState state) {
         return ServicesData(
@@ -160,6 +153,14 @@ GoRouter getApplicationRoutes() {
       builder: (context, state) {
         final id = state.pathParameters['id'];
         return ServicesDetail(id: id!);
+      },
+    ),
+    GoRoute(
+      name: "reservationDetailRoute",
+      path: '/reservation-detail/:id',
+      builder: (context, state) {
+        final id = state.pathParameters['id'];
+        return ReservationDetail(id: id!);
       },
     ),
   ]);

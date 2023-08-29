@@ -20,10 +20,10 @@ class ReservationRepository extends RepositoryConfig {
     required String name,
     required String idUser,
     required String idSlots,
-    String? district,
+    required String district,
     required double totalAmount,
     required Timestamp date,
-    int? telephoneNumber,
+    required int telephoneNumber,
     required String email,
     required List<String> services,
     required bool active,
@@ -39,6 +39,35 @@ class ReservationRepository extends RepositoryConfig {
       'e_mail': email,
       'services': services,
       'active': active,
+    });
+  }
+
+  Stream<ReservationEntity> getReservation(String id) {
+    final String collectionName = 'reservation';
+    return FirebaseFirestore.instance
+        .collection(collectionName)
+        .doc(id)
+        .snapshots()
+        .map((snapshot) {
+      final serviceData = snapshot.data();
+      if (serviceData != null) {
+        final ReservationEntity reservation =
+            convertDynamicToReservationEntity(serviceData);
+        return reservation;
+      } else {
+        return ReservationEntity(
+          name: "",
+          district: "",
+          id: "",
+          telephoneNumber: 0,
+          email: "",
+          services: [],
+          idSlots: "",
+          totalAmount: 0,
+          date: Timestamp(0, 0), // Cambiar por el valor adecuado
+          active: false,
+        );
+      }
     });
   }
 }
