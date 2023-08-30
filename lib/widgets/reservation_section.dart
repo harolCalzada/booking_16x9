@@ -45,7 +45,7 @@ class _ReservationSectionState extends State<ReservationSection> {
                 label: Text('Estado'),
               ),
             ],
-            rows: reservationData.map((reservation) {
+            rows: reservation.map((reservation) {
               return DataRow(cells: [
                 DataCell(
                   InkWell(
@@ -54,7 +54,7 @@ class _ReservationSectionState extends State<ReservationSection> {
                       print("id exitoso");
                       print(id);
                       context.goNamed("reservationDetailRoute",
-                          pathParameters: {'id': id});
+                          pathParameters: {'id': id!});
                     },
                     child: Text(reservation.name),
                   ),

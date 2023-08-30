@@ -39,8 +39,8 @@ class DealsRepository extends RepositoryConfig {
         .collection(collectionName)
         .doc(id)
         .snapshots()
-        .map((snapshot) {
-      final dealData = snapshot.data();
+        .map((doc) {
+      final dealData = doc;
       if (dealData != null) {
         final DealsEntity deal = convertDynamicToDealsEntity(dealData);
         return deal;

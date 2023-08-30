@@ -23,6 +23,10 @@ List<ServiceEntity> convertDynamicListToServicesList(List<dynamic> dataList) {
 }
 
 ServiceEntity convertDynamicToServiceEntity(dynamic doc) {
+  print("hola 3");
+  print(doc.data['price']);
+  print(doc.id);
+
   final id = doc.id;
   final serviceEntity = ServiceEntity(
     imageUrl: doc.data()['image_url'],

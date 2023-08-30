@@ -48,8 +48,8 @@ class ReservationRepository extends RepositoryConfig {
         .collection(collectionName)
         .doc(id)
         .snapshots()
-        .map((snapshot) {
-      final reservationData = snapshot.data();
+        .map((doc) {
+      final reservationData = doc;
       if (reservationData != null) {
         final ReservationEntity reservation =
             convertDynamicToReservationEntity(reservationData);
@@ -58,13 +58,13 @@ class ReservationRepository extends RepositoryConfig {
         return ReservationEntity(
           name: "",
           district: "",
-          id: "",
+          idUser: "",
           telephoneNumber: 0,
           email: "",
           services: [],
           idSlots: "",
           totalAmount: 0,
-          date: Timestamp(0, 0), // Cambiar por el valor adecuado
+          date: Timestamp(0, 0),
           active: false,
         );
       }

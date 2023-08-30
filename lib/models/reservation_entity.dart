@@ -7,10 +7,11 @@ class ReservationEntity {
   final double totalAmount;
   final String name;
   final String district;
-  final String id;
+  final String idUser;
   final int telephoneNumber;
   final String email;
   bool? active;
+  final String? id;
 
   ReservationEntity({
     required this.date,
@@ -19,10 +20,11 @@ class ReservationEntity {
     required this.totalAmount,
     required this.name,
     required this.district,
-    required this.id,
+    required this.idUser,
     required this.telephoneNumber,
     required this.email,
     this.active,
+    this.id,
   });
 }
 
@@ -44,11 +46,12 @@ ReservationEntity convertDynamicToReservationEntity(dynamic doc) {
     services: doc.data()['services'],
     totalAmount: doc.data()['total_amount'].toDouble(),
     name: doc.data()['name'],
-    id: doc.data()['iduser'],
+    idUser: doc.data()['iduser'],
     district: doc.data()['district'],
     telephoneNumber: doc.data()['telephone_number'],
     active: doc.data()['active'],
     email: doc.data()['e_mail'],
+    id: id,
   );
 
   print('id: ${reservationEntity.id}');

@@ -39,8 +39,8 @@ class ServiceRepository extends RepositoryConfig {
         .collection(collectionName)
         .doc(id)
         .snapshots()
-        .map((snapshot) {
-      final serviceData = snapshot.data();
+        .map((doc) {
+      final serviceData = doc;
       if (serviceData != null) {
         final ServiceEntity service =
             convertDynamicToServiceEntity(serviceData);
