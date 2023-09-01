@@ -163,12 +163,12 @@ class ServicesSection extends StatefulWidget {
 }
 
 class _ServicesSectionState extends State<ServicesSection> {
-  // final ServiceRepository _servicesRepository = ServiceRepository();
+  final ServiceRepository _servicesRepository = ServiceRepository();
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ServiceEntity>>(
-      stream: ServiceRepository().getServices(),
+      stream: _servicesRepository.getServices(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
@@ -176,14 +176,6 @@ class _ServicesSectionState extends State<ServicesSection> {
 
         if (!snapshot.hasData || snapshot.data == null) {
           return Text('No hay datos disponibles.');
-        }
-
-        final serviceData = snapshot.data;
-
-        if (serviceData == null || serviceData.isEmpty) {
-          return Center(
-            child: Text('No hay datos disponibles.'),
-          );
         }
 
         final List<ServiceEntity> services = snapshot.data!;
