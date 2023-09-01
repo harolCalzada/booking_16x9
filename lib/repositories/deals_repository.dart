@@ -34,7 +34,7 @@ class DealsRepository extends RepositoryConfig {
   }
 
   Stream<DealsEntity> getDeal(String id) {
-    final String collectionName = 'deal';
+    final String collectionName = 'deals';
     return FirebaseFirestore.instance
         .collection(collectionName)
         .doc(id)

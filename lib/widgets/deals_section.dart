@@ -26,7 +26,7 @@ class _DealsSectionState extends State<DealsSection> {
           return Text('No hay datos disponibles.');
         }
 
-        final List<DealsEntity> services = snapshot.data!;
+        final List<DealsEntity> deals = snapshot.data!;
 
         return Center(
           child: DataTable(
@@ -38,24 +38,24 @@ class _DealsSectionState extends State<DealsSection> {
                 label: Text('Estado '),
               ),
             ],
-            rows: services.map((deals) {
+            rows: deals.map((deal) {
               return DataRow(cells: [
                 DataCell(
                   InkWell(
                     onTap: () {
-                      final id = deals.id;
+                      final id = deal.id;
                       print("id exitoso");
-                      print(id); // Obtén el ID del servicio
+                      print(id);
                       context.goNamed('dealsDetailRoute',
                           pathParameters: {'id': id!});
                     },
-                    child: Text(deals.title),
+                    child: Text(deal.title),
                   ),
                 ),
                 DataCell(
                   Text(
-                    deals.active != null
-                        ? (deals.active! ? 'Activo' : 'Inactivo')
+                    deal.active != null
+                        ? (deal.active! ? 'Activo' : 'Inactivo')
                         : '',
                   ),
                 ),

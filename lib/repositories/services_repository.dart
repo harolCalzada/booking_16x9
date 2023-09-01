@@ -34,16 +34,15 @@ class ServiceRepository extends RepositoryConfig {
   }
 
   Stream<ServiceEntity> getService(String id) {
-    final String collectionName = 'service';
+    final String collectionName =
+        'services'; // Asegúrate de que el nombre coincida con tu colección en Firestore
     return FirebaseFirestore.instance
         .collection(collectionName)
         .doc(id)
         .snapshots()
         .map((doc) {
-      final serviceData = doc;
-      if (serviceData != null) {
-        final ServiceEntity service =
-            convertDynamicToServiceEntity(serviceData);
+      if (doc.exists) {
+        final ServiceEntity service = convertDynamicToServiceEntity(doc);
         return service;
       } else {
         return ServiceEntity(
