@@ -30,27 +30,22 @@ class ReservationEntity {
 
 List<ReservationEntity> convertDynamicListToReservationList(
     List<dynamic> dataList) {
-  print("hola");
-  print(
-      dataList.map((data) => convertDynamicToReservationEntity(data)).toList());
-  return dataList
-      .map((data) => convertDynamicToReservationEntity(data))
-      .toList();
+  return dataList.map((doc) => convertDynamicToReservationEntity(doc)).toList();
 }
 
 ReservationEntity convertDynamicToReservationEntity(dynamic doc) {
   final id = doc.id;
   final reservationEntity = ReservationEntity(
-    date: doc.data()['date'],
-    idSlots: doc.data()['id_slots'],
-    services: doc.data()['services'],
-    totalAmount: doc.data()['total_amount'].toDouble(),
-    name: doc.data()['name'],
-    idUser: doc.data()['iduser'],
-    district: doc.data()['district'],
-    telephoneNumber: doc.data()['telephone_number'],
-    active: doc.data()['active'],
-    email: doc.data()['e_mail'],
+    date: doc['date'],
+    idSlots: doc['id_slots'],
+    services: doc['services'],
+    totalAmount: doc['total_amount'].toDouble(),
+    name: doc['name'],
+    idUser: doc['iduser'],
+    district: doc['district'],
+    telephoneNumber: doc['telephone_number'],
+    active: doc['active'],
+    email: doc['e_mail'],
     id: id,
   );
 

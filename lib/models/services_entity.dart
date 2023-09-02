@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ServiceEntity {
   final String imageUrl;
   final double price;
@@ -19,21 +17,21 @@ class ServiceEntity {
 }
 
 List<ServiceEntity> convertDynamicListToServicesList(List<dynamic> dataList) {
-  return dataList.map((data) => convertDynamicToServiceEntity(data)).toList();
+  return dataList.map((doc) => convertDynamicToServiceEntity(doc)).toList();
 }
 
 ServiceEntity convertDynamicToServiceEntity(dynamic doc) {
   print("hola 3");
-  print(doc.data['price']);
+  print(doc['price']);
   print(doc.id);
 
   final id = doc.id;
   final serviceEntity = ServiceEntity(
-    imageUrl: doc.data()['image_url'],
-    price: doc.data()['price'].toDouble(),
-    iconUrl: doc.data()['icon_url'],
-    name: doc.data()['name'],
-    active: doc.data()['active'],
+    imageUrl: doc['image_url'],
+    price: doc['price'].toDouble(),
+    iconUrl: doc['icon_url'],
+    name: doc['name'],
+    active: doc['active'],
     id: id,
   );
 

@@ -26,6 +26,14 @@ class _DealsSectionState extends State<DealsSection> {
           return Text('No hay datos disponibles.');
         }
 
+        final dealsData = snapshot.data;
+
+        if (dealsData == null || dealsData.isEmpty) {
+          return Center(
+            child: Text('No hay datos disponibles.'),
+          );
+        }
+
         final List<DealsEntity> deals = snapshot.data!;
 
         return Center(

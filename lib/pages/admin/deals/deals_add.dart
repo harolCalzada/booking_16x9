@@ -30,15 +30,17 @@ class _AddDealsState extends State<AddDeals> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
         backgroundColor: Colors.white,
-        leading: ReturnButton(
-          icon: Icons.arrow_back,
-          iconColor: Colors.black,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
           onPressed: () {
-            context.go('/SideMenu');
+            context.go('/ListDeals');
           },
         ),
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(

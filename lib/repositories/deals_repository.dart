@@ -40,7 +40,6 @@ class DealsRepository extends RepositoryConfig {
         .doc(id)
         .snapshots()
         .map((doc) {
-      // final dealData = doc;
       if (doc.exists) {
         final DealsEntity deal = convertDynamicToDealsEntity(doc);
         return deal;

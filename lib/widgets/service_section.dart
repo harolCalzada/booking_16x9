@@ -178,6 +178,14 @@ class _ServicesSectionState extends State<ServicesSection> {
           return Text('No hay datos disponibles.');
         }
 
+        final serviceData = snapshot.data;
+
+        if (serviceData == null || serviceData.isEmpty) {
+          return Center(
+            child: Text('No hay datos disponibles.'),
+          );
+        }
+
         final List<ServiceEntity> services = snapshot.data!;
 
         return Center(

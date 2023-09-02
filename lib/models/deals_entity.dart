@@ -17,17 +17,17 @@ class DealsEntity {
 }
 
 List<DealsEntity> convertDynamicListToDealsList(List<dynamic> dataList) {
-  return dataList.map((data) => convertDynamicToDealsEntity(data)).toList();
+  return dataList.map((doc) => convertDynamicToDealsEntity(doc)).toList();
 }
 
 DealsEntity convertDynamicToDealsEntity(dynamic doc) {
   final id = doc.id;
   final dealsEntity = DealsEntity(
-    imageUrl: doc.data()['image_url'],
-    textButton: doc.data()['text_button'],
-    title: doc.data()['title'],
-    urlButton: doc.data()['url_button'],
-    active: doc.data()['active'],
+    imageUrl: doc['image_url'],
+    textButton: doc['text_button'],
+    title: doc['title'],
+    urlButton: doc['url_button'],
+    active: doc['active'],
     id: id,
   );
   print('id: ${dealsEntity.id}');

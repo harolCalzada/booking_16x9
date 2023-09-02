@@ -11,8 +11,7 @@ class ServiceRepository extends RepositoryConfig {
         .snapshots()
         .map(
       (snapshot) {
-        return convertDynamicListToServicesList(
-            snapshot.docs.map((doc) => doc).toList());
+        return convertDynamicListToServicesList(snapshot.docs);
       },
     );
   }
