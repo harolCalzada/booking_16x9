@@ -4,8 +4,9 @@ import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
 import 'package:salon_app/widgets/button2.dart';
+import 'package:salon_app/widgets/deal.dart';
+import 'package:salon_app/widgets/deals_section.dart';
 import 'package:salon_app/widgets/icon_service.dart';
-import 'package:salon_app/widgets/image_card.dart';
 import 'package:salon_app/widgets/modal.dart';
 import 'package:salon_app/widgets/service_section.dart';
 import 'package:salon_app/widgets/specialist_column.dart';
@@ -172,82 +173,12 @@ class _HomePageState extends State<HomePage> {
                     height: 25,
                   ),
                   Container(
-                      height: screen_size_height * .2,
-                      width: screen_size_width,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          ImageCard(cardImg: "images/banner-1.png"),
-                          SizedBox(width: 10),
-                          ImageCard(cardImg: "images/banner-2.png"),
-                          SizedBox(width: 10),
-                          ImageCard(cardImg: "images/banner-3.png"),
-                        ],
-                      )),
+                    height: screen_size_height * .2,
+                    width: screen_size_width,
+                    child: DealSection(),
+                  ),
                   SizedBox(height: 50),
                   ServicesSectionWidget(),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   mainAxisSize: MainAxisSize.max,
-                  //   children: <Widget>[
-                  //     Expanded(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           servicesModal(context);
-                  //         },
-                  //         child: IconServices(
-                  //           // colorImg: Color(secondarycolor),
-                  //           columnImg: "images/icon-makeup.png",
-                  //           columnTxt: "MAKEUP",
-                  //           // columnBg: Color(gradientcolor),
-                  //           textColor: Color(gradientColor),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Expanded(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           servicesModal(context);
-                  //         },
-                  //         child: IconServices(
-                  //           // colorImg: Color(secondarycolor),
-                  //           columnImg: "images/icon-waves.png",
-                  //           columnTxt: "WAVES",
-                  //           // columnBg: Color(gradientcolor),
-                  //           textColor: Color(gradientColor),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Expanded(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           servicesModal(context);
-                  //         },
-                  //         child: IconServices(
-                  //           // colorImg: Color(secondarycolor),
-                  //           columnImg: "images/icon-manicure.png",
-                  //           columnTxt: "MANICURE",
-                  //           // columnBg: Color(gradientcolor),
-                  //           textColor: Color(gradientColor),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Expanded(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           servicesModal(context);
-                  //         },
-                  //         child: IconServices(
-                  //           // colorImg: Color(secondarycolor),
-                  //           columnImg: "images/icon-pedicure.png",
-                  //           columnTxt: "PEDICURE",
-                  //           // columnBg: Color(gradientcolor),
-                  //           textColor: Color(gradientColor),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
                   SizedBox(height: 15),
                   NextReservationSectionWidget()
                 ]),
