@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
+import 'package:salon_app/repositories/reservation_repository.dart';
 import 'package:salon_app/widgets/date_column.dart';
-import 'package:salon_app/widgets/icon_service.dart';
+import 'package:salon_app/widgets/service_section.dart';
 import 'package:salon_app/widgets/slots_section.dart';
 
 class BookPage extends StatefulWidget {
@@ -203,107 +204,28 @@ class _BookPageState extends State<BookPage> {
                               fontWeight: FontWeight.bold,
                               color: Color(secondaryColor))),
                       SizedBox(
-                        height: 10,
+                        height: 25,
                       ),
-                      // Text("HAIR",
-                      //     style: TextStyle(
-                      //         fontSize: 18,
-                      //         fontWeight: FontWeight.bold,
-                      //         color: Color(secondaryColor))),
-                      // SizedBox(
-                      //   height: 12,
-                      // ),
-                      Services(),
+                      ServicesSectionWidget(add: false)
                     ],
                   )),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () => context.go(
-                  '/confirm_reservation',
-                ),
+                onPressed: () async {
+                  await ReservationRepository().addReservation(
+                    date: DateTime.now(),
+                    idSlots: 'slot123',
+                    services: ['service1', 'service2'],
+                    totalAmount: 150.00,
+                  );
+                  print("Datos de reservación guardados correctamente");
+                  context.go('/confirm_reservation');
+                },
                 child: Text("Reservar"),
               ),
               SizedBox(height: 20)
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class Services extends StatefulWidget {
-  const Services({key});
-
-  @override
-  State<Services> createState() => _ServicesState();
-}
-
-class _ServicesState extends State<Services> {
-  bool isCheckedMakeup = false;
-  bool isCheckedCorteHombre = false;
-  bool isCheckedManicure = false;
-  bool isCheckedTinte = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget(),
-        ServiceIconAddWidget()
-      ],
-    );
-  }
-}
-
-class ServiceIconAddWidget extends StatefulWidget {
-  const ServiceIconAddWidget();
-
-  @override
-  State<ServiceIconAddWidget> createState() => _ServiceIconAddWidgetState();
-}
-
-class _ServiceIconAddWidgetState extends State<ServiceIconAddWidget> {
-  bool isCheckedMakeup = false;
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            isCheckedMakeup = !isCheckedMakeup;
-          });
-        },
-        child: Stack(
-          children: [
-            IconServices(
-              // colorImg: isCheckedMakeup ? Colors.red : Color(gradientColor),
-              iconUrl: "images/icon-makeup.png",
-              serviceName: "Makeup",
-              // columnBg: makeupColor,
-              textColor: Color(secondaryColor),
-            ),
-            Positioned(
-              bottom: 15,
-              right: 18,
-              child: Checkbox(
-                value: isCheckedMakeup,
-                checkColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                onChanged: (value) {
-                  setState(() {
-                    isCheckedMakeup = value ?? false;
-                  });
-                },
-                activeColor: Colors.green,
-              ),
-            ),
-          ],
         ),
       ),
     );

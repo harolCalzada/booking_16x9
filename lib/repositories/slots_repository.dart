@@ -18,6 +18,7 @@ class SlotsRepository extends RepositoryConfig {
             'capacity': data['capacity'],
             'start_time': (data['start_time'] as Timestamp).toDate(),
             'end_time': (data['end_time'] as Timestamp).toDate(),
+            'id': doc.id
           };
         }).toList(),
       );
