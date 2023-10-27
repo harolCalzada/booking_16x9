@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/models/services_entity.dart';
 import 'package:salon_app/repositories/services_repository.dart';
@@ -17,7 +18,7 @@ class _ServicesSectionWidgetState extends State<ServicesSectionWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ServiceEntity>>(
-      stream: ServicesRepository().getServices(),
+      stream: ServiceRepository().getServices(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
@@ -29,33 +30,32 @@ class _ServicesSectionWidgetState extends State<ServicesSectionWidget> {
 
         final List<ServiceEntity> documents = snapshot.data ?? [];
 
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
+        return Wrap(
+          alignment: WrapAlignment.start,
+          spacing: 26.0,
+          runSpacing: 16.0,
           children: <Widget>[
             for (var doc in documents)
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    servicesModal(
-                      context,
-                      UniqueKey(),
-                      doc.imageUrl,
-                      doc.name,
-                      doc.price.toDouble(),
-                    );
-                  },
-                  child: widget.add
-                      ? ServicesIcon(
-                          iconUrl: doc.iconUrl,
-                          serviceName: doc.name,
-                          textColor: Color(gradientColor),
-                        )
-                      : ServiceIconAddWidget(
-                          name: doc.name,
-                          iconUrl: doc.iconUrl,
-                        ),
-                ),
+              InkWell(
+                onTap: () {
+                  servicesModal(
+                    context,
+                    UniqueKey(),
+                    doc.imageUrl,
+                    doc.name,
+                    doc.price.toDouble(),
+                  );
+                },
+                child: widget.add
+                    ? ServicesIcon(
+                        iconUrl: doc.iconUrl,
+                        serviceName: doc.name,
+                        textColor: Color(gradientColor),
+                      )
+                    : ServiceIconAddWidget(
+                        name: doc.name,
+                        iconUrl: doc.iconUrl,
+                      ),
               ),
           ],
         );
@@ -151,6 +151,67 @@ class _ServiceIconAddWidgetState extends State<ServiceIconAddWidget> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ServicesSection extends StatefulWidget {
+  const ServicesSection({Key? key});
+
+  @override
+  State<ServicesSection> createState() => _ServicesSectionState();
+}
+
+class _ServicesSectionState extends State<ServicesSection> {
+  final ServiceRepository _servicesRepository = ServiceRepository();
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<List<ServiceEntity>>(
+      stream: _servicesRepository.getServices(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        }
+
+        if (!snapshot.hasData || snapshot.data == null) {
+          return Text('No hay datos disponibles.');
+        }
+
+        final List<ServiceEntity> services = snapshot.data!;
+
+        return Center(
+          child: DataTable(
+            columns: [
+              DataColumn(
+                label: Text('Nombre del Servicio'),
+              ),
+              DataColumn(
+                label: Text('Estado'),
+              ),
+            ],
+            rows: services.map((service) {
+              return DataRow(cells: [
+                DataCell(
+                  InkWell(
+                    onTap: () {
+                      context.go('/ServicesDetail');
+                    },
+                    child: Text(service.name),
+                  ),
+                ),
+                DataCell(
+                  Text(
+                    service.active != null
+                        ? (service.active! ? 'Activo' : 'Inactivo')
+                        : '',
+                  ),
+                ),
+              ]);
+            }).toList(),
+          ),
+        );
+      },
     );
   }
 }

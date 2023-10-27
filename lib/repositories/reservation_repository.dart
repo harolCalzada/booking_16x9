@@ -30,7 +30,7 @@ class ReservationRepository extends RepositoryConfig {
           return {
             'date': data['date'],
             'idSlots': data['id_slots'],
-            'prices': data['prices'],
+            'prices': data['price'],
             'services': data['services'],
             'totalAmount': data['total_amount'],
           };

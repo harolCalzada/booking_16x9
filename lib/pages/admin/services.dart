@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 'package:salon_app/constants/colors.dart';
 import 'package:salon_app/pages/admin/reservation.dart';
-import 'package:salon_app/widgets/button.dart';
+import 'package:salon_app/widgets/service_section.dart';
 
 import '../../widgets/button2.dart';
 
 class ServicesData extends StatelessWidget {
+  final String name;
+
+  ServicesData({
+    required this.name,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          leading: ReturnButton(
-            icon: Icons.arrow_back,
-            iconColor: Colors.black,
-            onPressed: () {
-              context.go('/SideMenu');
-            },
-          ),
-        ),
+      appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-            child: Container(
+        leading: ReturnButton(
+          icon: Icons.arrow_back,
+          iconColor: Colors.black,
+          onPressed: () {
+            context.go('/SideMenu');
+          },
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Container(
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -56,10 +60,11 @@ class ServicesData extends StatelessWidget {
                 child: Text(
                   "Servicios",
                   style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                      color: Colors.black),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+                    color: Colors.black,
+                  ),
                 ),
               ),
               SizedBox(height: 10),
@@ -79,40 +84,7 @@ class ServicesData extends StatelessWidget {
                   ),
                 ]),
               ),
-              Center(
-                child: DataTable(
-                  columns: [
-                    DataColumn(
-                      label: Text('Nombre del Servicio'),
-                    ),
-                    DataColumn(
-                      label: Text('Fecha '),
-                    ),
-                  ],
-                  rows: [
-                    DataRow(cells: [
-                      DataCell(Text("Corte")),
-                      DataCell(Text("10-07-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Manicure")),
-                      DataCell(Text("10-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Tinte")),
-                      DataCell(Text("28-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Pedicure")),
-                      DataCell(Text("29-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Makeup")),
-                      DataCell(Text("30-08-23")),
-                    ])
-                  ],
-                ),
-              ),
+              ServicesSection(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -131,9 +103,11 @@ class ServicesData extends StatelessWidget {
                     },
                   ),
                 ],
-              )
+              ),
             ],
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
