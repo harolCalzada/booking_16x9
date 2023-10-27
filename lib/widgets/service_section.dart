@@ -195,7 +195,11 @@ class _ServicesSectionState extends State<ServicesSection> {
                 DataCell(
                   InkWell(
                     onTap: () {
-                      context.go('/ServicesDetail');
+                      final id = service.id;
+                      print("id exitoso");
+                      print(id); // Obtén el ID del servicio
+                      context.goNamed('serviceDetail',
+                          queryParameters: {'id': id});
                     },
                     child: Text(service.name),
                   ),

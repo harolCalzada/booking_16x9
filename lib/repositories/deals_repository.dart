@@ -16,4 +16,20 @@ class DealsRepository extends RepositoryConfig {
       },
     );
   }
+
+  Future<void> addDeals({
+    required String imageUrl,
+    required String textButton,
+    required String title,
+    required String urlButton,
+    required bool active,
+  }) async {
+    await FirebaseFirestore.instance.collection(collectionName).add({
+      'image_url': imageUrl,
+      'text_button': textButton,
+      'title': title,
+      'url_button': urlButton,
+      'active': active,
+    });
+  }
 }

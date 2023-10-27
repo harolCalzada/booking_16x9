@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/admin/reservation.dart';
-import 'package:salon_app/widgets/button.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/widgets/button2.dart';
+import 'package:salon_app/widgets/deals_section.dart';
+import 'package:salon_app/widgets/promotion_section.dart';
 
-class Promotions extends StatelessWidget {
+class ListDeals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,44 +73,11 @@ class Promotions extends StatelessWidget {
                   NavigatorBarItem(
                     contentText: "Agregar",
                     icon: Icons.add,
-                    route: '/AddPromotion',
+                    route: '/AddDeals',
                   ),
                 ]),
               ),
-              Center(
-                child: DataTable(
-                  columns: [
-                    DataColumn(
-                      label: Text('Nombre del Servicio'),
-                    ),
-                    DataColumn(
-                      label: Text('Fecha '),
-                    ),
-                  ],
-                  rows: [
-                    DataRow(cells: [
-                      DataCell(Text("Corte")),
-                      DataCell(Text("10-07-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Manicure")),
-                      DataCell(Text("10-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Tinte")),
-                      DataCell(Text("28-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Pedicure")),
-                      DataCell(Text("29-08-23")),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text("Makeup")),
-                      DataCell(Text("30-08-23")),
-                    ])
-                  ],
-                ),
-              ),
+              DealsSection(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SingleChildScrollView(

@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:salon_app/repositories/services_repository.dart';
+import 'package:salon_app/repositories/deals_repository.dart';
 import 'package:salon_app/widgets/button2.dart';
 
-class ServicesDetail extends StatefulWidget {
+class AddDeals extends StatefulWidget {
   @override
-  _ServicesDetailState createState() => _ServicesDetailState();
+  _AddDealsState createState() => _AddDealsState();
 }
 
-class _ServicesDetailState extends State<ServicesDetail> {
+class _AddDealsState extends State<AddDeals> {
   String imageUrl = '';
-  double price = 0.0;
-  String iconUrl = '';
-  String serviceName = '';
+  String textButton = '';
+  String promotionName = '';
+  String buttonUrl = '';
   bool? isActive = false;
 
   Future<void> saveService() async {
-    await ServiceRepository().addService(
+    await DealsRepository().addDeals(
       imageUrl: imageUrl,
-      price: price,
-      iconUrl: iconUrl,
-      name: serviceName,
+      textButton: textButton,
+      title: promotionName,
+      urlButton: buttonUrl,
       active: isActive ?? false,
     );
   }
@@ -71,7 +71,7 @@ class _ServicesDetailState extends State<ServicesDetail> {
               Padding(
                 padding: const EdgeInsets.only(left: 18),
                 child: Text(
-                  "Servicios",
+                  "Promociones",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -88,42 +88,38 @@ class _ServicesDetailState extends State<ServicesDetail> {
                     TextField(
                       onChanged: (value) {
                         setState(() {
+                          promotionName = value;
+                        });
+                      },
+                      decoration: InputDecoration(
+                        labelText: 'Nombre de la Promoción',
+                      ),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          buttonUrl = value;
+                        });
+                      },
+                      decoration: InputDecoration(labelText: 'Botón URL'),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        setState(() {
                           imageUrl = value;
                         });
                       },
                       decoration: InputDecoration(labelText: 'Imagen URL'),
                     ),
-                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) {
                         setState(() {
-                          price = double.tryParse(value) ?? 0.0;
+                          textButton = value;
                         });
                       },
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: 'Precio'),
+                      decoration:
+                          InputDecoration(labelText: 'Texto del Botónh '),
                     ),
-                    SizedBox(height: 10),
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          iconUrl = value;
-                        });
-                      },
-                      decoration: InputDecoration(labelText: 'Icono URL'),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          serviceName = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        labelText: 'Nombre del Servicio',
-                      ),
-                    ),
-                    SizedBox(height: 10),
                     CheckboxListTile(
                       title: Text('Activo'),
                       value: isActive,
@@ -133,9 +129,6 @@ class _ServicesDetailState extends State<ServicesDetail> {
                         });
                       },
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
                     Center(
                       child: SizedBox(
                         width: 220,
@@ -143,9 +136,9 @@ class _ServicesDetailState extends State<ServicesDetail> {
                         child: TextButton(
                           onPressed: () async {
                             if (imageUrl.isNotEmpty &&
-                                price > 0.0 &&
-                                iconUrl.isNotEmpty &&
-                                serviceName.isNotEmpty) {
+                                buttonUrl.isNotEmpty &&
+                                textButton.isNotEmpty &&
+                                promotionName.isNotEmpty) {
                               await saveService();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

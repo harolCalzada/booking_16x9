@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:salon_app/models/reservation_entity.dart';
 import 'package:salon_app/repositories/config.dart';
 
 class ReservationRepository extends RepositoryConfig {
@@ -19,23 +18,23 @@ class ReservationRepository extends RepositoryConfig {
     });
   }
 
-  Stream<List<ReservationEntity>> getReservation() {
-    return FirebaseFirestore.instance
-        .collection(collectionName)
-        .snapshots()
-        .map((snapshot) {
-      return convertDynamicListToReservationList(
-        snapshot.docs.map((doc) {
-          Map<String, dynamic> data = doc.data();
-          return {
-            'date': data['date'],
-            'idSlots': data['id_slots'],
-            'prices': data['price'],
-            'services': data['services'],
-            'totalAmount': data['total_amount'],
-          };
-        }).toList(),
-      );
-    });
-  }
+  // Stream<List<ReservationEntity>> getReservation() {
+  //   return FirebaseFirestore.instance
+  //       .collection(collectionName)
+  //       .snapshots()
+  //       .map((snapshot) {
+  //     return convertDynamicListToReservationList(
+  //       snapshot.docs.map((doc) {
+  //         Map<String, dynamic> data = doc.data();
+  //         return {
+  //           'date': data['date'],
+  //           'idSlots': data['id_slots'],
+  //           'prices': data['price'],
+  //           'services': data['services'],
+  //           'totalAmount': data['total_amount'],
+  //         };
+  //       }).toList(),
+  //     );
+  //   });
+  // }
 }

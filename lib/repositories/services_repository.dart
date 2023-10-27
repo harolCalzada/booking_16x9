@@ -28,8 +28,31 @@ class ServiceRepository extends RepositoryConfig {
         .map(
       (snapshot) {
         return convertDynamicListToServicesList(
-            snapshot.docs.map((doc) => doc.data()).toList());
+            snapshot.docs.map((doc) => doc).toList());
       },
     );
+  }
+
+  Stream<ServiceEntity> getServiceStream(String id) {
+    final String collectionName = 'service';
+    return FirebaseFirestore.instance
+        .collection(collectionName)
+        .doc(id)
+        .snapshots()
+        .map((snapshot) {
+      final serviceData = snapshot.data();
+      if (serviceData != null) {
+        final ServiceEntity service =
+            convertDynamicToServiceEntity(serviceData);
+        return service;
+      } else {
+        return ServiceEntity(
+          imageUrl: " ",
+          price: 0.0,
+          iconUrl: " ",
+          name: " ",
+        );
+      }
+    });
   }
 }

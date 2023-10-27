@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/pages/admin/reservation.dart';
+import 'package:salon_app/pages/admin/reservation/reservation_list.dart';
 import 'package:salon_app/widgets/button.dart';
-
-import '../../widgets/button2.dart';
 
 class DetailUsers extends StatefulWidget {
   @override

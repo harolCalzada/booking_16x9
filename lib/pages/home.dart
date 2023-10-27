@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salon_app/constants/colors.dart';
-import 'package:salon_app/uidata.dart';
 import 'package:salon_app/widgets/button.dart';
-import 'package:salon_app/widgets/button2.dart';
-import 'package:salon_app/widgets/deal.dart';
-import 'package:salon_app/widgets/deals_section.dart';
-import 'package:salon_app/widgets/icon_service.dart';
-import 'package:salon_app/widgets/modal.dart';
+import 'package:salon_app/widgets/promotion_section.dart';
 import 'package:salon_app/widgets/service_section.dart';
-import 'package:salon_app/widgets/specialist_column.dart';
 
 class HomePage extends StatefulWidget {
   final BuildContext context; // Agrega este campo
@@ -175,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: screen_size_height * .2,
                     width: screen_size_width,
-                    child: DealSection(),
+                    child: PromotionSection(),
                   ),
                   SizedBox(height: 50),
                   ServicesSectionWidget(add: true),
